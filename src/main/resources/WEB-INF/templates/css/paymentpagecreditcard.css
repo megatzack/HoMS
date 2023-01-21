@@ -1,0 +1,781 @@
+.logo{
+    position: absolute;
+    width: 48px;
+    height: 45.67px;
+    left: 75px;
+    top: 36px;
+
+    background: url(HoMSLogo-03.png);
+}
+
+.HoMS{
+    position: absolute;
+    width: 104px;
+    height: 54px;
+    left: 133px;
+    top: 33px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 54px;
+
+    color: #F5DA8E;
+}
+
+.headerbg{
+    position: absolute;
+    width: 1512px;
+    height: 241px;
+    left: 0px;
+    top: 0px;
+
+    background: url(pattern-04.png);
+}
+
+.navhome{
+    position: absolute;
+    width: 61px;
+    height: 30px;
+    left: 659px;
+    top: 45px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #FFFFFF;
+}
+
+.navdoctor{
+    position: absolute;
+    width: 68px;
+    height: 30px;
+    left: 770px;
+    top: 45px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #FFFFFF;
+}
+
+.navservices{
+    position: absolute;
+    width: 86px;
+    height: 30px;
+    left: 888px;
+    top: 45px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #FFFFFF;
+}
+
+.navreview{
+    position: absolute;
+    width: 72px;
+    height: 30px;
+    left: 1015px;
+    top: 45px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #FFFFFF;
+}
+
+.navaboutus{
+    position: absolute;
+    width: 92px;
+    height: 30px;
+    left: 1128px;
+    top: 45px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #FFFFFF;
+}
+
+.rectanglelogout{
+    position: absolute;
+    width: 152px;
+    height: 47px;
+    left: 1285px;
+    top: 37px;
+
+    background: #FFFFFF;
+    border-radius: 10px;
+}
+
+.logout{
+    position: absolute;
+    width: 77px;
+    height: 30px;
+    left: 1322px;
+    top: 45px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #06605B;
+}
+
+.paymentpage{
+    position: absolute;
+    width: 268px;
+    height: 54px;
+    left: 622px;
+    top: 131px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 54px;
+
+    color: #FFFFFF;
+}
+
+.homsspecialisthospital{
+    position: absolute;
+    width: 168px;
+    height: 17px;
+    left: 672px;
+    top: 185px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+
+    color: #FFFFFF;
+}
+
+.rectanglecarddetails{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 426px;
+    height: 425px;
+    left: 108px;
+    top: 316px;
+
+    border: 4px solid #D9D9D9;
+}
+
+.carddetails{
+    position: absolute;
+    width: 126px;
+    height: 30px;
+    left: 151px;
+    top: 348px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #000000;
+}
+
+.cardnumber{
+    position: absolute;
+    width: 103px;
+    height: 19px;
+    left: 151px;
+    top: 418px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+.rectanglecardnumber{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 340px;
+    height: 45px;
+    left: 151px;
+    top: 448px;
+
+    border: 1px solid #000000;
+}
+
+.cardnumbercontent{
+    position: absolute;
+    width: 147px;
+    height: 19px;
+    left: 167px;
+    top: 461px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #8A8A8A;
+}
+
+.cvvnumber{
+    position: absolute;
+    width: 100px;
+    height: 19px;
+    left: 151px;
+    top: 520px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+.rectanglecvvnumber{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 116px;
+    height: 45px;
+    left: 151px;
+    top: 550px;
+
+    border: 1px solid #000000;
+}
+
+.cvvnumbercontent{
+    position: absolute;
+    width: 26px;
+    height: 19px;
+    left: 165px;
+    top: 563px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #8A8A8A;
+}
+
+.expirydate{
+    position: absolute;
+    width: 88px;
+    height: 19px;
+    left: 151px;
+    top: 622px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+.rectangleexpirydate{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 116px;
+    height: 45px;
+    left: 151px;
+    top: 652px;
+
+    border: 1px solid #000000;
+}
+
+.expirydatecontent{
+    position: absolute;
+    width: 48px;
+    height: 19px;
+    left: 167px;
+    top: 665px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #8A8A8A;
+}
+
+.rectanglepersonalinformation{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 786px;
+    height: 725px;
+    left: 618px;
+    top: 316px;
+
+    border: 4px solid #D9D9D9;
+}
+
+.personalinformation{
+    position: absolute;
+    width: 214px;
+    height: 30px;
+    left: 661px;
+    top: 348px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    
+    color: #000000;
+}
+
+.firstname{
+    position: absolute;
+    width: 83px;
+    height: 19px;
+    left: 661px;
+    top: 418px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+.rectanglefirstname{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 340px;
+    height: 45px;
+    left: 661px;
+    top: 448px;
+
+    border: 1px solid #000000;
+}
+
+.firstnamecontent{
+    position: absolute;
+    width: 128px;
+    height: 19px;
+    left: 677px;
+    top: 461px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #8A8A8A;
+}
+
+.lastname{
+    position: absolute;
+    width: 82px;
+    height: 19px;
+    left: 1021px;
+    top: 418px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+.rectanglelastname{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 340px;
+    height: 45px;
+    left: 1021px;
+    top: 448px;
+
+    border: 1px solid #000000;
+}
+
+.lastnamecontent{
+    position: absolute;
+    width: 127px;
+    height: 19px;
+    left: 1037px;
+    top: 461px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #8A8A8A;
+}
+
+.country{
+    position: absolute;
+    width: 62px;
+    height: 19px;
+    left: 661px;
+    top: 520px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+.rectanglecountry{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 340px;
+    height: 45px;
+    left: 661px;
+    top: 550px;
+
+    border: 1px solid #000000;
+}
+
+.countrycontent{
+    position: absolute;
+    width: 115px;
+    height: 19px;
+    left: 675px;
+    top: 563.01px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #8A8A8A;
+}
+
+.countryarrow{
+    position: absolute;
+    width: 24px;
+    height: 22px;
+    left: 958px;
+    top: 562px;
+
+    background: url(dropdownarrow1.png);
+}
+
+.state{
+    position: absolute;
+    width: 41px;
+    height: 19px;
+    left: 661px;
+    top: 622px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+.rectanglestate{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 340px;
+    height: 45px;
+    left: 661px;
+    top: 652px;
+
+    border: 1px solid #000000;
+}
+
+.statecontent{
+    position: absolute;
+    width: 93px;
+    height: 19px;
+    left: 675px;
+    top: 665.01px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #8A8A8A;
+}
+
+.statearrow{
+    position: absolute;
+    width: 24px;
+    height: 22px;
+    left: 958px;
+    top: 665px;
+
+    background: url(dropdownarrow1.png);
+}
+
+.city{
+    position: absolute;
+    width: 31px;
+    height: 19px;
+    left: 1021px;
+    top: 622px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+.rectanglecity{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 340px;
+    height: 45px;
+    left: 1021px;
+    top: 652px;
+
+    border: 1px solid #000000;
+}
+
+.citycontent{
+    position: absolute;
+    width: 84px;
+    height: 19px;
+    left: 1035px;
+    top: 665.01px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #8A8A8A;
+}
+
+.cityarrow{
+    position: absolute;
+    width: 24px;
+    height: 22px;
+    left: 1322px;
+    top: 665px;
+
+    background: url(dropdownarrow1.png);
+}
+
+.postalcode{
+    position: absolute;
+    width: 93px;
+    height: 19px;
+    left: 661px;
+    top: 724px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+.rectanglepostalcode{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 340px;
+    height: 45px;
+    left: 661px;
+    top: 754px;
+
+    border: 1px solid #000000;
+}
+
+.postalcodecontent{
+    position: absolute;
+    width: 145px;
+    height: 19px;
+    left: 675px;
+    top: 767.01px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #8A8A8A;
+}
+
+.postalcodearrow{
+    position: absolute;
+    width: 24px;
+    height: 22px;
+    left: 958px;
+    top: 767px;
+
+    background: url(dropdownarrow1.png);
+}
+
+.email{
+    position: absolute;
+    width: 41px;
+    height: 19px;
+    left: 661px;
+    top: 869px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+.rectangleemail{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 340px;
+    height: 45px;
+    left: 661px;
+    top: 899px;
+
+    border: 1px solid #000000;
+}
+
+.emailcontent{
+    position: absolute;
+    width: 152px;
+    height: 19px;
+    left: 675px;
+    top: 912.01px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #8A8A8A;
+}
+
+.phonenumber{
+    position: absolute;
+    width: 114px;
+    height: 19px;
+    left: 1021px;
+    top: 869px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+.rectanglephonenumber{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 340px;
+    height: 45px;
+    left: 1021px;
+    top: 899px;
+
+    border: 1px solid #000000;
+}
+
+.phonenumbercontent{
+    position: absolute;
+    width: 156px;
+    height: 19px;
+    left: 1035px;
+    top: 912.01px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #8A8A8A;
+}
+
+.rectanglepay{
+    position: absolute;
+    width: 152px;
+    height: 47px;
+    left: 680px;
+    top: 1131px;
+
+    background: #06605B;
+    border-radius: 10px;
+}
+
+.pay{
+    position: absolute;
+    width: 38px;
+    height: 30px;
+    left: 737px;
+    top: 1140px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #FFFFFF;
+}

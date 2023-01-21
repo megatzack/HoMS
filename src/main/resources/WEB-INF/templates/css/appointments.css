@@ -1,0 +1,573 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+.b-example-divider {
+    height: 3rem;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.b-example-vr {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 100vh;
+}
+
+.bi {
+    vertical-align: -.125em;
+    fill: currentColor;
+}
+
+.nav-scroller {
+    position: relative;
+    z-index: 2;
+    height: 2.75rem;
+    overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    margin-top: -1px;
+    overflow-x: auto;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.ho-ms-logo-03-1 {
+    height: 46px;
+    margin-top: 4px;
+    object-fit: cover;
+    width : 48px;
+}
+
+.patientname{    
+    position: absolute;
+    width: 103px;
+    height: 19px;
+    left: 209px;
+    top: 200px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+.rectanglepatient{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 300px;
+    height: 45px;
+    left: 209px;
+    top: 230px;
+
+    border: 1px solid #000000;
+}
+
+.email{
+    position: absolute;
+    width: 52px;
+    height: 19px;
+    left: 606px;
+    top: 200px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+.rectangleemail{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 300px;
+    height: 45px;
+    left: 606px;
+    top: 230px;
+
+    border: 1px solid #000000;
+}
+
+.phone{
+    position: absolute;
+    width: 49px;
+    height: 19px;
+    left: 1003px;
+    top: 200px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+.rectanglephone{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 300px;
+    height: 45px;
+    left: 1003px;
+    top: 230px;
+
+    border: 1px solid #000000;
+}
+
+.date{
+    position: absolute;
+    width: 36px;
+    height: 19px;
+    left: 209px;
+    top: 302px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+.rectangledate{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 300px;
+    height: 45px;
+    left: 209px;
+    top: 332px;
+
+    border: 1px solid #000000;
+}
+
+.ms{
+    position: absolute;
+    width: 139px;
+    height: 19px;
+    left: 606px;
+    top: 302px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+.rectanglems{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 300px;
+    height: 45px;
+    left: 606px;
+    top: 332px;
+
+    border: 1px solid #000000;
+}
+
+.treatmentinquiryfor{
+    position: absolute;
+    width: 165px;
+    height: 19px;
+    left: 209px;
+    top: 404px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+.firstoption{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: 209px;
+    top: 434px;
+
+    border: 2px solid #000000;
+}
+
+.firstoptionfill{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    left: 213px;
+    top: 438px;
+
+    background: #000000;
+}
+
+.myself{
+    position: absolute;
+    width: 51px;
+    height: 19px;
+    left: 237px;
+    top: 433px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+.secondoption{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: 325px;
+    top: 434px;
+
+    border: 2px solid #000000;
+}
+
+.somebody{
+    position: absolute;
+    width: 81px;
+    height: 19px;
+    left: 353px;
+    top: 433px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+.submitbg{
+    position: absolute;
+    width: 1094px;
+    height: 47px;
+    left: 209px;
+    top: 488px;
+
+    background: #06605B;
+    border-radius: 10px;
+}
+
+.submit{
+    position: absolute;
+    width: 74px;
+    height: 30px;
+    left: 719px;
+    top: 497px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #FFFFFF;
+}
+
+.seniorinneurologist{
+    position: absolute;
+    width: 160px;
+    height: 19px;
+    left: 323px;
+    top: 959px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+.rectangleneurologist{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 365px;
+    height: 380px;
+    left: 209px;
+    top: 649px;
+
+    border: 1px solid #000000;
+}
+
+.innercircleneurologist{
+    position: absolute;
+    width: 179px;
+    height: 179px;
+    left: 303px;
+    top: 708px;
+
+    background: #D9D9D9;
+}
+
+.outercircleneurologist{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 202px;
+    height: 202px;
+    left: 291px;
+    top: 696px;
+
+    border: 3px solid #3D9981;
+}
+
+.megatzikry{
+    position: absolute;
+    width: 119px;
+    height: 30px;
+    left: 338px;
+    top: 927px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #000000;
+}
+
+.seniorincardiology{
+    position: absolute;
+    width: 154px;
+    height: 19px;
+    left: 322px;
+    top: 1339px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+.rectanglecardiology{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 365px;
+    height: 380px;
+    left: 209px;
+    top: 1029px;
+
+    border: 1px solid #000000;
+}
+
+.innercirclecardiology{
+    position: absolute;
+    width: 179px;
+    height: 179px;
+    left: 303px;
+    top: 1090px;
+
+    background: #D9D9D9;
+}
+
+.outercirclecardiology{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 202px;
+    height: 202px;
+    left: 291px;
+    top: 1078px;
+
+    border: 3px solid #3D9981;
+}
+
+.syazwanshadan{
+    position: absolute;
+    width: 176px;
+    height: 30px;
+    left: 319px;
+    top: 1309px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #000000;
+}
+
+.seniorinsurgery{
+    position: absolute;
+    width: 132px;
+    height: 19px;
+    left: 1060px;
+    top: 959px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+.rectanglesurgery{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 365px;
+    height: 380px;
+    left: 938px;
+    top: 649px;
+
+    border: 1px solid #000000;
+}
+
+.innercirclesurgery{
+    position: absolute;
+    width: 179px;
+    height: 179px;
+    left: 1032px;
+    top: 708px;
+
+    background: #D9D9D9;
+}
+
+.outercirclesurgery{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 202px;
+    height: 202px;
+    left: 1020px;
+    top: 696px;
+
+    border: 3px solid #3D9981;
+}
+
+.yusriyusof{
+    position: absolute;
+    width: 112px;
+    height: 30px;
+    left: 1065px;
+    top: 927px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #000000;
+}
+
+.seniorinortopedic{
+    position: absolute;
+    width: 148px;
+    height: 19px;
+    left: 690px;
+    top: 959px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+.rectangleortopedic{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 365px;
+    height: 380px;
+    left: 573px;
+    top: 649px;
+
+    border: 1px solid #000000;
+}
+
+
+.innercircleortopedic{
+    position: absolute;
+    width: 179px;
+    height: 179px;
+    left: 667px;
+    top: 708px;
+
+    background: #D9D9D9;
+}
+
+.outercircleortopedic{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 202px;
+    height: 202px;
+    left: 655px;
+    top: 696px;
+
+    border: 3px solid #3D9981;
+}
+
+.aminhaiqal{
+    position: absolute;
+    width: 125px;
+    height: 30px;
+    left: 697px;
+    top: 927px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    /* identical to box height */
+
+
+    color: #000000;
+}
