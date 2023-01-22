@@ -2,21 +2,24 @@ var app = angular.module("HoMS-Facility", ["ngRoute"]);
 
 app.config(function ($routeProvider) {
     $routeProvider
-        .when("/", {
+        .when("/homepage", {
             templateUrl: "/homepage",
             controller: "custController"
         })
         .when("/doctor", {
-            //templateUrl: "doctor.jsp"
+            templateUrl: "/doctor",
+            controller: "custController"
         })
         .when("/service", {
-            //templateUrl: "service.jsp"
+            templateUrl: "/service",
+            controller: "custController"
         })
         .when("/review", {
             templateUrl: "/review",
             controller: "custController"
         })
         .when("/about", {
-            //templateUrl: "about.jsp"
+            templateUrl: "/about",
+            controller: "custController"
         });
 });

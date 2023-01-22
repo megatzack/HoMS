@@ -2,34 +2,30 @@ package com.homs.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class IndexController {
     @Autowired
 
-    @GetMapping(value = "/")
-    public String getPage() {
-        return "page";
-    }
-
-    @RequestMapping(value = "/index")
+    @GetMapping(value = "/HoMS")
     public String index() {
+        return "forward:/login";
+    }
+    @RequestMapping(value = "/register")
+    public String getRegister() {
         return "Register";
     }
 
     @RequestMapping(value = "/login")
-    public String login() {
+    public String getLogin() {
         return "login";
     }
 
-    @RequestMapping(value = "/loginpage")
+    @RequestMapping(value = "/page")
     public String loginpage() {
-        return "loginpage";
+        return "page";
     }
 
 }

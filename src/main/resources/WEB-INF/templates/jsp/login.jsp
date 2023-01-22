@@ -18,18 +18,19 @@
         <title>HoMS</title>
     </head>
     <body>
-        <img class="logo" src="/Image/HoMS-04.png" alt="login">
-        <img class="wallpaper" src="/Image/login.jpg" alt="login">
+        <img class="logo" src="/image/HoMS-04.png" alt="login">
+        <img class="wallpaper" src="/image/login.jpg" alt="login">
         <p class="title">Welcome Back !</p>
         <p class="description">please enter your details.</p>
-        <form action="#" method="post">
+
+        <form action="loginController" method="post">
             <div class="mb-3">
                 <label for="Output1" class="email">Email</label>
                 <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
             </div>
             <div class="mb-3">
                 <label for="Output2" class="password">Password</label>
-                <input type="password" class="form-control" name="pass" id="pass">
+                <input type="password" class="form-control" name="password" id="pass">
             </div>
             <table>
                 <tr>

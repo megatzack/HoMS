@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="MoHS Landing Page">
-    <meta name="keywords" content="HomePage">
+    <meta name="keywords" content="Page">
     <meta name="author" content="Amin Haiqal">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
@@ -34,7 +34,7 @@
           </a>
     
           <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#" class="nav-link px-2 link-secondary" aria-current="page">Home</a></li>
+            <li><a href="#!homepage" class="nav-link px-2 link-secondary" aria-current="page">Home</a></li>
             <li><a href="doctor" class="nav-link px-2 link-dark">Doctor</a></li>
             <li><a href="service" class="nav-link px-2 link-dark">Service</a></li>
             <li><a href="#!review" class="nav-link px-2 link-dark">Review</a></li>
