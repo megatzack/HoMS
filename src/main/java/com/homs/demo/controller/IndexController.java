@@ -13,8 +13,8 @@ public class IndexController {
     @Autowired
 
     @GetMapping(value = "/")
-    public String firstpage() {
-        return "Register";
+    public String getPage() {
+        return "page";
     }
 
     @RequestMapping(value = "/index")

@@ -10,46 +10,40 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="shortcut icon" href="https://drive.google.com/uc?id=1P0d6aIdRMr61ImxVX2uAvYFrRzKb3PQo">
+    
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="page.css">
-    <link rel="stylesheet" href="/Navigation/navigation.css">
+    <link href="/css/navigation.css" rel="stylesheet" />
+        
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="/js/page.js"></script>
+    
     <title>HoMS</title>
 </head>
-<body>
-    <img class="background" src="/Image/background.jpg" alt="background" style="filter:brightness(60%)">
-    <box></box>
-    <img class="female" src="/Image/female-doctor.png" alt="female-doctor">
+
+<body ng-app="HoMS-Facility">
     
     <!--Navigation-->
-    <nav class="container-fluid">
-        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <header class="container-fluid d-flex flex-wrap justify-content-center py-3 border-bottom">
           <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-            <img  class="logo" src="/Image/HoMS-04.png" alt="HoMS logo" style="height: 5vh;">
+            <img  class="logo" src="/image/HoMS-04.png" alt="HoMS logo" style="height: 5vh;">
           </a>
     
           <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li><a href="#" class="nav-link px-2 link-secondary" aria-current="page">Home</a></li>
-            <li><a href="#" class="nav-link px-2 link-dark">Doctor</a></li>
-            <li><a href="/Inventory/inventory.html" class="nav-link px-2 link-dark">Service</a></li>
-            <li><a href="javascript:window.open('/Review/review.html', 'Review', 'width=881,height=440');" class="nav-link px-2 link-dark">Review</a></li>
-            <li><a href="#" class="nav-link px-2 link-dark">About Us</a></li>
+            <li><a href="doctor" class="nav-link px-2 link-dark">Doctor</a></li>
+            <li><a href="service" class="nav-link px-2 link-dark">Service</a></li>
+            <li><a href="#!review" class="nav-link px-2 link-dark">Review</a></li>
+            <li><a href="about" class="nav-link px-2 link-dark">About Us</a></li>
             <li><button type="button" class="btn btn-primary" style="background-color:#06605B;">Log Out</button></li>
           </ul>
         </header>
-    </nav>
-    <!--Text-->
-    <text>
-        <div class="container">
-            <p id="title">Provide expert for you and your family !</p>
-            <p id="description"> We take the guesswork out of location a doctor, hospital, or other medical facility in your area for you and your family.</p>
-            <call class="col-lg-6 col-md-8 mx-auto">
-                <a href="#" class="btn btn-success my-2" style="background-color:#06605B;">Get Doctor</a>
-                <a href="#" class="btn btn-outline-light my-2">Learn More</a>
-            </call>
+        <div ng-view>
+            <p>Content Area...</p>
         </div>
-    </text>
 </body>
 </html>
