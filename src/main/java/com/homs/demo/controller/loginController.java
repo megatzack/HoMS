@@ -22,11 +22,15 @@ public class loginController {
         if (user != null) {
             model.addAttribute("user", user);
             session.setAttribute("user", user);
+
+            //Retrieve Session
+            /*user test = (user) session.getAttribute("user");
+            System.out.println(test.getEmail());*/
             return "redirect:/page#!/homepage";
         }
         else {
             model.addAttribute("message", "Invalid email or password");
-            return "redirect:/page#!/error";
+            return "redirect:/login";
         }
     }
    
