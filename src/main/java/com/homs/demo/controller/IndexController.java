@@ -24,12 +24,61 @@ public class IndexController {
 
     @RequestMapping(value = "/login")
     public String login() {
-        return "login";
+        return "loginPage";
     }
 
-    @RequestMapping(value = "/loginpage")
-    public String loginpage() {
-        return "loginpage";
+    @RequestMapping(value = "/registration")
+    public String registration() {
+        return "registration";
     }
 
+    @RequestMapping(value = "/staff")
+    public String staff() {
+        return "staff";
+    }
+
+    @RequestMapping(value = "/patient")
+    public String patient() {
+        return "patient";
+    }
+
+    @RequestMapping(value = "/queue")
+    public String queue() {
+        return "queue";
+    }
+
+    @RequestMapping(value = "/medical-report")
+    public String medicalReport() {
+        return "medical-report";
+    }
+
+    @RequestMapping(value = "/appointment")
+    public String appointment() {
+        return "appointment";
+    }
+
+    @RequestMapping(value = "/payment")
+    public String payment() {
+        return "payment";
+    }
+
+    @RequestMapping(value = "/ambulance")
+    public String ambulance() {
+        return "ambulance";
+    }
+
+    @RequestMapping(value = "/inventory")
+    public String inventory() {
+        return "inventory";
+    }
+
+    @RequestMapping(value = "/satisfaction")
+    public String satisfaction() {
+        return "satisfaction";
+    }
+
+    @RequestMapping(value = "/schedule")
+    public String schedule() {
+        return "schedule";
+    }
 }
