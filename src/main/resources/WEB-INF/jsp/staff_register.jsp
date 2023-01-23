@@ -1,214 +1,166 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Staff Registration</title>
-</head>
-<body>
+  <head>
+    <meta charset="ISO-8859-1" />
+    <title>Staff Registration</title>
 
-<style>
+    <style>
+      /* Use CSS variables to store common values */
+      :root {
+        --main-color: #06605b;
+        --main-font-family: "Inter";
+        --main-font-weight: 500;
+        --main-font-size: 14px;
+        --main-line-height: 17px;
+        --main-border-color: #000000;
+        --sub-color: gray;
+      }
 
-.main-title{
-position: absolute;
-width: 357px;
-height: 48px;
-left: 102px;
-top: 114px;
+      /* Use CSS classes to group similar selectors */
+      .main-title {
+        font-family: "Poppins";
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 48px;
+        color: #000000;
+      }
 
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 600;
-font-size: 32px;
-line-height: 48px;
-color: #000000;
-}
+      .sub-title {
+        font-family: var(--main-font-family);
+        font-weight: var(--main-font-weight);
+        font-size: var(--main-font-size);
+        line-height: var(--main-line-height);
+        color: var(--main-color);
+      }
 
-.sub-title{
-position: absolute;
-width: 241px;
-height: 17px;
-left: 106px;
-top: 162px;
+      /* Use common CSS classes for similar elements */
+      .form-control {
+        box-sizing: border-box;
+        width: 490px;
+        height: 45px;
+        border: 1px solid var(--main-border-color);
+      }
 
-font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 14px;
-line-height: 17px;
+      /* Use CSS shorthand properties */
+      h2 {
+        font: var(--main-font-weight) var(--main-font-size)/var(--main-line-height) var(--main-font-family);
+      }
+      h3 {
+        font: var(--main-font-weight) var(--main-font-size)/var(--main-line-height) var(--main-font-family);
+      }
 
-color: #000000;
-}
+      /* Use CSS Grid Layout to position elements */
+      body {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: repeat(7, 1fr);
+        grid-template-areas: 
+          "header header"
+          "title title"
+          "subtitle subtitle"
+          "name name"
+          "email email"
+          "password password"
+          "department department"
+          "button button";
+      }
 
-body{
-position: relative;
-background: #FFFFFF;
-}
+      .main-title {
+        grid-area: title;
+        justify-self: center;
+        align-self: center;
+      }
 
-.btn{
+      .sub-title {
+        grid-area: subtitle;
+        justify-self: center;
+        align-self: center;
+      }
 
-position: absolute;
-width: 490px;
-height:63px;
-left: 102px;
-top:654px;
+      /* Use semantic HTML tags */
+      header {
+        grid-area: header;
+        background-color: white;
+      }
 
-background: #06605B;
-border-radius:10px;
-}
+      form {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 1fr);
+        grid-template-areas: 
+          "name"
+          "email"
+          "password"
+          "department"
+          "subtext"
+          "button";
+      }
 
-h2{
-position:absolute;
-font-family: 'Inter';
-font-weight: 500;
-font-size: 16px;
-line-height: 19px;
-}
+      .name-text {
+        grid-area: name;
+        }
 
-.name-text{
-width: 45px;
-height: 19px;
-left: 102px;
-top: 213px;
-}
-
-.email-text{
-width: 41px;
-height: 19px;
-left: 102px;
-top: 308px;
-}
-
-.password-text{
-width: 75px;
-height: 19px;
-left: 102px;
-top: 403px;
-}
-
-.department-text{
-position: absolute;
-width: 92px;
-height: 19px;
-left: 102px;
-top: 536px;
-}
-
-.form-control1{
-box-sizing: border-box;
-
-position: absolute;
-width: 490px;
-height: 45px;
-left: 102px;
-top: 250px;
-
-border: 1px solid #000000;
-}
-
-.form-control2{
-box-sizing: border-box;
-
-position: absolute;
-width: 490px;
-height: 45px;
-left: 102px;
-top: 345px;
-
-border: 1px solid #000000;
-}
-
-.form-control3{
-box-sizing: border-box;
-
-position: absolute;
-width: 490px;
-height: 45px;
-left: 102px;
-top: 440px;
-
-border: 1px solid #000000;
-}
-
-.form-control4{
-box-sizing: border-box;
-
-position: absolute;
-width: 490px;
-height: 45px;
-left: 102px;
-top: 573px;
-
-border: 1px solid #000000;
-}
-
-h3{
-font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 14px;
-line-height: 17px;
-}
-
-.password-subtext{
-position: absolute;
-width: 271px;
-height: 17px;
-left: 102px;
-top: 489px;
-color:grey;
-}
-
-.image-1{
-position: absolute;
-left: 102px;
-top: 56px;
-}
-
-
-
-</style>
-
-</head>
-<body>
-
- <div style="background-color: white; width: 50%; height: 800px; float:left;">
- 
- <img class="image-1" src="images/HoMS-04.png" alt="logo_homs" width=120px height=45.67px/>
- 
- <h1 class="main-title">Get Started!</h1>
- <h3 class="sub-title">Enter the field below to get started</h4>
- 
-<form method="post" action="">
-   <h2 class="name-text">Name:</h3>
-   <input class="form-control1" type="text" name="fullname" placeholder="insert fullname"><br>
-   
-   <h2 class="email-text">Email:</h3>
-   <input class="form-control2" type="text" name="email" placeholder="insert email"><br>
-   
-   <h2 class="password-text">Password:</h3>
-   <input class="form-control3" type="password" name="password" placeholder="insert password"><br>
-   <h3 class="password-subtext">*Password must be at least 8 characters</h3>
-   
-   <td><h2 class="department-text">Department</h3>
-        <select class="form-control4" name="select_ambulance">
-          <option>Ambulance Department</option>
-          <option>Admin Administrator Department</option>
-          <option>Inventory Department</option>
-          <option>Staff Department</option>
-        </select>
-      </td><br><br><br>
-   
-   <input class="btn " type="submit" value="Create Account">
- </form>
- 
- </div>
-
- <div style="background-color: lightgrey; width:50%; height: 800px; float:left;">
- 	<img src="images/Surgeons Walking Through A Hospital Corridor by VICTOR TORRES.jpeg" alt="surgeon_image" width=100% height=100%/>
- </div>
-
-
-</body>
-</html>
+        .email-text {
+          grid-area: email;
+        }
+      
+        .password-text {
+          grid-area: password;
+        }
+      
+        .department-text {
+          grid-area: department;
+        }
+      
+        .form-control1 {
+          grid-area: name;
+        }
+      
+        .form-control2 {
+          grid-area: email;
+        }
+      
+        .form-control3 {
+          grid-area: password;
+        }
+      
+        .form-control4 {
+          grid-area: department;
+        }
+      
+        .password-subtext {
+          grid-area: subtext;
+          color: var(--sub-color);
+        }
+      
+        .btn {
+          grid-area: button;
+          background: var(--main-color);
+          border-radius: 10px;
+        }
+      
+        .image-1 {
+          grid-area: header;
+        }
+      </style>
+      
+    </head>
+    <body>
+      <header>
+        <img class="image-1" src="image/HoMS-04.png" alt="logo_homs" width="120px" height="45px">
+      </header>
+      <div class="main-title">Staff Registration</div>
+      <div class="sub-title">Please fill in the form to register as a staff member</div>
+      <form method="post" action="registerStaff">
+        <h2 class="name-text">Name:</h2>
+        <input type="text" class="form-control form-control1" name="staffName">
+        <h2 class="email-text">Email:</h2>
+        <input type="email" class="form-control form-control2" name="staffEmail">
+        <h2 class="password-text">Password:</h2>
+        <input type="password" class="form-control form-control3" name="staffPassword">
+        <h3 class="password-subtext">Password must be at least 8 characters long</h3>
+        <h2 class="department-text">Department:</h2>
+        <input type="text" class="form-control form-control4" name="staffDepartment">
+        <button class="btn">Register</button>
+      </form>
+    </body>
+  </html>
