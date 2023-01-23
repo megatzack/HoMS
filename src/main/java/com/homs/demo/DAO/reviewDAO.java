@@ -20,7 +20,7 @@ public class reviewDAO {
         review cust_review = null;
         try {
             Connection connection = DataSource.getConnection();
-            PreparedStatement stmt = connection.prepareStatement("INSERT INTO review (name, email, review) VALUES (?, ?, ?);");
+            PreparedStatement stmt = connection.prepareStatement("INSERT INTO review (name, email, review) VALUES (?, ?, ?)");
             stmt.setString(1, name);
             stmt.setString(2, email);
             stmt.setString(3, review);
