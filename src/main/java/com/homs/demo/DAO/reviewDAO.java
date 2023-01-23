@@ -25,12 +25,12 @@ public class reviewDAO {
             stmt.setString(2, email);
             stmt.setString(3, review);
 
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                cust_review = new review(rs.getString("name"), rs.getString("email"), rs.getString("review"));
-
-            }
-            
+            int status = stmt.executeUpdate();
+            if (status > 0) {
+                System.out.println("Review submitted successfully");
+            } else {
+                System.out.println("Review submission failed");
+            }  
         } catch (Exception e) {
             e.printStackTrace();
         }
