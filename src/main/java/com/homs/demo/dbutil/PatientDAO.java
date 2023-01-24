@@ -6,23 +6,20 @@ import com.homs.demo.model.Patient;
 
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
 
 import javax.sql.DataSource;
 
 @Repository
 public class PatientDAO {
 
-    public void register(Patient patient) {
+    public int register(Patient patient) {
         
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
         String sql = "insert into `Patient` (`userIC`, `phoneNO`) values (?,?)";
         Object args[] = { patient.getUserIC(), patient.getPhoneNO()};
 
+        int rowAffected = jbdct.update(sql, args);
+        return rowAffected;
     }
 
     public static Patient authenticate(String email, String password) {

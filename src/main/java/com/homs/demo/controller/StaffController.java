@@ -39,7 +39,7 @@ public class StaffController {
     return null;
     }
     
-    @GetMapping("/staffRegister")
+    @GetMapping("/staffRegisterPage")
     public String staff_register() {
         return "staff_register";
     }

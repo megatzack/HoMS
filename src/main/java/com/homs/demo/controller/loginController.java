@@ -21,18 +21,15 @@ public class loginController {
     @PostMapping(value="/login")
     public String login(HttpServletRequest request, Model model, HttpSession session) {
 
-        //System for staff, should focus to be secured and proffesional.
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-
-        //System for patient, should try to be user friendly and simple.
+    
         String userIC = request.getParameter("userIC");
         String phoneNo = request.getParameter("phoneNo");
 
         //Detect userType (radio button)
         String userType = request.getParameter("userType");
 
-        //Declarations
         Staff staff = null;
         Patient patient = null;
         //Admin admin = null;

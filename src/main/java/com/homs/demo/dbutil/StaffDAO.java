@@ -1,19 +1,11 @@
 package com.homs.demo.dbutil;
 
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import com.homs.demo.model.Staff;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
-
+import com.homs.demo.model.Staff;
 import javax.sql.DataSource;
 
 @Repository
@@ -32,7 +24,13 @@ public class StaffDAO {
         Staff staff = null;
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
         String sql = "SELECT * FROM `staff` WHERE `staffEmail` = ? AND `staffPassword` = ?";
-        return staff;
+        try{
+            staff = jbdct.queryForObject(sql, new BeanPropertyRowMapper<Staff>(Staff.class), email, password);
+            return staff;
+        }
+        catch (Exception e) {
+            return null;
+        }
     }
 
     public static DataSource getDataSource() {
