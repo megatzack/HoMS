@@ -23,14 +23,13 @@ public class loginController {
         Auth auth = loginDAO.validate(email, password);
         if (auth != null) {
             model.addAttribute("user", auth);
-            session.setAttribute("user", auth);
+            //session.setAttribute("user", auth);
 
-            return "redirect:/page#!/homepage";
+            return "redirect:/mainpage#!/homepage";
         }
         else {
             model.addAttribute("message", "Invalid email or password");
             return "redirect:/login";
         }
-    
     }
 }
