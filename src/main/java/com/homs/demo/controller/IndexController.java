@@ -17,9 +17,14 @@ public class IndexController {
         return "Register";
     }
 
-    @RequestMapping(value = "/index")
+    @GetMapping(value = "/index")
     public String index() {
         return "Register";
+    }
+
+    @GetMapping(value = "/login")
+    public String login() {
+        return "loginPage";
     }
 
 

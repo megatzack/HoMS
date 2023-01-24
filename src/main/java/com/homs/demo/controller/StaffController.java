@@ -18,26 +18,6 @@ import jakarta.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping("/staff")
 public class StaffController {
-
-    @GetMapping("/StaffDB")
-    public String opendb() {
-    try {
-        String dbURL = "jdbc:mysql://localhost:3306/homs";
-            String username = "root";
-            String password = "";
-                
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection( dbURL,username,password);
-            System.out.println("successfully open database connection  :" +connection.getMetaData());
-        } 
-        catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-        }
-    return null;
-    }
     
     @GetMapping("/staffRegister")
     public String staff_register() {
