@@ -18,16 +18,13 @@ public class loginController {
     @Autowired
     private loginDAO loginDAO;
 
-    @PostMapping(value="/login")
+    @PostMapping(value="/loginController")
     public String login(@RequestParam("email") String email, @RequestParam("password") String password, Model model, HttpSession session) {
         Auth auth = loginDAO.validate(email, password);
         if (auth != null) {
             model.addAttribute("user", auth);
             session.setAttribute("user", auth);
 
-            //Retrieve Session
-            /*user test = (user) session.getAttribute("user");
-            System.out.println(test.getEmail());*/
             return "redirect:/page#!/homepage";
         }
         else {
