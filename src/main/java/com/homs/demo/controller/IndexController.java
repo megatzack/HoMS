@@ -13,15 +13,12 @@ public class IndexController {
     @Autowired
 
     @GetMapping(value = "/")
-    public String firstpage() {
-        return "Register";
+    public String getLoginPage() {
+        return "loginPage";
     }
 
     @RequestMapping(value = "/index")
     public String index() {
         return "Register";
     }
-
-
-    
 }
