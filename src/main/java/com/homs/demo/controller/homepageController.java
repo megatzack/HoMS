@@ -11,8 +11,13 @@ public class homepageController {
     }
 
     @RequestMapping(value="/homepage")
-    public String mainPage() {
+    public String getHomePage() {
         return "homePage";
+    }
+
+    @RequestMapping(value="/review")
+    public String getReviewPage() {
+        return "review";
     }
 
 }
