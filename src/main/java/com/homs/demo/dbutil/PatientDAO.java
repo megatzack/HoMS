@@ -2,10 +2,8 @@ package com.homs.demo.dbutil;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import com.homs.demo.model.Staff;
+import com.homs.demo.model.Patient;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import java.sql.Connection;
@@ -17,22 +15,21 @@ import java.util.List;
 import javax.sql.DataSource;
 
 @Repository
-public class StaffDAO {
+public class PatientDAO {
 
-    public int create(Staff staff) {
+    public void register(Patient patient) {
         
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
-        String sql = "insert into `Staff` (`staffName`, `staffEmail`, `staffPassword`, `staffDepartment`) values (?,?,?,?)";
-        Object args[] = { staff.getStaffName(), staff.getStaffEmail(), staff.getStaffPassword(), staff.getStaffDepartment()};
-        int rowAffected = jbdct.update(sql, args);
-        return rowAffected;
+        String sql = "insert into `Patient` (`userIC`, `phoneNO`) values (?,?)";
+        Object args[] = { patient.getUserIC(), patient.getPhoneNO()};
+
     }
 
-    public static Staff authenticate(String email, String password) {
-        Staff staff = null;
+    public static Patient authenticate(String email, String password) {
+        Patient Patient = null;
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
-        String sql = "SELECT * FROM `staff` WHERE `staffEmail` = ? AND `staffPassword` = ?";
-        return staff;
+        String sql = "SELECT * FROM `Patient` WHERE `PatientEmail` = ? AND `PatientPassword` = ?";
+        return Patient;
     }
 
     public static DataSource getDataSource() {
@@ -48,5 +45,9 @@ public class StaffDAO {
             e.printStackTrace();
         }
         return dataSource;
+    }
+
+    public static Patient login(String userIC, String phoneNo) {
+        return null;
     }
 }
