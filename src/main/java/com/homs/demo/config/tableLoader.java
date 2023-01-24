@@ -57,6 +57,17 @@ public class tableLoader {
                     + ")");
             System.out.println("Table 'product' created");
         }
+        if (!tables.contains("staff")){
+            jdbcTemplate.execute("CREATE TABLE staff ("
+                    + "staffID INT NOT NULL AUTO_INCREMENT,"
+                    + "staffName VARCHAR(45) NOT NULL,"
+                    + "staffEmail VARCHAR(45) NOT NULL,"
+                    + "staffPassword VARCHAR(45) NOT NULL,"
+                    + "staffDepartment VARCHAR(45) NOT NULL,"
+                    + "PRIMARY KEY (staffID)"
+                    + ")");
+            System.out.println("Table 'staff' created");
+        }
 
     }
     

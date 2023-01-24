@@ -8,23 +8,12 @@ public class indexController{
     
     @RequestMapping(value = "/register")
     public String getregisterPage() {
-        return "Register";
-    }
-
-    @RequestMapping(value = "/register2")
-    public String getregisterPage2() {
-        return "Register2";
+        return "registerPage";
     }
     
     @RequestMapping(value = "/login")
     public String getLoginPage() {
         return "loginPage";
-    }
-
-    //mapping for error page
-    @RequestMapping(value = "/error")
-    public String getErrorPage() {
-        return "errorPage";
     }
 
 }

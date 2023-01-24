@@ -14,9 +14,10 @@ public class StaffDAO {
     public int create(Staff staff) {
         
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
-        String sql = "insert into `Staff` (`staffName`, `staffEmail`, `staffPassword`, `staffDepartment`) values (?,?,?,?)";
+        String sql = "INSERT INTO `staff` (`staffName`, `staffEmail`, `staffPassword`, `staffDepartment`) VALUES (?,?,?,?)";
         Object args[] = { staff.getStaffName(), staff.getStaffEmail(), staff.getStaffPassword(), staff.getStaffDepartment()};
         int rowAffected = jbdct.update(sql, args);
+
         return rowAffected;
     }
 

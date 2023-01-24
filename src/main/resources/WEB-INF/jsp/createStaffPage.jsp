@@ -148,9 +148,9 @@
       <header>
         <img class="image-1" src="image/HoMS-04.png" alt="logo_homs" width="120px" height="45px">
       </header>
-      <div class="main-title">Staff Registration</div>
-      <div class="sub-title">Please fill in the form to register as a staff member</div>
-      <form method="post" action="registerStaff">
+      <div class="main-title">Create new Staff profile</div>
+      <div class="sub-title">Please fill in the form to register a new staff member</div>
+      <form method="post" action="createStaff">
         <h2 class="name-text">Name:</h2>
         <input type="text" class="form-control form-control1" name="staffName">
         <h2 class="email-text">Email:</h2>
@@ -160,7 +160,7 @@
         <h3 class="password-subtext">Password must be at least 8 characters long</h3>
         <h2 class="department-text">Department:</h2>
         <input type="text" class="form-control form-control4" name="staffDepartment">
-        <button class="btn">Register</button>
+        <button class="btn">Create</button>
       </form>
     </body>
   </html>

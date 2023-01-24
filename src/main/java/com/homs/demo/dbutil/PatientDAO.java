@@ -1,5 +1,6 @@
 package com.homs.demo.dbutil;
 
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import com.homs.demo.model.Patient;
@@ -26,7 +27,13 @@ public class PatientDAO {
         Patient Patient = null;
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
         String sql = "SELECT * FROM `Patient` WHERE `PatientEmail` = ? AND `PatientPassword` = ?";
-        return Patient;
+        try{
+            Patient = jbdct.queryForObject(sql, new BeanPropertyRowMapper<Patient>(Patient.class), email, password);
+            return Patient;
+        }
+        catch (Exception e) {
+            return null;
+        }
     }
 
     public static DataSource getDataSource() {

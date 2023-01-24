@@ -39,12 +39,12 @@ public class StaffController {
     return null;
     }
     
-    @GetMapping("/staffRegisterPage")
+    @GetMapping("/create")
     public String staff_register() {
-        return "staff_register";
+        return "createStaffPage";
     }
 
-    @PostMapping("/registerStaff")
+    @PostMapping("/createStaff")
     public String register(HttpServletRequest request)
     {
         String staffName = request.getParameter("staffName");
