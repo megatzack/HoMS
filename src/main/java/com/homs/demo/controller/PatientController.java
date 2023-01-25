@@ -41,7 +41,8 @@ public class PatientController {
     
     @GetMapping("/PatientRegisterPage")
     public String Patient_register() {
-        return "Patient_register";
+       // return "Patient_register";
+       return "registerPage";
     }
 
     @PostMapping("/registerPatient")
@@ -53,11 +54,14 @@ public class PatientController {
         Patient patient = new Patient();
         patient.setUserIC(userIC);
         patient.setPhoneNO(phoneNO);
+        patient.setName(name);
+        patient.setPatientEmail(patientEmail);
+        patient.setPatientPassword(patientPassword);
 
         PatientDAO patientDAO = new PatientDAO();
         int row = patientDAO.register(patient);
         System.out.println("row affected: " + row);
-        return "Patient_schedule";
+        return "homePage";
 
     }
 }

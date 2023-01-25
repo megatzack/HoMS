@@ -2,7 +2,6 @@ package com.homs.demo.config;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Component;
 public class tableLoader {
     private final JdbcTemplate jdbcTemplate;
 
-    @Autowired
     public tableLoader(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
@@ -68,7 +66,33 @@ public class tableLoader {
                     + ")");
             System.out.println("Table 'staff' created");
         }
-
+        if (!tables.contains("patient")){
+            jdbcTemplate.execute("CREATE TABLE patient ("
+                    + "patientID INT NOT NULL AUTO_INCREMENT,"
+                    + "patientName VARCHAR(45) NOT NULL,"
+                    + "patientEmail VARCHAR(45) NOT NULL,"
+                    + "patientPassword VARCHAR(45) NOT NULL,"
+                    + "patientIC VARCHAR(45) NOT NULL,"
+                    + "patientPhoneNo VARCHAR(45) NOT NULL,"
+                    + "PRIMARY KEY (patientID)"
+                    + ")");
+            System.out.println("Table 'patient' created");
+        }
+        if (!tables.contains("auth")) {
+            jdbcTemplate.execute("CREATE TABLE auth ("
+                    + "authID INT NOT NULL AUTO_INCREMENT,"
+                    + "patientID INT,"
+                    + "staffID INT,"
+                    + "name VARCHAR(45) NOT NULL,"
+                    + "email VARCHAR(45) NOT NULL,"
+                    + "password VARCHAR(45) NOT NULL,"
+                    + "userType VARCHAR(45) NOT NULL,"
+                    + "PRIMARY KEY (authID),"
+                    + "FOREIGN KEY (patientID) REFERENCES patient(patientID),"
+                    + "FOREIGN KEY (staffID) REFERENCES staff(staffID)"
+                    + ")");
+            System.out.println("Table 'auth' created");
+        }
     }
     
 }
