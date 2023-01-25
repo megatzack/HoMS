@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -162,7 +160,7 @@ top: 56px;
 
  <div style="background-color: white; width: 50%; height: 800px; float:left;">
  
- <img class="image-1" src="images/HoMS-04.png" alt="logo_homs" width=120px height=45.67px/>
+ <img class="image-1" src="/image/HoMS-04.png" alt="logo_homs" width=120px height=45.67px/>
  
  <h1 class="main-title">Create Your Account!</h1>
  <h3 class="sub-title">Enter the field below to get started</h4>
@@ -187,7 +185,7 @@ top: 56px;
  </div>
 
  <div style="background-color: lightgrey; width:50%; height: 800px; float:left;">
- 	<img src="images/Surgeons Walking Through A Hospital Corridor by VICTOR TORRES.jpeg" alt="surgeon_image" width=100% height=100%/>
+ 	<img src="/image/Surgeons Walking Through A Hospital Corridor by VICTOR TORRES.jpeg" alt="surgeon_image" width=100% height=100%/>
  </div>
     
 
