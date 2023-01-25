@@ -30,7 +30,7 @@ public class loginController {
     @Autowired
     private Patient patient;
 
-    @PostMapping(value="/login")
+    @PostMapping(value="/loginController")
     public String login(HttpServletRequest request, Model model, HttpSession session) {
 
         String email = request.getParameter("email");

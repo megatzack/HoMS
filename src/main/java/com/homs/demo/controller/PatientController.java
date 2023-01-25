@@ -23,7 +23,7 @@ public class PatientController {
     try {
         String dbURL = "jdbc:mysql://localhost:3306/homs";
             String username = "root";
-            String password = "";
+            String password = "HawbAndFj6";
                 
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection( dbURL,username,password);
@@ -40,23 +40,30 @@ public class PatientController {
     
     @GetMapping("/PatientRegisterPage")
     public String Patient_register() {
-        return "Patient_register";
+       // return "Patient_register";
+       return "registerPage";
     }
 
     @PostMapping("/registerPatient")
     public String register(HttpServletRequest request)
     {
-        String userIC = request.getParameter("userIC");
-        String phoneNO = request.getParameter("phoneNO");
+        String userIC = request.getParameter("patientIc");
+        String phoneNO = request.getParameter("patientPhoneNo");
+        String name = request.getParameter("patientName");
+        String patientEmail = request.getParameter("patientEmail");
+        String patientPassword = request.getParameter("patientPassword");
 
         Patient patient = new Patient();
         patient.setUserIC(userIC);
         patient.setPhoneNO(phoneNO);
+        patient.setName(name);
+        patient.setPatientEmail(patientEmail);
+        patient.setPatientPassword(patientPassword);
 
         PatientDAO patientDAO = new PatientDAO();
         int row = patientDAO.register(patient);
         System.out.println("row affected: " + row);
-        return "Patient_schedule";
+        return "homePage";
 
     }
 }

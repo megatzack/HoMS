@@ -1,21 +1,21 @@
 package com.homs.demo.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class homepageController {
-    @RequestMapping(value="/mainpage")
+    @GetMapping(value="/mainpage")
     public String getMainPage() {
         return "mainPage";
     }
 
-    @RequestMapping(value="/homepage")
+    @GetMapping(value="/homepage")
     public String getHomePage() {
         return "homePage";
     }
 
-    @RequestMapping(value="/review")
+    @GetMapping(value="/review")
     public String getReviewPage() {
         return "review";
     }
