@@ -18,7 +18,7 @@ import com.homs.demo.model.Staff;
 @Controller
 public class loginController {
 
-    @PostMapping(value="/login")
+    @PostMapping(value="/loginController")
     public String login(HttpServletRequest request, Model model, HttpSession session) {
 
         String email = request.getParameter("email");
@@ -39,8 +39,8 @@ public class loginController {
             return "redirect:/staff/staffDashboard";
         }
         else if (userType == "patient"){
-            patient = PatientDAO.login(userIC, phoneNo);
-            return "redirect:/patient/patientHomepage";
+            patient = PatientDAO.authenticate(userIC, phoneNo);
+            return "redirect:/mainpage#!/homepage";
         }
         else{
             return "redirect:/login";

@@ -23,7 +23,7 @@ public class PatientController {
     try {
         String dbURL = "jdbc:mysql://localhost:3306/homs";
             String username = "root";
-            String password = "";
+            String password = "HawbAndFj6";
                 
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection( dbURL,username,password);
