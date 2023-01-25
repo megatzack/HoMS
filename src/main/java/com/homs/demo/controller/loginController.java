@@ -1,5 +1,6 @@
 package com.homs.demo.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,8 +18,19 @@ import com.homs.demo.model.Staff;
 
 @Controller
 public class loginController {
+    @Autowired
+    private PatientDAO patientDAO;
 
-    @PostMapping(value="/login")
+    @Autowired
+    private StaffDAO staffDAO; 
+
+    @Autowired
+    private Staff staff;
+
+    @Autowired
+    private Patient patient;
+
+    @PostMapping(value="/loginController")
     public String login(HttpServletRequest request, Model model, HttpSession session) {
 
         String email = request.getParameter("email");
@@ -30,16 +42,14 @@ public class loginController {
         //Detect userType (radio button)
         String userType = request.getParameter("userType");
 
-        Staff staff = null;
-        Patient patient = null;
         //Admin admin = null;
 
         if (userType == "staff"){
-            staff = StaffDAO.authenticate(email, password);
+            staff = staffDAO.authenticate(email, password);
             return "redirect:/staff/staffDashboard";
         }
         else if (userType == "patient"){
-            patient = PatientDAO.login(userIC, phoneNo);
+            patient = patientDAO.authenticate(userIC, phoneNo);
             return "redirect:/patient/patientHomepage";
         }
         else{

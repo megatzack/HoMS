@@ -1,32 +1,49 @@
 package com.homs.demo.dbutil;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import com.homs.demo.model.Staff;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import javax.sql.DataSource;
 
 @Repository
 public class StaffDAO {
+    @Autowired
+    private DataSource dataSource;
 
-    public int create(Staff staff) {
+    public void create(Staff staff) {
         
-        JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
-        String sql = "INSERT INTO `staff` (`staffName`, `staffEmail`, `staffPassword`, `staffDepartment`) VALUES (?,?,?,?)";
-        Object args[] = { staff.getStaffName(), staff.getStaffEmail(), staff.getStaffPassword(), staff.getStaffDepartment()};
-        int rowAffected = jbdct.update(sql, args);
+        try{
+            Connection connection = dataSource.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `staff` (`staffName`, `staffEmail`, `staffPassword`, `staffDepartment`) VALUES (?,?,?,?)");
+            preparedStatement.setString(1, staff.getStaffName());
+            preparedStatement.setString(2, staff.getStaffEmail());
+            preparedStatement.setString(3, staff.getStaffPassword());
+            preparedStatement.setString(4, staff.getStaffDepartment());
 
-        return rowAffected;
+            preparedStatement.executeQuery();
+    
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    public static Staff authenticate(String email, String password) {
+    public Staff authenticate(String email, String password) {
         Staff staff = null;
-        JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
         String sql = "SELECT * FROM `staff` WHERE `staffEmail` = ? AND `staffPassword` = ?";
         try{
-            staff = jbdct.queryForObject(sql, new BeanPropertyRowMapper<Staff>(Staff.class), email, password);
+            Connection connection = dataSource.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, email);
+            preparedStatement.setString(2, password);
+            staff = (Staff) preparedStatement.executeQuery();
+
             return staff;
         }
         catch (Exception e) {
@@ -34,18 +51,4 @@ public class StaffDAO {
         }
     }
 
-    public static DataSource getDataSource() {
-        DataSource dataSource = null;
-
-        String url = "jdbc:mysql://localhost:3306/homs";
-        String username = "root";
-        String password = "";
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            dataSource = new DriverManagerDataSource(url, username, password);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return dataSource;
-    }
 }

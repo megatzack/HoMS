@@ -16,14 +16,14 @@ public class PatientDAO {
     public int register(Patient patient) {
         
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
-        String sql = "insert into `Patient` (`userIC`, `phoneNO`) values (?,?)";
-        Object args[] = { patient.getUserIC(), patient.getPhoneNO()};
+        String sql = "insert into `patient` (`patientName`,`patientEmail`,`patientPassword`,`patientIC`, `patientPhoneNO`) values (?,?,?,?,?)";
+        Object args[] = { patient.getName(),patient.getPatientEmail(),patient.getPatientPassword(),patient.getUserIC(), patient.getPhoneNO()};
 
         int rowAffected = jbdct.update(sql, args);
         return rowAffected;
     }
 
-    public static Patient authenticate(String email, String password) {
+    public Patient authenticate(String email, String password) {
         Patient Patient = null;
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
         String sql = "SELECT * FROM `Patient` WHERE `PatientEmail` = ? AND `PatientPassword` = ?";
@@ -36,7 +36,7 @@ public class PatientDAO {
         }
     }
 
-    public static DataSource getDataSource() {
+    public DataSource getDataSource() {
         DataSource dataSource = null;
 
         String url = "jdbc:mysql://localhost:3306/homs";

@@ -21,18 +21,8 @@ public class tableLoader {
     }
 
     public void createTable() {
-        List<String> tables = jdbcTemplate.queryForList("SHOW TABLES", String.class);
-        if (!tables.contains("auth")) {
-            jdbcTemplate.execute("CREATE TABLE auth ("
-                    + "id_auth INT NOT NULL AUTO_INCREMENT,"
-                    + "name MEDIUMTEXT NOT NULL,"
-                    + "email VARCHAR(55) NOT NULL,"
-                    + "password VARCHAR(55) NOT NULL,"
-                    + "role VARCHAR(45) NOT NULL,"
-                    + "PRIMARY KEY (id_auth)"
-                    + ")");
-            System.out.println("Table 'auth' created");
-        }
+        List<String> tables = null;
+        tables = jdbcTemplate.queryForList("SHOW TABLES", String.class);
         if (!tables.contains("review")) {
             jdbcTemplate.execute("CREATE TABLE review ("
                     + "idreview INT NOT NULL AUTO_INCREMENT,"
