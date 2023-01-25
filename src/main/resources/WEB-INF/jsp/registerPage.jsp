@@ -48,7 +48,7 @@ position: absolute;
 width: 490px;
 height:63px;
 left: 102px;
-top:624px;
+top:820px;
 
 background: #06605B;
 border-radius:10px;
@@ -81,6 +81,20 @@ width: 75px;
 height: 19px;
 left: 102px;
 top: 463px;
+}
+
+.patient-IC-text{
+width: 75px;
+height: 19px;
+left: 102px;
+top: 586px;
+}
+
+.patient-phone-text{
+width: 160px;
+height: 19px;
+left: 102px;
+top: 681px;
 }
 
 .form-control1{
@@ -119,6 +133,30 @@ top: 500px;
 border: 1px solid #000000;
 }
 
+.form-control4{
+box-sizing: border-box;
+
+position: absolute;
+width: 490px;
+height: 45px;
+left: 102px;
+top: 623px;
+
+border: 1px solid #000000;
+}
+
+.form-control5{
+box-sizing: border-box;
+
+position: absolute;
+width: 490px;
+height: 45px;
+left: 102px;
+top: 718px;
+
+border: 1px solid #000000;
+}
+
 h3{
 font-family: 'Inter';
 font-style: normal;
@@ -141,7 +179,7 @@ position: absolute;
 width: 271px;
 height: 17px;
 left: 260px;
-top: 700px;
+top: 896px;
 
 }
 
@@ -165,17 +203,23 @@ top: 56px;
  <h1 class="main-title">Create Your Account!</h1>
  <h3 class="sub-title">Enter the field below to get started</h4>
  
- <form method="post" action="">
+ <form method="post" action="registerPatient">
    <h2 class="name-text">Name:</h3>
-   <input class="form-control1" type="text" name="fullname" placeholder="insert fullname"><br>
+   <input class="form-control1" type="text" name="patientName" placeholder="insert fullname"><br>
    
    <h2 class="email-text">Email:</h3>
-   <input class="form-control2" type="text" name="email" placeholder="insert email"><br>
+   <input class="form-control2" type="text" name="patientEmail" placeholder="insert email"><br>
    
    <h2 class="password-text">Password:</h3>
-   <input class="form-control3" type="password" name="password" placeholder="insert password"><br><br><br>
+   <input class="form-control3" type="password" name="patientPassword" placeholder="insert password"><br><br><br>
    
    <h3 class="password-subtext">*Password must be at least 8 characters</h3>
+
+   <h2 class="patient-IC-text">Patient IC:</h3>
+  <input class="form-control4" type="text" name="patientIc" placeholder="012345612345" pattern="[0-9]{12}"><br><br><br>
+
+  <h2 class="patient-phone-text">Patient Phone Number:</h3>
+  <input class="form-control5" type="text" name="patientPhoneNo" placeholder="insert password"><br><br><br>
    
    <input class="btn " type="submit" value="Create Account">
  </form>
@@ -184,7 +228,7 @@ top: 56px;
  
  </div>
 
- <div style="background-color: lightgrey; width:50%; height: 800px; float:left;">
+ <div style="background-color: lightgrey; width:50%; height: 1000px; float:left;">
  	<img src="/image/Surgeons Walking Through A Hospital Corridor by VICTOR TORRES.jpeg" alt="surgeon_image" width=100% height=100%/>
  </div>
     
