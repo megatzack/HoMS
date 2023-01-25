@@ -3,8 +3,6 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Staff Registration</title>
-</head>
-<body>
 
   <style>
 
@@ -170,28 +168,28 @@
     
     </style>
     
-    </head>
+  </head>
     <body>
     
      <div style="background-color: white; width: 50%; height: 800px; float:left;">
      
-     <img class="image-1" src="/image/HoMS-04.png" alt="logo_homs" width=120px height=45.67px/>
+     <img class="image-1" src="/image/HoMS-04.png" alt="logo_homs" width="120px" height="45.67px"/>
      
      <h1 class="main-title">Create New Staff Profile!</h1>
-     <h3 class="sub-title">Please fill in the form to register a new staff member</h4>
+     <h3 class="sub-title">Please fill in the form to register a new staff member</h3>
      
     <form method="post" action="createStaff">
-       <h2 class="name-text">Name:</h3>
+       <h2 class="name-text">Name:</h2>
        <input class="form-control1" type="text" name="staffName" placeholder="insert fullname"><br>
        
-       <h2 class="email-text">Email:</h3>
+       <h2 class="email-text">Email:</h2>
        <input class="form-control2" type="text" name="staffEmail" placeholder="insert email"><br>
        
-       <h2 class="password-text">Password:</h3>
+       <h2 class="password-text">Password:</h2>
        <input class="form-control3" type="password" name="staffPassword" placeholder="insert password"><br>
        <h3 class="password-subtext">*Password must be at least 8 characters</h3>
        
-       <td><h2 class="department-text">Department</h3>
+       <td><h2 class="department-text">Department</h2>
             <select class="form-control4" name="staffDepartment">
               <option>Ambulance Department</option>
               <option>Admin Administrator Department</option>
@@ -206,7 +204,7 @@
      </div>
     
      <div style="background-color: lightgrey; width:50%; height: 820px; float:left;">
-       <img src="/image/Surgeons Walking Through A Hospital Corridor by VICTOR TORRES.jpeg" alt="surgeon_image" width=100% height=100%/>
+       <img src="/image/Surgeons Walking Through A Hospital Corridor by VICTOR TORRES.jpeg" alt="surgeon_image" width="100%" height="100%"/>
      </div>
 
 </body>

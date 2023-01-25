@@ -2,6 +2,7 @@ package com.homs.demo.dbutil;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+// import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
@@ -10,6 +11,18 @@ import javax.sql.DataSource;
 
 @Repository
 public class StaffDAO {
+    
+    public Staff getStaffByEmail(String staffEmail) {
+        JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
+        String sql = "SELECT * FROM `staff` WHERE `staffEmail` = ?";
+        try{
+            Staff staff = jbdct.queryForObject(sql, new BeanPropertyRowMapper<Staff>(Staff.class), staffEmail);
+            return staff;
+        }
+        catch (Exception e) {
+            return null;
+        }
+    }
 
     public int create(Staff staff) {
         
@@ -22,6 +35,7 @@ public class StaffDAO {
     }
 
     public static Staff authenticate(String email, String password) {
+
         Staff staff = null;
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
         String sql = "SELECT * FROM `staff` WHERE `staffEmail` = ? AND `staffPassword` = ?";
@@ -30,6 +44,15 @@ public class StaffDAO {
             return staff;
         }
         catch (Exception e) {
+            return null;
+        }
+    }
+
+    public Staff getHomepage(String staffEmail) {
+        try {
+            Staff staff = getStaffByEmail(staffEmail);
+            return staff;
+        } catch (Exception e) {
             return null;
         }
     }
@@ -48,4 +71,5 @@ public class StaffDAO {
         }
         return dataSource;
     }
+
 }

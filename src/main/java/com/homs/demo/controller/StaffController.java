@@ -5,19 +5,22 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.homs.demo.dbutil.StaffDAO;
 import com.homs.demo.model.Staff;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/staff")
 public class StaffController {
-    
+
     @GetMapping("/StaffDB")
     public String opendb() {
     try {
@@ -60,7 +63,16 @@ public class StaffController {
         StaffDAO staffDAO = new StaffDAO();
         int row = staffDAO.create(staff);
         System.out.println("row affected: " + row);
-        return "staff_schedule";
+        return "loginPage";
 
+    }
+
+   @GetMapping("/homepage")
+    public ModelAndView viewhomepage(HttpSession session) {
+        StaffDAO staffDAO = new StaffDAO();
+        Staff staff = staffDAO.getHomepage(session.getAttribute("staffEmail").toString());
+        session.getAttribute("staff");
+
+        return new ModelAndView("staffHomepage", "staff", staff);
     }
 }
