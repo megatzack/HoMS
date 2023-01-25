@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.homs.demo.dbutil.StaffDAO;
 import com.homs.demo.model.Staff;
@@ -59,8 +58,7 @@ public class StaffController {
         staff.setStaffDepartment(staffDepartment);
 
         StaffDAO staffDAO = new StaffDAO();
-        int row = staffDAO.create(staff);
-        System.out.println("row affected: " + row);
+        staffDAO.create(staff);
         return "staff_schedule";
 
     }
