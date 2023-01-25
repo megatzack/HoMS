@@ -32,14 +32,16 @@ public class loginController {
 
         Staff staff = null;
         Patient patient = null;
-        //Admin admin = null;
-
+        
         if (userType == "staff"){
             staff = StaffDAO.authenticate(email, password);
+            //Redirect to staff dashboard. May change later
             return "redirect:/staff/staffDashboard";
         }
         else if (userType == "patient"){
             patient = PatientDAO.authenticate(userIC, phoneNo);
+            //Redirect to patient dashboard. May change later
+            model.addAttribute("patient", patient);
             return "redirect:/mainpage#!/homepage";
         }
         else{
