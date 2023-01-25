@@ -18,8 +18,8 @@
             <title>HoMS</title>
         </head>
         <body>
-            <img class="logo" src="/static/image/HoMS-04.png" alt="login">
-            <img class="wallpaper" src="/static/image/login.jpg" alt="login">
+            <img class="logo" src="/image/HoMS-04.png" alt="login">
+            <img class="wallpaper" src="/image/login.jpg" alt="login">
             <p class="title">Welcome Back !</p>
             <p class="description">please enter your details.</p>
             <form action="loginController" method="post">
