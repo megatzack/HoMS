@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.homs.demo.dbutil.PatientDAO;
 import com.homs.demo.model.Patient;
@@ -24,7 +23,7 @@ public class PatientController {
     try {
         String dbURL = "jdbc:mysql://localhost:3306/homs";
             String username = "root";
-            String password = "";
+            String password = "HawbAndFj6";
                 
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection( dbURL,username,password);
@@ -41,7 +40,8 @@ public class PatientController {
     
     @GetMapping("/PatientRegisterPage")
     public String Patient_register() {
-        return "Patient_register";
+       // return "Patient_register";
+       return "registerPage";
     }
 
     @PostMapping("/registerPatient")
@@ -53,11 +53,14 @@ public class PatientController {
         Patient patient = new Patient();
         patient.setUserIC(userIC);
         patient.setPhoneNO(phoneNO);
+        patient.setName(name);
+        patient.setPatientEmail(patientEmail);
+        patient.setPatientPassword(patientPassword);
 
         PatientDAO patientDAO = new PatientDAO();
         int row = patientDAO.register(patient);
         System.out.println("row affected: " + row);
-        return "Patient_schedule";
+        return "homePage";
 
     }
 }

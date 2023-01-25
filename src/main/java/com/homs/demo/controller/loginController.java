@@ -17,8 +17,7 @@ import com.homs.demo.model.Staff;
 
 @Controller
 public class loginController {
-
-    @PostMapping(value="/login")
+    @PostMapping(value="/loginController")
     public String login(HttpServletRequest request, Model model, HttpSession session) {
 
         String email = request.getParameter("email");
