@@ -50,7 +50,7 @@ public class StaffController {
         String staffEmail = request.getParameter("staffEmail");
         String staffPassword = request.getParameter("staffPassword");
         String staffDepartment = request.getParameter("staffDepartment");
-
+        System.out.println("meh");
         Staff staff = new Staff();
         staff.setStaffName(staffName);
         staff.setStaffEmail(staffEmail);
