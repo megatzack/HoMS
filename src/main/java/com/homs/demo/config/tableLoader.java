@@ -21,18 +21,8 @@ public class tableLoader {
     }
 
     public void createTable() {
-        List<String> tables = jdbcTemplate.queryForList("SHOW TABLES", String.class);
-        if (!tables.contains("auth")) {
-            jdbcTemplate.execute("CREATE TABLE auth ("
-                    + "id_auth INT NOT NULL AUTO_INCREMENT,"
-                    + "name MEDIUMTEXT NOT NULL,"
-                    + "email VARCHAR(55) NOT NULL,"
-                    + "password VARCHAR(55) NOT NULL,"
-                    + "role VARCHAR(45) NOT NULL,"
-                    + "PRIMARY KEY (id_auth)"
-                    + ")");
-            System.out.println("Table 'auth' created");
-        }
+        List<String> tables = null;
+        tables = jdbcTemplate.queryForList("SHOW TABLES", String.class);
         if (!tables.contains("review")) {
             jdbcTemplate.execute("CREATE TABLE review ("
                     + "idreview INT NOT NULL AUTO_INCREMENT,"
@@ -66,7 +56,33 @@ public class tableLoader {
                     + ")");
             System.out.println("Table 'staff' created");
         }
-
+        if (!tables.contains("patient")){
+            jdbcTemplate.execute("CREATE TABLE patient ("
+                    + "patientID INT NOT NULL AUTO_INCREMENT,"
+                    + "patientName VARCHAR(45) NOT NULL,"
+                    + "patientEmail VARCHAR(45) NOT NULL,"
+                    + "patientPassword VARCHAR(45) NOT NULL,"
+                    + "patientIC VARCHAR(45) NOT NULL,"
+                    + "patientPhoneNo VARCHAR(45) NOT NULL,"
+                    + "PRIMARY KEY (patientID)"
+                    + ")");
+            System.out.println("Table 'patient' created");
+        }
+        if (!tables.contains("auth")) {
+            jdbcTemplate.execute("CREATE TABLE auth ("
+                    + "authID INT NOT NULL AUTO_INCREMENT,"
+                    + "patientID INT,"
+                    + "staffID INT,"
+                    + "name VARCHAR(45) NOT NULL,"
+                    + "email VARCHAR(45) NOT NULL,"
+                    + "password VARCHAR(45) NOT NULL,"
+                    + "userType VARCHAR(45) NOT NULL,"
+                    + "PRIMARY KEY (authID),"
+                    + "FOREIGN KEY (patientID) REFERENCES patient(patientID),"
+                    + "FOREIGN KEY (staffID) REFERENCES staff(staffID)"
+                    + ")");
+            System.out.println("Table 'auth' created");
+        }
     }
     
 }

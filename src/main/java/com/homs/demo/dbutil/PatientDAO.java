@@ -41,7 +41,7 @@ public class PatientDAO {
 
         String url = "jdbc:mysql://localhost:3306/homs";
         String username = "root";
-        String password = "";
+        String password = "HawbAndFj6";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             dataSource = new DriverManagerDataSource(url, username, password);
