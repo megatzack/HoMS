@@ -17,12 +17,18 @@ import com.homs.demo.model.Staff;
 
 @Controller
 public class loginController {
+<<<<<<< HEAD
     @PostMapping(value="/login")
     public String login(HttpServletRequest request, Model model, HttpSession session) {
+=======
+>>>>>>> origin/mirasy
 
+    @PostMapping(value="/loginController")
+    public String login(HttpServletRequest request, HttpSession session, Staff staff, Patient patient) {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         
+<<<<<<< HEAD
         String userIC = request.getParameter("userIC");
         String phoneNo = request.getParameter("phoneNo");
 
@@ -58,6 +64,22 @@ public class loginController {
         }
         else{
             return "redirect:/login";
+=======
+        staff = StaffDAO.authenticate(email, password);
+        if (staff != null) {
+            session.setAttribute("staff", staff);
+            return "redirect:/staff/staffDashboard";
+        }
+        else {
+            patient = PatientDAO.authenticate(email, password);
+            if (patient != null) {
+                session.setAttribute("patient", patient);
+                return "redirect:/mainpage#!/homepage";
+            }
+            else {
+                return "redirect:/login";
+            }
+>>>>>>> origin/mirasy
         }
     }
 }

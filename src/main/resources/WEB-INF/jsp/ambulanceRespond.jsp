@@ -332,26 +332,26 @@ a:hover{
   
     <!-- main content goes here -->
     	<div class ="content">
-    		<form method="post" action="ambulance.jsp">
+    		<form method="post" action="updateRespondPage">
  
  
    			<h3 class="name">Name: (locked)</h3>
-   			<input class="form-control1" type="text" name="fullname" placeholder="insert fullname" disabled><br>
+   			<input class="form-control1" type="text" name="name" placeholder="insert fullname" th:value="${ambulance.getName()}" readonly><br>
    
    			<h3 class="contact">Contact Number: (locked)</h3>
-   			<input class="form-control2" type="tel" name="phone" placeholder="012-3456789" disabled><br>
+   			<input class="form-control2" type="tel" name="contact" placeholder="012-3456789" th:value="${ambulance.getContact()}" readonly><br>
    
    			<h3 class="status">Status: (locked)</h3>
-  			<input class="form-control3" type="text" name="status" placeholder="insert availability" disabled><br>
+  			<input class="form-control3" type="text" name="status" placeholder="insert availability" th:value="${ambulance.getStatus()}" readonly><br>
   
    			<h3 class="location">Location:</h3>
-  			<input class="form-control4" type="text" name="location" placeholder="insert location"><br>
+  			<input class="form-control4" type="text" name="location" placeholder="insert location" th:value="${ambulance.getLocation()}"><br>
   
    			<h3 class="date">Date:</h3>
-  			<input class="form-control5" type="date" name="date" placeholder="Date"><br>
+  			<input class="form-control5" type="date" name="date" placeholder="Date" th:value="${ambulance.getDate()}"><br>
   
    			<h3 class="time">Time:</h3>
-  			<input class="form-control6" type="time" name="time" value="12:00" ><br>
+  			<input class="form-control6" type="time" name="time" value="12:00" th:value="${ambulance.getTime()}" ><br>
    
    			<input class="btn " type="submit" value="Update">
  			</form>

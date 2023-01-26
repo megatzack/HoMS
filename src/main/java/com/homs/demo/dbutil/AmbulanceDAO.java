@@ -32,6 +32,15 @@ public class AmbulanceDAO {
         }
 
     }
+
+    public int getNewRespond(String name, String contact, String location, String status, String dates, String times ){
+        JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
+        String sql = "UPDATE ambulance SET location= ?,status= ?,dates= ?, times= ? WHERE name= ? AND contact= ?";
+        //Object args[] = {location,status,dates,times,name,contact};
+        int rowAffected = jbdct.update(sql, location,status,dates,times,name,contact);
+
+        return rowAffected;
+    }
     
 
     public static DataSource getDataSource() {

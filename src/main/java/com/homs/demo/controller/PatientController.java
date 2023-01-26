@@ -23,7 +23,7 @@ public class PatientController {
     try {
         String dbURL = "jdbc:mysql://localhost:3306/homs";
             String username = "root";
-            String password = "HawbAndFj6";
+            String password = "";
                 
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection( dbURL,username,password);
@@ -38,7 +38,7 @@ public class PatientController {
     return null;
     }
     
-    @GetMapping("/PatientRegisterPage")
+    @GetMapping("/create")
     public String Patient_register() {
        // return "Patient_register";
        return "registerPage";

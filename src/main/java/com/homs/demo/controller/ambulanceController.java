@@ -1,6 +1,10 @@
 package com.homs.demo.controller;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,14 +22,27 @@ public class ambulanceController {
     }
 
     @PostMapping(value="/checkAmbulance")
-    public String check(@RequestParam("select_ambulance")String plateNum){
+    public String check(@RequestParam("select_ambulance")String plateNum, Model model){
         Ambulance ambulance = null;
         AmbulanceDAO ambulanceDAO = new AmbulanceDAO();
         ambulance = ambulanceDAO.getByPlate(plateNum);
         System.out.println(ambulance.getName());
-        
+        model.addAttribute("ambulance",ambulance);
         
         return "ambulanceRespond";
     }
+
+    @PostMapping(value="/updateRespondPage")
+    public String updateRespond(@RequestParam("name")String name, @RequestParam("contact")String contact, @RequestParam("status")String status, @RequestParam("location")String location, @RequestParam("date")String date, @RequestParam("time")String time){
+       AmbulanceDAO ambulanceDAO = new AmbulanceDAO();
+       int row = ambulanceDAO.getNewRespond(name, contact, location, status, date, time);
+       System.out.println("row affected: " + row);
+       
+        return "ambulance";
+    }
+
+    /*public String updateRespond(){
+        return "ambulance";
+    }*/
     
 }
