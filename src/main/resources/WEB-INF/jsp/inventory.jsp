@@ -19,23 +19,16 @@
     <link rel="stylesheet" href="/css/inventory.css">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <script> src="/js/inventory.js"</script>
     <title>HoMS</title>
 </head>
 
-<!--<%	ArrayList<Inventory> inventoryList = (ArrayList)request.getAttribute("inventory"); %>-->
-
 <body>
-     <!--Pattern
+     <!--Pattern-->
      <pattern>
         <img src="/image/pattern.png" alt="pattern">
-    </pattern>-->
+    </pattern>
 
-    <!--My Cart
+    <!--My Cart-->
     <div class="container-fluid" id="myCart">
         <div class="d-flex justify-content-between align-items-center">
             <h3 style="color: white;"><b>Medical Shop</b></h3>
@@ -43,29 +36,21 @@
                 <button type="button" class="btn btn-primary" style="background-color:#06605B;">My Cart</button>
             </form>
         </div>
-    </div>-->
-            <div>
-                <p>Model Message: </p>
-                <p th:text="${message}"></p>
-            </div>
-            
-    <!--<div class="container-fluid">
+    </div>
+    <div class="container-fluid">
+        <!--row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3-->
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3" id="item">
-        
-            <% if(request.getAttribute("inventory") != null) {
-               		for(Inventory inventory: inventoryList) {
-            %>
-            <div class="col">
+            <div class="col" th:each="item : ${inventory}">
             	<div class="card shadow-sm align-items-center">
-                    <img alt="item" width="80%" height="50%" src=<%= inventory.getPath() %>>
+                    <img alt="item" width="80%" height="50%" th:src="${item.getPicture()}">
                     <div class="card-body border-top">
                       <div class="card-text">
-                       <h4><%= inventory.getTitle() %></h4>
-                       <p><%= inventory.getDescription() %></p>
+                       <h4 th:text="${item.getName()}"></h4>
+                       <p th:text="${item.getDescription()}"></p>
                       </div>
                       <div class="d-flex justify-content-between align-items-center">
                         <price class="text-muted">
-                            <h5><b>RM<%= inventory.getPrice() %></b></h5>
+                            <h5><b>RM </b><b th:text="${item.getPrice()}"></b></h5>
                         </price>
                         <div class="btn-group">
                           <button type="button" class="btn btn-sm" style="background-color: #06605B; color: white;">Add to Cart</button>
@@ -74,13 +59,7 @@
                     </div>
                   </div>
               </div>
-                  <%}
-                  }
-                  else {
-                  %>
-                  <p>Nothing to see here</p>
-                  <% }%>
         </div>
-    </div>-->
+    </div>
 </body>
 </html>
