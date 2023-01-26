@@ -71,7 +71,7 @@ public class StaffController {
         }
 
 
-        return "staff_schedule";
+        return "ambulance";
 
     }
 }

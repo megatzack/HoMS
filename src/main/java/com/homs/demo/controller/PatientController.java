@@ -38,7 +38,7 @@ public class PatientController {
     return null;
     }
     
-    @GetMapping("/PatientRegisterPage")
+    @GetMapping("/create")
     public String Patient_register() {
        // return "Patient_register";
        return "registerPage";
