@@ -63,7 +63,7 @@ public class StaffController {
         StaffDAO staffDAO = new StaffDAO();
         int row = staffDAO.create(staff);
         System.out.println("row affected: " + row);
-        return "loginPage";
+        return "loginStaff";
 
     }
 
