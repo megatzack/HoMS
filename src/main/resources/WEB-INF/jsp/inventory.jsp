@@ -44,19 +44,10 @@
             </form>
         </div>
     </div>-->
-    
-    <div class="container-fluid row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3" id="item">
-            <!--List Item-->
             <div th:each="inventoryList : ${inventoryList}">
-                <p>Product List</p>
-                <div class="col">
-                    <div class="card shadow-sm align-items-center">
-                        <p th:text="${inventoryList.getName()}"></p>
-                    </div>
-                </div>
+                <p th:text="${inventoryList.getName()}"></p>
             </div>
-        </div>
-    </div>
+            
     <!--<div class="container-fluid">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3" id="item">
         
