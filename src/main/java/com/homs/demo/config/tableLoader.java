@@ -51,7 +51,7 @@ public class tableLoader {
                     + "name VARCHAR(45) NOT NULL,"
                     + "description LONGTEXT NOT NULL,"
                     + "price DOUBLE NOT NULL,"
-                    + "picture BLOB NOT NULL,"
+                    + "picture MEDIUMTEXT NOT NULL,"
                     + "type VARCHAR(45) NOT NULL,"
                     + "PRIMARY KEY (idproduct)"
                     + ")");
@@ -80,20 +80,17 @@ public class tableLoader {
                     + ")");
             System.out.println("Table 'patient' created");
         }
-        if (!tables.contains("auth")) {
-            jdbcTemplate.execute("CREATE TABLE auth ("
-                    + "authID INT NOT NULL AUTO_INCREMENT,"
-                    + "patientID INT,"
-                    + "staffID INT,"
+        if (!tables.contains("product")){
+            jdbcTemplate.execute("CREATE TABLE product ("
+                    + "idproduct INT NOT NULL AUTO_INCREMENT,"
                     + "name VARCHAR(45) NOT NULL,"
-                    + "email VARCHAR(45) NOT NULL,"
-                    + "password VARCHAR(45) NOT NULL,"
-                    + "userType VARCHAR(45) NOT NULL,"
-                    + "PRIMARY KEY (authID),"
-                    + "FOREIGN KEY (patientID) REFERENCES patient(patientID),"
-                    + "FOREIGN KEY (staffID) REFERENCES staff(staffID)"
+                    + "description LONGTEXT NOT NULL,"
+                    + "price DOUBLE NOT NULL,"
+                    + "picture MEDIUMTEXT NOT NULL,"
+                    + "type VARCHAR(45) NOT NULL,"
+                    + "PRIMARY KEY (idproduct)"
                     + ")");
-            System.out.println("Table 'auth' created");
+            System.out.println("Table 'product' created");
         }
 
     }
