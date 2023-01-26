@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,16 +55,17 @@ public class PatientController {
     }
 
     @PostMapping(value="/loginController")
-    public String mainPage(HttpServletRequest request, HttpSession session, Patient patient) {
+    public String mainPage(HttpServletRequest request, Model mod, HttpSession session) {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        patient = PatientDAO.authenticate(email, password);
+        
+        Patient patient = PatientDAO.authenticate(email, password);
         if (patient != null) {
             session.setAttribute("patient", patient);
             return "redirect:/mainpage#!/homepage";
         }
         else {
-            return "redirect:/login";
+            return "redirect:/Patient/login";
         }
     }
 }
