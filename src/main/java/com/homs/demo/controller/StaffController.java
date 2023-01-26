@@ -15,37 +15,18 @@ import com.homs.demo.model.Ambulance;
 import com.homs.demo.model.Staff;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/staff")
 public class StaffController {
     
-    @GetMapping("/StaffDB")
-    public String opendb() {
-    try {
-        String dbURL = "jdbc:mysql://localhost:3306/homs";
-            String username = "root";
-            String password = "";
-                
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection( dbURL,username,password);
-            System.out.println("successfully open database connection  :" +connection.getMetaData());
-        } 
-        catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-        }
-    return null;
-    }
-    
-    @GetMapping("/create")
+    @GetMapping("/signup")
     public String staff_register() {
         return "registerStaff";
     }
 
-    @PostMapping("/createStaff")
+    @PostMapping("/welcome")
     public String register(HttpServletRequest request)
     {
         String staffName = request.getParameter("staffName");
@@ -73,5 +54,19 @@ public class StaffController {
 
         return "ambulance";
 
+    }
+
+    @PostMapping(value="/login")
+    public String login(HttpServletRequest request, HttpSession session, Staff staff) {
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        staff = StaffDAO.authenticate(email, password);
+        if (staff != null) {
+            session.setAttribute("staff", staff);
+            return "redirect:/mainpage#!/homepage";
+        }
+        else {
+            return "redirect:/login";
+        }
     }
 }
