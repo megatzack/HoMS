@@ -1,13 +1,11 @@
 package com.homs.demo.dbutil;
 
 import org.springframework.stereotype.Repository;
-
-import com.homs.demo.model.Ambulance;
-
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
+import com.homs.demo.model.Ambulance;
 import javax.sql.DataSource;
 
 @Repository
@@ -19,6 +17,20 @@ public class AmbulanceDAO {
         Object args[] = {ambulance.getName(),ambulance.getContact(),ambulance.getLocation(),ambulance.getStatus(),ambulance.getAmbulancePlate(),ambulance.getDepartment()};
         int rowAffected = jbdct.update(sql, args);
         return rowAffected;
+    }
+
+    public Ambulance getByPlate(String plateNum){
+        Ambulance ambulance = null;
+        JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
+        String sql = "SELECT * FROM `ambulance` WHERE `ambulancePlate` = ?";
+        try{
+            ambulance = jbdct.queryForObject(sql, new BeanPropertyRowMapper<Ambulance>(Ambulance.class), plateNum);
+            return ambulance;
+        }
+        catch (Exception e) {
+            return null;
+        }
+
     }
     
 

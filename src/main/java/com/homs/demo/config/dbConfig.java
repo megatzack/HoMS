@@ -3,6 +3,7 @@ package com.homs.demo.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 
+import com.homs.demo.dbutil.AmbulanceDAO;
 import com.homs.demo.dbutil.PatientDAO;
 import com.homs.demo.dbutil.StaffDAO;
 import com.homs.demo.dbutil.reviewDAO;
@@ -22,5 +23,10 @@ public class dbConfig {
     @Bean
     public reviewDAO reviewDAO() {
         return new reviewDAO();
+    }
+
+    @Bean
+    public AmbulanceDAO ambulanceDAO() {
+        return new AmbulanceDAO();
     }
 }
