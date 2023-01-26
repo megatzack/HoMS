@@ -15,11 +15,14 @@ app.config(function ($routeProvider) {
             controller: "homeController"
         })
         .when("/review", {
-            templateUrl: "/review",
-            controller: "homeController"
+            templateUrl: "/review"
         })
         .when("/about", {
             templateUrl: "/about",
+            controller: "homeController"
+        })
+        .when("/staff", {
+            templateUrl: "/staff/homepage",
             controller: "homeController"
         });
 });

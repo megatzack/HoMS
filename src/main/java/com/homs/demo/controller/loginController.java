@@ -17,58 +17,16 @@ import com.homs.demo.model.Staff;
 
 @Controller
 public class loginController {
-<<<<<<< HEAD
-    @PostMapping(value="/login")
-    public String login(HttpServletRequest request, Model model, HttpSession session) {
-=======
->>>>>>> origin/mirasy
 
-    @PostMapping(value="/loginController")
+    @PostMapping(value="/login")
     public String login(HttpServletRequest request, HttpSession session, Staff staff, Patient patient) {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         
-<<<<<<< HEAD
-        String userIC = request.getParameter("userIC");
-        String phoneNo = request.getParameter("phoneNo");
-
-        //Detect userType (radio button)
-        String userType = request.getParameter("userType");
-
-        Staff staff = null;
-        Patient patient = null;
-        //Admin admin = null;
-
-        if (userType == "staff"){
-            staff = StaffDAO.authenticate(email, password);
-            if (staff != null){
-                session.setAttribute("staff", staff);
-                return "redirect:/staff/staffHomepage";
-            }
-            else{
-                model.addAttribute("errorMessage", "Invalid email or password");
-                return "login";
-            }
-        }
-        
-        else if (userType == "patient"){
-            patient = PatientDAO.login(userIC, phoneNo);
-            if (patient != null){
-                session.setAttribute("patient", patient);
-                return "redirect:/patient/patientHomepage";
-            }
-            else{
-                model.addAttribute("errorMessage", "Invalid email or password");
-                return "login";
-            }
-        }
-        else{
-            return "redirect:/login";
-=======
         staff = StaffDAO.authenticate(email, password);
         if (staff != null) {
             session.setAttribute("staff", staff);
-            return "redirect:/staff/staffDashboard";
+            return "staff/homepage";
         }
         else {
             patient = PatientDAO.authenticate(email, password);
@@ -79,7 +37,6 @@ public class loginController {
             else {
                 return "redirect:/login";
             }
->>>>>>> origin/mirasy
         }
     }
 }

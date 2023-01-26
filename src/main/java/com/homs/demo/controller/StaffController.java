@@ -53,11 +53,7 @@ public class StaffController {
         }
 
 
-<<<<<<< HEAD
-        return "loginStaff";
-=======
-        return "ambulance";
->>>>>>> origin/mirasy
+        return "login";
 
     }
 
