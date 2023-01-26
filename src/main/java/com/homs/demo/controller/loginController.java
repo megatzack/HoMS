@@ -17,32 +17,26 @@ import com.homs.demo.model.Staff;
 
 @Controller
 public class loginController {
-    @PostMapping(value="/loginController")
-    public String login(HttpServletRequest request, Model model, HttpSession session) {
 
+    @PostMapping(value="/loginController")
+    public String login(HttpServletRequest request, HttpSession session, Staff staff, Patient patient) {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-    
-        String userIC = request.getParameter("userIC");
-        String phoneNo = request.getParameter("phoneNo");
-
-        //Detect userType (radio button)
-        String userType = request.getParameter("userType");
-
-        Staff staff = null;
-        Patient patient = null;
-        //Admin admin = null;
-
-        if (userType == "staff"){
-            staff = StaffDAO.authenticate(email, password);
+        
+        staff = StaffDAO.authenticate(email, password);
+        if (staff != null) {
+            session.setAttribute("staff", staff);
             return "redirect:/staff/staffDashboard";
         }
-        else if (userType == "patient"){
-            patient = PatientDAO.login(userIC, phoneNo);
-            return "redirect:/patient/patientHomepage";
-        }
-        else{
-            return "redirect:/login";
+        else {
+            patient = PatientDAO.authenticate(email, password);
+            if (patient != null) {
+                session.setAttribute("patient", patient);
+                return "redirect:/mainpage#!/homepage";
+            }
+            else {
+                return "redirect:/login";
+            }
         }
     }
 }
