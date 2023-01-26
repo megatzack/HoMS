@@ -6,6 +6,10 @@ import org.springframework.stereotype.Repository;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import com.homs.demo.model.Staff;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.sql.DataSource;
 
 @Repository
@@ -34,15 +38,29 @@ public class StaffDAO {
         }
     }
 
-    public void getAllStaff(){
-        Staff staff = null;
+    public List<Staff> getAllStaff(){
+        
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
+
+        //List<Staff>staffList = new ArrayList<Staff>();
+        List<Staff>staffInfo = new ArrayList<Staff>();
+        
+
         String sql = "SELECT * FROM `staff`";
+        
         try{
+            staffInfo = jbdct.query(sql,new BeanPropertyRowMapper<>(Staff.class));
+            
+            for (Staff staff: staffInfo){
+                System.out.println("name: " + staff.getStaffName() );
+            }
             
         }catch(Exception e){
-            
+            e.printStackTrace();
         }
+
+
+        return staffInfo;
     }
 
     public static DataSource getDataSource() {

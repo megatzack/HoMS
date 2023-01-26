@@ -347,22 +347,11 @@
       <div class="content-table">
         <!-- main content goes here -->
         <div class="content">
-          <form method="post" action="">
+          <form method="post" action="createSchedule">
             <h3 class="list-staff-text">List of Staff</h3>
-            <select class="form-control1" name="staff_name">
-              <option>Muhammad Yusri Bin Yusoff</option>
-              <option>Muhammad Syazwan Bin Sahdan</option>
-              <option>Muhammad Amin Haiqal Bin Rosli</option>
-              <option>Megat Irfan</option>
+            <select class="form-control1" name="name">
+              <option th:each="staff: ${staffList}" th:value="${staff.getStaffName()}" th:text="${staff.getStaffName()}"></option>
             </select>
-
-            <h3 class="contact-text">Contact Number:</h3>
-            <input
-              class="form-control2"
-              type="tel"
-              name="phone"
-              placeholder="012-3456789"
-            /><br />
 
             <h3 class="oncall-text">On-Call Time</h3>
 
@@ -370,7 +359,7 @@
             <input
               class="form-control3"
               type="time"
-              name="time"
+              name="ocInTime"
               value="12:00"
             /><br />
 
@@ -378,7 +367,7 @@
             <input
               class="form-control4"
               type="time"
-              name="time"
+              name="ocOutTime"
               value="12:00"
             /><br />
 
@@ -387,14 +376,14 @@
             <input
               class="form-control5"
               type="time"
-              name="time"
+              name="tcInTime"
               value="12:00"
             /><br />
             <h3 class="sc-timeout-text">Time Out:</h3>
             <input
               class="form-control6"
               type="time"
-              name="time"
+              name="tcOutTime"
               value="12:00"
             /><br />
 
