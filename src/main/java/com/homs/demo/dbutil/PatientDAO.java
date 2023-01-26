@@ -50,8 +50,4 @@ public class PatientDAO {
         }
         return dataSource;
     }
-
-    public static Patient login(String userIC, String phoneNo) {
-        return null;
-    }
 }
