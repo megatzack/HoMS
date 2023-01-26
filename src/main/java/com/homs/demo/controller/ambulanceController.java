@@ -16,6 +16,7 @@ public class ambulanceController {
 
     @PostMapping(value="/checkAmbulance")
     public String check(@RequestParam("select_ambulance")String plateNum){
+
         return "ambulanceRespond";
     }
     
