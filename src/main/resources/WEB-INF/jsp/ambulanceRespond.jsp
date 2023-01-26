@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -123,10 +124,10 @@ color: #FFFFFF;
 box-sizing: border-box;
 
 position: absolute;
-width: 800px;
-height: 244px;
-left: 400px;
-top: 300px;
+width: 1215px;
+height: 444px;
+left: 155px;
+top: 330px;
 
 border: 4px solid #D9D9D9;
 }
@@ -143,7 +144,7 @@ line-height: 19px;
 position: absolute;
 width: 86px;
 height: 19px;
-left: 250px;
+left: 55px;
 top: 25px;
 }
 
@@ -153,7 +154,7 @@ box-sizing: border-box;
 position: absolute;
 width: 340px;
 height: 45px;
-left: 250px;
+left: 55px;
 top: 65px;
 
 border: 1px solid #000000;
@@ -164,7 +165,7 @@ position: absolute;
 width: 140px;
 height: 19px;
 left: 55px;
-top: 120px;
+top: 50px;
 }
 
 .form-control1{
@@ -174,7 +175,7 @@ position: absolute;
 width: 340px;
 height: 45px;
 left: 55px;
-top: 160px;
+top: 90px;
 
 border: 1px solid #000000;
 }
@@ -184,7 +185,7 @@ position: absolute;
 width: 230px;
 height: 19px;
 left: 500px;
-top: 120px;
+top: 50px;
 }
 
 .form-control2{
@@ -194,7 +195,7 @@ position: absolute;
 width: 340px;
 height: 45px;
 left: 500px;
-top: 160px;
+top: 90px;
 
 border: 1px solid #000000;
 }
@@ -204,7 +205,7 @@ position: absolute;
 width: 180px;
 height: 19px;
 left: 1000px;
-top: 120px;
+top: 50px;
 }
 
 
@@ -215,7 +216,7 @@ position: absolute;
 width: 150px;
 height: 45px;
 left: 1000px;
-top: 160px;
+top: 90px;
 
 border: 1px solid #000000;
 }
@@ -225,7 +226,7 @@ position: absolute;
 width: 66px;
 height: 19px;
 left: 55px;
-top: 215px;
+top: 145px;
 }
 
 .form-control4{
@@ -235,7 +236,7 @@ position: absolute;
 width: 340px;
 height: 45px;
 left: 55px;
-top: 255px;
+top: 185px;
 
 border: 1px solid #000000;
 }
@@ -245,7 +246,7 @@ position: absolute;
 width: 66px;
 height: 19px;
 left: 500px;
-top: 215px;
+top: 145px;
 }
 
 .form-control5{
@@ -255,7 +256,7 @@ position: absolute;
 width: 340px;
 height: 45px;
 left: 500px;
-top: 255px;
+top: 185px;
 
 border: 1px solid #000000;
 }
@@ -265,7 +266,7 @@ position: absolute;
 width: 150px;
 height: 19px;
 left: 1000px;
-top: 215px;
+top: 145px;
 }
 
 .form-control6{
@@ -275,7 +276,7 @@ position: absolute;
 width: 150px;
 height: 45px;
 left: 1000px;
-top: 255px;
+top: 185px;
 
 border: 1px solid #000000;
 }
@@ -284,8 +285,8 @@ border: 1px solid #000000;
 position: absolute;
 width: 152px;
 height: 47px;
-left: 620px;
-top: 160px;
+left: 1020px;
+top: 290px;
 
 background: #06605B;
 border-radius: 10px;
@@ -331,21 +332,28 @@ a:hover{
   
     <!-- main content goes here -->
     	<div class ="content">
-    		<form method="post" action="checkAmbulance">
+    		<form method="post" action="ambulance.jsp">
  
-			<td><h3 class="ambulance">Ambulance</h3>
-        	<select class="select_ambulance" name="select_ambulance">
-          		<option>WAV333</option>
-          		<option>WVU6753</option>
-          		<option>VMW3245</option>
-          		<option>PGK3332</option>
-				<option>WVY3334</option>
-				<option>KEK2022</option>
-				<option>KAM4302</option>
-        	</select>
-      		</td>
+ 
+   			<h3 class="name">Name: (locked)</h3>
+   			<input class="form-control1" type="text" name="fullname" placeholder="insert fullname" disabled><br>
    
-   			<input class="btn " type="submit" value="Check">
+   			<h3 class="contact">Contact Number: (locked)</h3>
+   			<input class="form-control2" type="tel" name="phone" placeholder="012-3456789" disabled><br>
+   
+   			<h3 class="status">Status: (locked)</h3>
+  			<input class="form-control3" type="text" name="status" placeholder="insert availability" disabled><br>
+  
+   			<h3 class="location">Location:</h3>
+  			<input class="form-control4" type="text" name="location" placeholder="insert location"><br>
+  
+   			<h3 class="date">Date:</h3>
+  			<input class="form-control5" type="date" name="date" placeholder="Date"><br>
+  
+   			<h3 class="time">Time:</h3>
+  			<input class="form-control6" type="time" name="time" value="12:00" ><br>
+   
+   			<input class="btn " type="submit" value="Update">
  			</form>
  		</div>
  

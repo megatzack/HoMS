@@ -47,10 +47,16 @@ public class PatientController {
     @PostMapping("/registerPatient")
     public String register(HttpServletRequest request)
     {
-        String userIC = request.getParameter("userIC");
-        String phoneNO = request.getParameter("phoneNO");
+        String userIC = request.getParameter("patientIC");
+        String phoneNO = request.getParameter("patientPhoneNo");
+        String patientName = request.getParameter("patientName");
+        String patientPassword = request.getParameter("patientPassword");
+        String patientEmail = request.getParameter("patientEmail");
 
         Patient patient = new Patient();
+        patient.setName(patientName);
+        patient.setPatientEmail(patientEmail);
+        patient.setPatientPassword(patientPassword);
         patient.setUserIC(userIC);
         patient.setPhoneNO(phoneNO);
 

@@ -1,40 +1,38 @@
 package com.homs.demo.dbutil;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
-import com.homs.demo.model.Patient;
-
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
-
+import com.homs.demo.model.Ambulance;
 import javax.sql.DataSource;
 
 @Repository
-public class PatientDAO {
+public class AmbulanceDAO {
 
-    public int register(Patient patient) {
-        
+    public int createAmbulance(Ambulance ambulance){
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
-        String sql = "insert into `Patient` (`patientName`,`patientEmail`,`patientPassword`,`patientIC`, `patientPhoneNO`) values (?,?,?,?,?)";
-        Object args[] = {patient.getName(), patient.getPatientEmail(), patient.getPatientPassword() ,patient.getUserIC(), patient.getPhoneNO()};
-
+        String sql = "INSERT INTO `ambulance` (`name`, `contact`, `location`, `status`,`ambulancePlate`,`department`) VALUES (?,?,?,?,?,?)";
+        Object args[] = {ambulance.getName(),ambulance.getContact(),ambulance.getLocation(),ambulance.getStatus(),ambulance.getAmbulancePlate(),ambulance.getDepartment()};
         int rowAffected = jbdct.update(sql, args);
         return rowAffected;
     }
 
-    public static Patient authenticate(String email, String password) {
-        Patient Patient = null;
+    public Ambulance getByPlate(String plateNum){
+        Ambulance ambulance = null;
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
-        String sql = "SELECT * FROM `Patient` WHERE `PatientEmail` = ? AND `PatientPassword` = ?";
+        String sql = "SELECT * FROM `ambulance` WHERE `ambulancePlate` = ?";
         try{
-            Patient = jbdct.queryForObject(sql, new BeanPropertyRowMapper<Patient>(Patient.class), email, password);
-            return Patient;
+            ambulance = jbdct.queryForObject(sql, new BeanPropertyRowMapper<Ambulance>(Ambulance.class), plateNum);
+            return ambulance;
         }
         catch (Exception e) {
             return null;
         }
+
     }
+    
 
     public static DataSource getDataSource() {
         DataSource dataSource = null;
@@ -49,9 +47,5 @@ public class PatientDAO {
             e.printStackTrace();
         }
         return dataSource;
-    }
-
-    public static Patient login(String userIC, String phoneNo) {
-        return null;
     }
 }
