@@ -13,15 +13,13 @@ public class inventoryController {
     @Autowired
     private inventoryDAO inventoryDAO;
 
-    @GetMapping(value="inventoryController")
-    public String getInventory() {
-        System.out.println("Success");
+    @RequestMapping(value="inventoryController")
+    public String inventoryList(Model model) {
+        model.addAttribute("message", "Success Retrieve Model");
+        System.out.println(model.getAttribute("message"));
+        //model.addAttribute("inventory", inventoryDAO.getInventory());
+        
 
-        return "redirect:/";
-    }
-
-    @GetMapping(value = "/inventory")
-    public String getInventoryPage() {
         return "inventory";
     }
 }

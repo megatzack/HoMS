@@ -44,8 +44,9 @@
             </form>
         </div>
     </div>-->
-            <div th:each="inventoryList : ${inventoryList}">
-                <p th:text="${inventoryList.getName()}"></p>
+            <div>
+                <p>Model Message: </p>
+                <p th:text="${message}"></p>
             </div>
             
     <!--<div class="container-fluid">
