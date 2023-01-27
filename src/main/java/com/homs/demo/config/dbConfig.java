@@ -31,6 +31,7 @@ public class dbConfig {
         return new inventoryDAO();
     }
     
+    @Bean
     public AmbulanceDAO ambulanceDAO() {
         return new AmbulanceDAO();
     }
