@@ -27,10 +27,11 @@ public class StaffDAO {
     }
 
 
-    public Staff authenticate(String email, String password) {
+    public static Staff authenticate(String email, String password) {
+        Staff staff = null;
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
         String sql = "SELECT * FROM staff WHERE staffEmail = ? AND staffPassword = ?";
-        Object args[] = {email, password};
+        
         try{
             staff = jbdct.queryForObject(sql, new BeanPropertyRowMapper<Staff>(Staff.class), email, password);
             return staff;

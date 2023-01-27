@@ -205,7 +205,7 @@
       <h1 class="main-title">Create Your Account!</h1>
       <h3 class="sub-title">Enter the field below to get started</h3>
 
-      <form method="post" action="registerPatient">
+      <form method="post" action="welcome">
         <h2 class="name-text">Name:</h2>
         <input
           class="form-control1"
