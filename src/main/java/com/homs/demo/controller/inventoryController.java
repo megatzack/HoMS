@@ -22,3 +22,4 @@ public class inventoryController {
         return "inventory";
     }
 }
+
