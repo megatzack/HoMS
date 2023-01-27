@@ -34,6 +34,17 @@ public class StaffDAO {
         }
     }
 
+    public void getAllStaff(){
+        Staff staff = null;
+        JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
+        String sql = "SELECT * FROM `staff`";
+        try{
+            
+        }catch(Exception e){
+            
+        }
+    }
+
     public static DataSource getDataSource() {
         DataSource dataSource = null;
 
