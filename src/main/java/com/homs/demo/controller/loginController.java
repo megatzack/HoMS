@@ -40,6 +40,6 @@ public class loginController {
             } catch (NullPointerException e2) {
                 return "redirect:/login";
             } 
-        }  
+        
         }
     }
