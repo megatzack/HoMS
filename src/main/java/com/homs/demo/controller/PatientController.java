@@ -27,7 +27,7 @@ public class PatientController {
     }
 
     @PostMapping("/welcome")
-    public String register(HttpServletRequest request)
+    public String register(HttpServletRequest request, HttpSession session)
     {
         String userIC = request.getParameter("patientIC");
         String phoneNO = request.getParameter("patientPhoneNo");
