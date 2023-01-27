@@ -52,15 +52,27 @@ public class StaffController {
             System.out.println("ambulance table affected: " + rowss);
         }
         
-        return "login";
+        return "staffHomePage";
+    }
+    
+    @GetMapping(value="/login")
+    public String login(){
+        return "loginPage";
     }
 
-    /*@GetMapping("/homepage")
-    public ModelAndView viewhomepage(HttpSession session) {
-        StaffDAO staffDAO = new StaffDAO();
-        Staff staff = staffDAO.getHomepage(session.getAttribute("staffEmail").toString());
-        session.getAttribute("staff");
+    @PostMapping(value="/welcomeBack")
+    public String loginController(HttpServletRequest request, HttpSession session,Staff staff) {
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        //StaffDAO staffDAO = new StaffDAO();
+        staff = StaffDAO.authenticate(email,password);
 
-        return new ModelAndView("staffHomepage", "staff", staff);
-    }*/
+        try{
+
+            session.setAttribute("staff", staff);
+            return "redirect:/mainpage#!/homepage";
+        }catch(Exception e){
+            return "redirect:/staff/login";
+        }
+    }
 }
