@@ -68,7 +68,7 @@ public class StaffDAO {
 
         String url = "jdbc:mysql://localhost:3306/homs";
         String username = "root";
-        String password = "HawbAndFj6";
+        String password = "";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             dataSource = new DriverManagerDataSource(url, username, password);
