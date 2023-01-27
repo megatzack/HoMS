@@ -30,7 +30,6 @@ public class StaffDAO {
         String sql = "SELECT * FROM staff WHERE staffEmail = ? AND staffPassword = ?";
         try{
             staff = jbdct.queryForObject(sql, new BeanPropertyRowMapper<Staff>(Staff.class), email, password);
-            System.out.println(staff.getStaffName());
             return staff;
         }
         catch (Exception e) {

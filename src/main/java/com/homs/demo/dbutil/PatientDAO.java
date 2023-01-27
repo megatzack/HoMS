@@ -30,7 +30,6 @@ public class PatientDAO {
         Object args[] = {email, password};
         try{
             patient = jbdct.queryForObject(sql, new BeanPropertyRowMapper<Patient>(Patient.class), email, password);
-            System.out.println("Patient is " + patient.getName());
             return patient;
         }
         catch (Exception e) {

@@ -26,20 +26,14 @@ public class loginController {
     public String login(HttpServletRequest request, HttpSession session, Staff staff, Patient patient) {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        
-        
 
         try {
             staff = StaffDAO.authenticate(email, password);
-            System.out.println("staff is " + staff.getStaffName());
-            System.out.println("staff is not null");
             session.setAttribute("staff", staff);
             return "redirect:/staff/staffDashboard";
         } catch (NullPointerException e1) {
             try {
                 patient = PatientDAO.authenticate(email, password);
-                System.out.println("patient is " + patient.getName());
-                System.out.println("patient is not null");
                 session.setAttribute("patient", patient);
                 return "redirect:/mainpage#!/homepage";
             } catch (NullPointerException e2) {
