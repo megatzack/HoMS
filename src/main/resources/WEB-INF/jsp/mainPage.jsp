@@ -39,6 +39,7 @@
             <li><a href="service" class="nav-link px-2 link-dark">Service</a></li>
             <li><a href="#!review" class="nav-link px-2 link-dark">Review</a></li>
             <li><a href="about" class="nav-link px-2 link-dark">About Us</a></li>
+            <li><a href="#!staff" class="nav-link px-2 link-dark">Contact Us</a></li>
             <li><button type="button" class="btn btn-primary" style="background-color:#06605B;">Log Out</button></li>
           </ul>
         </header>

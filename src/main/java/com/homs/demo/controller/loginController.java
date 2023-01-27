@@ -22,7 +22,7 @@ public class loginController {
     @Autowired
     private PatientDAO PatientDAO;
 
-    @PostMapping(value="/loginController")
+    @PostMapping(value="/login")
     public String login(HttpServletRequest request, HttpSession session, Staff staff, Patient patient) {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
@@ -39,7 +39,8 @@ public class loginController {
                 return "redirect:/mainpage#!/homepage";
             } catch (NullPointerException e2) {
                 return "redirect:/login";
-            }
+            } 
+        }  
         }
     }
 }
