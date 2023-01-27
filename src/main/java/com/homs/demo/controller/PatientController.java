@@ -13,38 +13,20 @@ import com.homs.demo.dbutil.PatientDAO;
 import com.homs.demo.model.Patient;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/Patient")
 public class PatientController {
 
-    @GetMapping("/PatientDB")
-    public String opendb() {
-    try {
-        String dbURL = "jdbc:mysql://localhost:3306/homs";
-            String username = "root";
-            String password = "";
-                
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection( dbURL,username,password);
-            System.out.println("successfully open database connection  :" +connection.getMetaData());
-        } 
-        catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-        }
-    return null;
-    }
     
     @GetMapping("/create")
     public String Patient_register() {
        // return "Patient_register";
-       return "registerPage";
+       return "registerPatient";
     }
 
-    @PostMapping("/registerPatient")
+    @PostMapping("/welcome")
     public String register(HttpServletRequest request)
     {
         String userIC = request.getParameter("patientIC");
@@ -66,4 +48,24 @@ public class PatientController {
         return "homePage";
 
     }
+
+    @GetMapping("/login")
+    public String login(){
+        return "loginPage";
+    }
+
+    @PostMapping(value="/loginController")
+    public String login(HttpServletRequest request, HttpSession session) {
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+
+        try{
+            Patient patient = PatientDAO.authenticate(email,password);
+            session.setAttribute("patient", patient);
+            return "redirect:/mainpage#!/homepage";
+        }catch(Exception e){
+            return "redirect:/Patient/login";
+        }
+    }
+    
 }
