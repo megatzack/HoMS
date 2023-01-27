@@ -1,0 +1,42 @@
+#background{
+    z-index: -1;
+    width: 100%;
+    height: auto;
+}
+
+desc h4 {
+    position: absolute;
+    top: 20vh;
+    left: 43%;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+
+    color: #FFFFFF;
+}
+
+desc p {
+    position: absolute;
+    top: 26vh;
+    left: 42.8%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 16px;
+
+    color: #FFFFFF;
+}
+
+div a{
+    text-decoration: none;
+    color: black;
+}
+
+.container {
+    padding-top: 6vh;
+}
+
+#content {
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+}
