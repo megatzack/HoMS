@@ -24,6 +24,20 @@ public class ScheduleDAO {
         return rowAffected;
     }
 
+    public Schedule getByName(String name){
+        Schedule schedule = null;
+        JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
+        String sql = "SELECT * FROM `schedule` WHERE `name` = ?";
+        try{
+            schedule = jbdct.queryForObject(sql, new BeanPropertyRowMapper<Schedule>(Schedule.class), name);
+            return schedule;
+        }
+        catch (Exception e) {
+            return null;
+        }
+        
+    }
+
     
     public static DataSource getDataSource() {
         DataSource dataSource = null;

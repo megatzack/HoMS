@@ -38,4 +38,14 @@ public class scheduleController {
 
         return "homePage";
     }
+
+    @GetMapping(value="/seeSchedule")
+    public String seeSchedule(Model model){
+        Schedule schedule = null;
+        ScheduleDAO scheduleDAO = new ScheduleDAO();
+        schedule =  scheduleDAO.getByName("yusri");  //testing
+        model.addAttribute("schedule", schedule);
+
+        return "staff_view_schedule";
+    }
 }

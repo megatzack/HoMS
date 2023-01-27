@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +11,7 @@ width: 100%;
 height: 241px;
 top: 0px;
 left: 0px;
-background-image:url('images/pattern-04.png');
+background-image:url('/image/pattern-04.png');
 }
 
 .image1{
@@ -326,7 +324,7 @@ a:hover{
 <!-- header content goes here -->
     <div class = 'menu-container'>
         <div class ='menu'>
-         <div class ='image1'><img src="images/HoMS-05.png" alt="logo" width=120px height=45.67px/></div>
+         <div class ='image1'><img src="/image/HoMS-05.png" alt="logo" width=120px height=45.67px/></div>
           <div class = 'menu-info'>
             <div class ='home'><a href="">Home</a></div>
             <div class ='doctor'><a href="">Doctor</a></div>
@@ -352,25 +350,22 @@ a:hover{
     	<form method="post" action="">
 
   			<h3 class="staff-text">Staff Names</h3>
-  			<input class="form-control1" type="text" name="fullname" placeholder="insert fullname" disabled>
-      
-      		<h3 class="contact-text">Contact Number:</h3>
-   			<input class="form-control2" type="tel" name="phone" placeholder="012-3456789" disabled><br>
+  			<input class="form-control1" type="text" name="fullname" placeholder="insert fullname" th:value="${schedule.getName()}" readonly>
    
    			<h3 class="oncall-text">On-Call Time</h3>
    
-   			<h3 class="oc-timein-text">Time In:</h3> <input class="form-control3" type="time" name="time" value="12:00" disabled><br>
+   			<h3 class="oc-timein-text">Time In:</h3> <input class="form-control3" type="text" name="ocInTime" th:value="${schedule.getOcInTime()}" readonly><br>
    
-   			<h3 class="oc-timeout-text">Time Out:</h3> <input class="form-control4" type="time" name="time" value="12:00" disabled><br>
+   			<h3 class="oc-timeout-text">Time Out:</h3> <input class="form-control4" type="text" name="ocOutTime" th:value="${schedule.getOcOutTime()}" readonly><br>
 
 			<h3 class ="schedule-text">Today Schedule</h3>
-			<h3 class = "sc-timein-text">Time In:</h3> <input class="form-control5" type="time" name="time" value="12:00" disabled><br>
-			<h3 class="sc-timeout-text">Time Out:</h3> <input class="form-control6" type="time" name="time" value="12:00" disabled><br>
+			<h3 class = "sc-timein-text">Time In:</h3> <input class="form-control5" type="text" name="tcInTime" th:value="${schedule.getTcInTime()}" readonly><br>
+			<h3 class="sc-timeout-text">Time Out:</h3> <input class="form-control6" type="text" name="tcOutTime" th:value="${schedule.getTcOutTime()}" readonly><br>
 	
 			<h3 class="notes-text">Notes</h3>
-			<textarea class="form-control7" name="notes" placeholder="Write something here..." rows="4" cols="25" disabled></textarea>
+			<input class="form-control7" name="notes" th:value="${schedule.getNotes()}" readonly>
 	
-			<input class="btn " type="submit" value="Update">
+			<input class="btn " type="submit" value="done">
 		</form>
 		</div>
  
