@@ -24,12 +24,12 @@ public class PatientDAO {
     }
 
     public static Patient authenticate(String email, String password) {
-        Patient Patient = null;
+        Patient patient = null;
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
         String sql = "SELECT * FROM `Patient` WHERE `PatientEmail` = ? AND `PatientPassword` = ?";
         try{
-            Patient = jbdct.queryForObject(sql, new BeanPropertyRowMapper<Patient>(Patient.class), email, password);
-            return Patient;
+            patient = jbdct.queryForObject(sql, new BeanPropertyRowMapper<Patient>(Patient.class), email, password);
+            return patient;
         }
         catch (Exception e) {
             return null;

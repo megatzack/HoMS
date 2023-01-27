@@ -21,5 +21,9 @@ app.config(function ($routeProvider) {
         .when("/about", {
             templateUrl: "/about",
             controller: "homeController"
+        })
+        .when("/queue", {
+            templateUrl: "/queue",
+            controller: "homeController"
         });
 });

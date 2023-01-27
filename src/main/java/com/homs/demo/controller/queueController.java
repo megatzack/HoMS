@@ -22,7 +22,7 @@ public class queueController {
         QueueDAO queueDAO = new QueueDAO();
         int row = queueDAO.enterVirtualQueue(patient);
         if (row == 1) {
-            return "viewQueue";
+            return "queue";
         }
         else {
             return "error";
@@ -36,7 +36,7 @@ public class queueController {
         Patient patient = (Patient) session.getAttribute("patient");
         QueueDAO queueDAO = new QueueDAO();
         Queue queue = queueDAO.refresh(patient);
-        return new ModelAndView("viewQueue", "queue", queue);
+        return new ModelAndView("virtualQueue", "queue", queue);
     }
 
 }

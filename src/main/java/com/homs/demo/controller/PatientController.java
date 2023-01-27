@@ -55,17 +55,13 @@ public class PatientController {
     }
 
     @PostMapping(value="/loginController")
-    public String mainPage(HttpServletRequest request, Model mod, HttpSession session) {
+    public String mainPage(HttpServletRequest request, HttpSession session) {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         
         Patient patient = PatientDAO.authenticate(email, password);
-        if (patient != null) {
-            session.setAttribute("patient", patient);
-            return "redirect:/mainpage#!/homepage";
-        }
-        else {
-            return "redirect:/Patient/login";
-        }
+        session.setAttribute("patient", patient);
+        return "redirect:/mainpage#!/homepage";
     }
+    
 }

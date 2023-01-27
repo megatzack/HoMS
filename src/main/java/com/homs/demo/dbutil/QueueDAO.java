@@ -6,7 +6,6 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
-import com.homs.demo.controller.queueController;
 import com.homs.demo.model.Patient;
 import com.homs.demo.model.Queue;
 
