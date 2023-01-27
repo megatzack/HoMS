@@ -31,4 +31,3 @@ public class inventory {
         return type;
     }
 }
-    
