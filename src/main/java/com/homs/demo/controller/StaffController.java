@@ -56,6 +56,4 @@ public class StaffController {
         return "login";
 
     }
-
-   
 }
