@@ -2,6 +2,7 @@ package com.homs.demo.dbutil;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+// import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
@@ -15,7 +16,7 @@ import javax.sql.DataSource;
 @Repository
 public class StaffDAO {
     private Staff staff;
-
+    
     public int create(Staff staff) {
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
         String sql = "INSERT INTO staff (staffName, staffEmail, staffPassword, staffDepartment) VALUES (?,?,?,?)";
@@ -24,6 +25,7 @@ public class StaffDAO {
 
         return rowAffected;
     }
+
 
     public Staff authenticate(String email, String password) {
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
@@ -77,4 +79,5 @@ public class StaffDAO {
         }
         return dataSource;
     }
+
 }
