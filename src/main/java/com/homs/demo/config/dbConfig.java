@@ -7,6 +7,7 @@ import com.homs.demo.dbutil.AmbulanceDAO;
 import com.homs.demo.dbutil.PatientDAO;
 import com.homs.demo.dbutil.StaffDAO;
 import com.homs.demo.dbutil.reviewDAO;
+import com.homs.demo.dbutil.inventoryDAO;
 
 @Controller
 public class dbConfig {
@@ -28,6 +29,11 @@ public class dbConfig {
     @Bean
     public AmbulanceDAO ambulanceDAO() {
         return new AmbulanceDAO();
+    }
+
+    @Bean
+    public inventoryDAO inventoryDAO() {
+        return new inventoryDAO();
     }
     
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.homs.demo.dbutil.AmbulanceDAO;
 import com.homs.demo.dbutil.StaffDAO;
@@ -15,30 +16,11 @@ import com.homs.demo.model.Ambulance;
 import com.homs.demo.model.Staff;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/staff")
 public class StaffController {
-    
-    @GetMapping("/StaffDB")
-    public String opendb() {
-    try {
-        String dbURL = "jdbc:mysql://localhost:3306/homs";
-            String username = "root";
-            String password = "";
-                
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection( dbURL,username,password);
-            System.out.println("successfully open database connection  :" +connection.getMetaData());
-        } 
-        catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-        }
-    return null;
-    }
     
     @GetMapping("/create")
     public String staff_register() {
@@ -64,14 +46,32 @@ public class StaffController {
         System.out.println("row affected: " + row);
 
         if(staff.getStaffDepartment().equals("Ambulance Department")){
-            Ambulance ambulance = new Ambulance(staff.getStaffName(),"-","meh","available","-",staff.getStaffDepartment());
+            Ambulance ambulance = new Ambulance(staff.getStaffName(),"-","-","available","-",staff.getStaffDepartment());
             AmbulanceDAO ambulanceDAO = new AmbulanceDAO();
             int rowss = ambulanceDAO.createAmbulance(ambulance);
             System.out.println("ambulance table affected: " + rowss);
         }
+        
+        return "staffHomePage";
+    }
+    
+    @GetMapping(value="/login")
+    public String login(){
+        return "loginPage";
+    }
 
+    @PostMapping(value="/welcomeBack")
+    public String loginController(HttpServletRequest request, HttpSession session,Staff staff) {
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        //StaffDAO staffDAO = new StaffDAO();
+        staff = StaffDAO.authenticate(email,password);
+        try{
 
-        return "staff_schedule";
-
+            session.setAttribute("staff", staff);
+            return "redirect:/mainpage#!/homepage";
+        }catch(Exception e){
+            return "redirect:/staff/login";
+        }
     }
 }

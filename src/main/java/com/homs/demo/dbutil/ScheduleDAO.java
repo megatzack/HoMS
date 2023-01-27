@@ -1,43 +1,44 @@
 package com.homs.demo.dbutil;
 
+
+
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import com.homs.demo.model.Patient;
+
+import com.homs.demo.model.Schedule;
 
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-
 
 import javax.sql.DataSource;
 
 @Repository
-public class PatientDAO {
-    
+public class ScheduleDAO {
 
-    public int register(Patient patient) {
-        
+    public int create(Schedule schedule){
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
-        String sql = "insert into `Patient` (`patientName`,`patientEmail`,`patientPassword`,`patientIC`, `patientPhoneNO`) values (?,?,?,?,?)";
-        Object args[] = {patient.getName(), patient.getPatientEmail(), patient.getPatientPassword() ,patient.getUserIC(), patient.getPhoneNO()};
-
+        String sql = "INSERT INTO `schedule` (`name`, `ocInTime`, `ocOutTime`, `tcInTime`,`tcOutTime`,`notes`) VALUES (?,?,?,?,?,?)";
+        Object args[] = {schedule.getName(),schedule.getOcInTime(),schedule.getOcOutTime(),schedule.getTcInTime(),schedule.getTcOutTime(),schedule.getNotes()};
         int rowAffected = jbdct.update(sql, args);
+
         return rowAffected;
     }
 
-    public static Patient authenticate(String email, String password) {
-        Patient patient = null;
+    public Schedule getByName(String name){
+        Schedule schedule = null;
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
-        String sql = "SELECT * FROM patient WHERE patientEmail = ? AND patientPassword = ?";
-        
+        String sql = "SELECT * FROM `schedule` WHERE `name` = ?";
         try{
-            patient = jbdct.queryForObject(sql, new BeanPropertyRowMapper<Patient>(Patient.class), email, password);
-            return patient;
+            schedule = jbdct.queryForObject(sql, new BeanPropertyRowMapper<Schedule>(Schedule.class), name);
+            return schedule;
         }
         catch (Exception e) {
             return null;
         }
+        
     }
 
+    
     public static DataSource getDataSource() {
         DataSource dataSource = null;
 
@@ -52,4 +53,5 @@ public class PatientDAO {
         }
         return dataSource;
     }
+    
 }

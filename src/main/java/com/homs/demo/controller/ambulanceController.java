@@ -1,6 +1,7 @@
 package com.homs.demo.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,6 +27,25 @@ public class ambulanceController {
         
         
         return "ambulanceRespond";
+    }
+
+    @GetMapping(value="/myProfile")
+    public String myProfile(Model model){
+        Ambulance ambulance = null;
+        AmbulanceDAO ambulanceDAO = new AmbulanceDAO();
+
+        ambulance = ambulanceDAO.getByName("yasir");
+        model.addAttribute("ambulance", ambulance);
+
+        return "ambulance_profile";
+    }
+
+    @PostMapping(value="/updateMyProfile")
+    public String updateProfile(@RequestParam("name")String name, @RequestParam("contact")String contact, @RequestParam("status")String status, @RequestParam("location")String location, @RequestParam("ambulancePlate")String ambulancePlate){
+        AmbulanceDAO ambulanceDAO = new AmbulanceDAO();
+        int row = ambulanceDAO.getNewProfile(name, contact, location, status, ambulancePlate);
+
+        return "homePage";
     }
     
 }

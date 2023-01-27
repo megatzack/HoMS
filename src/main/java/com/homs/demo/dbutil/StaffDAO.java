@@ -2,6 +2,7 @@ package com.homs.demo.dbutil;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+// import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
@@ -15,7 +16,7 @@ import javax.sql.DataSource;
 @Repository
 public class StaffDAO {
     private Staff staff;
-
+    
     public int create(Staff staff) {
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
         String sql = "INSERT INTO staff (staffName, staffEmail, staffPassword, staffDepartment) VALUES (?,?,?,?)";
@@ -25,12 +26,14 @@ public class StaffDAO {
         return rowAffected;
     }
 
-    public Staff authenticate(String email, String password) {
+
+    public static Staff authenticate(String email, String password) {
+        Staff staff = null;
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
         String sql = "SELECT * FROM staff WHERE staffEmail = ? AND staffPassword = ?";
+        
         try{
             staff = jbdct.queryForObject(sql, new BeanPropertyRowMapper<Staff>(Staff.class), email, password);
-            System.out.println(staff.getStaffName());
             return staff;
         }
         catch (Exception e) {
@@ -38,12 +41,37 @@ public class StaffDAO {
         }
     }
 
+    public List<Staff> getAllStaff(){
+        
+        JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
+
+        //List<Staff>staffList = new ArrayList<Staff>();
+        List<Staff>staffInfo = new ArrayList<Staff>();
+        
+
+        String sql = "SELECT * FROM `staff`";
+        
+        try{
+            staffInfo = jbdct.query(sql,new BeanPropertyRowMapper<>(Staff.class));
+            
+            for (Staff staff: staffInfo){
+                System.out.println("name: " + staff.getStaffName() );
+            }
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+
+        return staffInfo;
+    }
+
     public static DataSource getDataSource() {
         DataSource dataSource = null;
 
         String url = "jdbc:mysql://localhost:3306/homs";
         String username = "root";
-        String password = "HawbAndFj6";
+        String password = "";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             dataSource = new DriverManagerDataSource(url, username, password);
@@ -52,4 +80,5 @@ public class StaffDAO {
         }
         return dataSource;
     }
+
 }
