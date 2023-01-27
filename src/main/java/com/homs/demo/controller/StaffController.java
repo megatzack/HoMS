@@ -28,7 +28,7 @@ public class StaffController {
     }
 
     @PostMapping("/createStaff")
-    public String register(HttpServletRequest request)
+    public String register(HttpServletRequest request) throws SQLException
     {
         String staffName = request.getParameter("staffName");
         String staffEmail = request.getParameter("staffEmail");
