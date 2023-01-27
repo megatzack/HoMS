@@ -4,7 +4,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.homs.demo.dbutil.PatientDAO;
 import com.homs.demo.dbutil.QueueDAO;
 import com.homs.demo.model.Patient;
 import com.homs.demo.model.Queue;
