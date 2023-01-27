@@ -74,25 +74,4 @@ public class StaffController {
             return "redirect:/staff/login";
         }
     }
-
-    @GetMapping(value="/login")
-    public String login(){
-        return "loginPage";
-    }
-
-    @PostMapping(value="/welcomeBack")
-    public String loginController(HttpServletRequest request, HttpSession session,Staff staff) {
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        //StaffDAO staffDAO = new StaffDAO();
-        staff = StaffDAO.authenticate(email,password);
-
-        try{
-
-            session.setAttribute("staff", staff);
-            return "redirect:/mainpage#!/homepage";
-        }catch(Exception e){
-            return "redirect:/staff/login";
-        }
-    }
 }
