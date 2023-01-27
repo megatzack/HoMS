@@ -41,6 +41,26 @@ public class ambulanceController {
         return "ambulance";
     }
 
+    @GetMapping(value="/myProfile")
+    public String myProfile(Model model){
+        Ambulance ambulance = null;
+        AmbulanceDAO ambulanceDAO = new AmbulanceDAO();
+
+        ambulance = ambulanceDAO.getByName("yasir");
+        model.addAttribute("ambulance", ambulance);
+
+        return "ambulance_profile";
+    }
+
+    @PostMapping(value="/updateMyProfile")
+    public String updateProfile(@RequestParam("name")String name, @RequestParam("contact")String contact, @RequestParam("status")String status, @RequestParam("location")String location, @RequestParam("ambulancePlate")String ambulancePlate){
+        AmbulanceDAO ambulanceDAO = new AmbulanceDAO();
+        int row = ambulanceDAO.getNewProfile(name, contact, location, status, ambulancePlate);
+
+        return "homePage";
+    }
+    
+
     /*public String updateRespond(){
         return "ambulance";
     }*/
