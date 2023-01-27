@@ -32,6 +32,38 @@ public class AmbulanceDAO {
         }
 
     }
+
+    public Ambulance getByName(String name){
+        Ambulance ambulance = null;
+        JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
+        String sql = "SELECT * FROM `ambulance` WHERE `name` = ?";
+        try{
+            ambulance = jbdct.queryForObject(sql,new BeanPropertyRowMapper<Ambulance>(Ambulance.class),name);
+            
+            return ambulance;
+        }
+        catch (Exception e) {
+            return null;
+        }
+        
+    }
+
+    public int getNewRespond(String name, String contact, String location, String status, String dates, String times ){
+        JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
+        String sql = "UPDATE ambulance SET location= ?,status= ?,dates= ?, times= ? WHERE name= ? AND contact= ?";
+        //Object args[] = {location,status,dates,times,name,contact};
+        int rowAffected = jbdct.update(sql, location,status,dates,times,name,contact);
+
+        return rowAffected;
+    }
+
+    public int getNewProfile(String name,String contact,String location, String status, String ambulancePlate){
+        JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
+        String sql = "UPDATE ambulance SET contact= ?, location= ?,status= ?,ambulancePlate= ? WHERE name= ?";
+        int rowAffected = jbdct.update(sql,contact,location,status,ambulancePlate,name);
+        
+        return rowAffected;
+    }
     
     public Ambulance getByName(String name){
         Ambulance ambulance = null;

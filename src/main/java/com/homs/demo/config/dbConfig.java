@@ -27,6 +27,11 @@ public class dbConfig {
     }
 
     @Bean
+    public inventoryDAO inventoryDAO() {
+        return new inventoryDAO();
+    }
+    
+    @Bean
     public AmbulanceDAO ambulanceDAO() {
         return new AmbulanceDAO();
     }

@@ -1,5 +1,8 @@
 package com.homs.demo.controller;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,12 +22,12 @@ public class ambulanceController {
     }
 
     @PostMapping(value="/checkAmbulance")
-    public String check(@RequestParam("select_ambulance")String plateNum){
+    public String check(@RequestParam("select_ambulance")String plateNum, Model model){
         Ambulance ambulance = null;
         AmbulanceDAO ambulanceDAO = new AmbulanceDAO();
         ambulance = ambulanceDAO.getByPlate(plateNum);
         System.out.println(ambulance.getName());
-        
+        model.addAttribute("ambulance",ambulance);
         
         return "ambulanceRespond";
     }
