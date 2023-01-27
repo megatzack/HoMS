@@ -23,7 +23,7 @@ public class PatientController {
     @GetMapping("/signup")
     public String Patient_register() {
        // return "Patient_register";
-       return "registerPage";
+       return "registerPatient";
     }
 
     @PostMapping("/welcome")
