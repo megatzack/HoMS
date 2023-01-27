@@ -29,6 +29,7 @@ public class loginController {
 
         try {
             staff = StaffDAO.authenticate(email, password);
+            System.out.println(staff.getStaffEmail());
             session.setAttribute("staff", staff);
             return "redirect:/staff/staffDashboard";
         } catch (NullPointerException e1) {

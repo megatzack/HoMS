@@ -44,6 +44,9 @@
                 </div>
                 <button type="submit" id="submit">Sign In</button>
             </form>
-            <p class="signUp">Dont have an account? <u>Create Account</u></p>
+            <p class="signUp">Dont have an account?
+            <a href="/register">
+                <u>Create Account</u>
+            </a></p>
         </body>
     </html>
