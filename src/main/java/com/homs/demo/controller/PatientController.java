@@ -54,7 +54,7 @@ public class PatientController {
         return "loginPage";
     }
 
-    @PostMapping(value="/loginController")
+    @PostMapping(value="/welcomeBack")
     public String login(HttpServletRequest request, HttpSession session) {
         String email = request.getParameter("email");
         String password = request.getParameter("password");

@@ -46,14 +46,35 @@ public class StaffController {
         System.out.println("row affected: " + row);
 
         if(staff.getStaffDepartment().equals("Ambulance Department")){
-            Ambulance ambulance = new Ambulance(staff.getStaffName(),"-","meh","available","-",staff.getStaffDepartment());
+            Ambulance ambulance = new Ambulance(staff.getStaffName(),"-","-","available","-",staff.getStaffDepartment());
             AmbulanceDAO ambulanceDAO = new AmbulanceDAO();
             int rowss = ambulanceDAO.createAmbulance(ambulance);
             System.out.println("ambulance table affected: " + rowss);
         }
 
 
-        return "login";
+        return "staffHomePage";
 
+    }
+
+    @GetMapping(value="/login")
+    public String login(){
+        return "loginPage";
+    }
+
+    @PostMapping(value="/welcomeBack")
+    public String loginController(HttpServletRequest request, HttpSession session,Staff staff) {
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        //StaffDAO staffDAO = new StaffDAO();
+        staff = StaffDAO.authenticate(email,password);
+
+        try{
+
+            session.setAttribute("staff", staff);
+            return "redirect:/mainpage#!/homepage";
+        }catch(Exception e){
+            return "redirect:/staff/login";
+        }
     }
 }
