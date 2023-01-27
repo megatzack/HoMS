@@ -18,10 +18,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("/staff")
+@RequestMapping("/Staff")
 public class StaffController {
     
-    @GetMapping("/signup")
+    @GetMapping("/create")
     public String staff_register() {
         return "registerStaff";
     }
@@ -52,21 +52,26 @@ public class StaffController {
         }
 
 
-        return "ambulance";
+        return "staffhomePage";
 
     }
 
-    @PostMapping(value="/login")
-    public String login(HttpServletRequest request, HttpSession session, Staff staff) {
+    @GetMapping("/login")
+    public String login() {
+        return "loginPage";
+    }
+
+    @PostMapping(value="/welcomeBack")
+    public String mainPage(HttpServletRequest request, HttpSession session) {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        staff = StaffDAO.authenticate(email, password);
-        if (staff != null) {
+        
+        try{
+            Staff staff = StaffDAO.authenticate(email, password);
             session.setAttribute("staff", staff);
-            return "redirect:/mainpage#!/homepage";
-        }
-        else {
-            return "redirect:/login";
+            return "staffhomePage";
+        }catch(Exception e){
+            return "loginPage";
         }
     }
 }

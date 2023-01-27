@@ -180,7 +180,7 @@
      <h1 class="main-title">Create New Staff Profile!</h1>
      <h3 class="sub-title">Please fill in the form to register a new staff member</h4>
      
-    <form method="post" action="createStaff">
+    <form method="post" action="welcome">
        <h2 class="name-text">Name:</h3>
        <input class="form-control1" type="text" name="staffName" placeholder="insert fullname"><br>
        

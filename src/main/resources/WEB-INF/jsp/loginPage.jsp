@@ -22,7 +22,7 @@
             <img class="wallpaper" src="/image/login.jpg" alt="login">
             <p class="title">Welcome Back !</p>
             <p class="description">please enter your details.</p>
-            <form action="loginController" method="post">
+            <form action="welcomeBack" method="post">
                 <div class="mb-3">
                     <label for="Output1" class="email">Email</label>
                     <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">

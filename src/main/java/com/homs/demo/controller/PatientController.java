@@ -20,7 +20,7 @@ import jakarta.servlet.http.HttpSession;
 @RequestMapping("/Patient")
 public class PatientController {
     
-    @GetMapping("/signup")
+    @GetMapping("/create")
     public String Patient_register() {
        // return "Patient_register";
        return "registerPatient";
@@ -42,6 +42,7 @@ public class PatientController {
         patient.setUserIC(userIC);
         patient.setPhoneNO(phoneNO);
 
+        session.setAttribute("patient", patient);
         PatientDAO patientDAO = new PatientDAO();
         int row = patientDAO.register(patient);
         System.out.println("row affected: " + row);
@@ -54,14 +55,19 @@ public class PatientController {
         return "loginPage";
     }
 
-    @PostMapping(value="/loginController")
+    @PostMapping(value="/welcomeBack")
     public String mainPage(HttpServletRequest request, HttpSession session) {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         
+        try {
         Patient patient = PatientDAO.authenticate(email, password);
         session.setAttribute("patient", patient);
         return "redirect:/mainpage#!/homepage";
+        }
+        catch (Exception e) {
+            return "redirect:/Patient/login";
+        }
     }
     
 }
