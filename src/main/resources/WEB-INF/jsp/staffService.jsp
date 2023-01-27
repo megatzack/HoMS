@@ -25,32 +25,32 @@
     <!--Service Content-->
     <div class="container">
         <div class="row row-cols-3 gy-5">
-            <a href="#!/service/medicalRecord">
+            <a href="#!/service/ambulance" th:if="${#strings.equals(staff.getStaffDepartment(),'Ambulance Department')}">
                 <div class="col">
                     <div class="card shadow-sm align-items-center" id="content">
                         <img src="/image/HoMSLogo-03.png" alt="">
                         <br>
-                        Medical Record
+                        Ambulance
                     </div>
                 </div>
             </a>
 
-            <a href="#!/service/medicalQueue">
+            <a href="#!/service/staffSchedule">
                 <div class="col">
                     <div class="card shadow-sm align-items-center" id="content">
                         <img src="/image/HoMSLogo-03.png" alt="">
                         <br>
-                        Medical Queue
+                        Staff Schedule
                     </div>
                 </div>
             </a>
-            
-            <a href="#!/service/medicalShop">
+
+            <a href="#!/service/medicalReport">
                 <div class="col">
                     <div class="card shadow-sm align-items-center" id="content">
                         <img src="/image/HoMSLogo-03.png" alt="">
                         <br>
-                        Medical Shop
+                        Patient Medical Report
                     </div>
                 </div>
             </a>

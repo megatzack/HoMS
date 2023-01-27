@@ -1,4 +1,4 @@
-var app = angular.module("Facility", ["ngRoute"]);
+var app = angular.module("HoMS-Facility", ["ngRoute"]);
 
 app.config(function ($routeProvider) {
     $routeProvider
@@ -12,6 +12,9 @@ app.config(function ($routeProvider) {
         .when("/service", {
             templateUrl: "/service",
         })
+        .when("/staff-service", {
+            templateUrl: "/staffservice",
+        })
         .when("/review", {
             templateUrl: "/review"
         })
@@ -20,5 +23,11 @@ app.config(function ($routeProvider) {
         })
         .when("/service/medicalShop", {
             templateUrl: "/service/medicalShop",
+        })
+        .when("/service/medicalRecord", {
+            templateUrl: "/service/medicalRecord",
+        })
+        .when("/service/medicalQueue", {
+            templateUrl: "/service/medicalQueue",
         })
 });
