@@ -14,23 +14,23 @@ import javax.sql.DataSource;
 
 @Repository
 public class StaffDAO {
+    private Staff staff;
 
     public int create(Staff staff) {
-        
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
-        String sql = "INSERT INTO `staff` (`staffName`, `staffEmail`, `staffPassword`, `staffDepartment`) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO staff (staffName, staffEmail, staffPassword, staffDepartment) VALUES (?,?,?,?)";
         Object args[] = { staff.getStaffName(), staff.getStaffEmail(), staff.getStaffPassword(), staff.getStaffDepartment()};
         int rowAffected = jbdct.update(sql, args);
 
         return rowAffected;
     }
 
-    public static Staff authenticate(String email, String password) {
-        Staff staff = null;
+    public Staff authenticate(String email, String password) {
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
-        String sql = "SELECT * FROM `staff` WHERE `staffEmail` = ? AND `staffPassword` = ?";
+        String sql = "SELECT * FROM staff WHERE staffEmail = ? AND staffPassword = ?";
         try{
             staff = jbdct.queryForObject(sql, new BeanPropertyRowMapper<Staff>(Staff.class), email, password);
+            System.out.println(staff.getStaffName());
             return staff;
         }
         catch (Exception e) {
@@ -68,7 +68,7 @@ public class StaffDAO {
 
         String url = "jdbc:mysql://localhost:3306/homs";
         String username = "root";
-        String password = "";
+        String password = "HawbAndFj6";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             dataSource = new DriverManagerDataSource(url, username, password);

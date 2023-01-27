@@ -1,9 +1,9 @@
 package com.homs.demo.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.ui.Model;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -17,24 +17,32 @@ import com.homs.demo.model.Staff;
 
 @Controller
 public class loginController {
+    @Autowired
+    private StaffDAO StaffDAO;
+    @Autowired
+    private PatientDAO PatientDAO;
 
     @PostMapping(value="/loginController")
     public String login(HttpServletRequest request, HttpSession session, Staff staff, Patient patient) {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         
-        staff = StaffDAO.authenticate(email, password);
-        if (staff != null) {
+        
+
+        try {
+            staff = StaffDAO.authenticate(email, password);
+            System.out.println("staff is " + staff.getStaffName());
+            System.out.println("staff is not null");
             session.setAttribute("staff", staff);
             return "redirect:/staff/staffDashboard";
-        }
-        else {
-            patient = PatientDAO.authenticate(email, password);
-            if (patient != null) {
+        } catch (NullPointerException e1) {
+            try {
+                patient = PatientDAO.authenticate(email, password);
+                System.out.println("patient is " + patient.getName());
+                System.out.println("patient is not null");
                 session.setAttribute("patient", patient);
                 return "redirect:/mainpage#!/homepage";
-            }
-            else {
+            } catch (NullPointerException e2) {
                 return "redirect:/login";
             }
         }

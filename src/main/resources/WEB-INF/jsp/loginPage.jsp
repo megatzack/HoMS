@@ -29,7 +29,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="Output2" class="password">Password</label>
-                    <input type="password" class="form-control" name="pass" id="pass">
+                    <input type="password" class="form-control" name="password" id="pass">
                 </div>
                 <table>
                     <tr>
