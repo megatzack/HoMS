@@ -51,9 +51,16 @@ public class StaffController {
             int rowss = ambulanceDAO.createAmbulance(ambulance);
             System.out.println("ambulance table affected: " + rowss);
         }
-
-
+        
         return "login";
-
     }
+
+    /*@GetMapping("/homepage")
+    public ModelAndView viewhomepage(HttpSession session) {
+        StaffDAO staffDAO = new StaffDAO();
+        Staff staff = staffDAO.getHomepage(session.getAttribute("staffEmail").toString());
+        session.getAttribute("staff");
+
+        return new ModelAndView("staffHomepage", "staff", staff);
+    }*/
 }
