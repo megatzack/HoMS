@@ -95,6 +95,19 @@ public class tableLoader {
                     + ")");
             System.out.println("Table 'auth' created");
         }
+        if (!tables.contains("queue")) {
+            jdbcTemplate.execute("CREATE TABLE queue ("
+                    + "queueID INT NOT NULL AUTO_INCREMENT,"
+                    + "patientID INT NOT NULL,"
+                    + "staffID INT NOT NULL,"
+                    + "queueStatus VARCHAR(45) NOT NULL,"
+                    + "queueTime DATETIME NOT NULL,"
+                    + "PRIMARY KEY (queueID),"
+                    + "FOREIGN KEY (patientID) REFERENCES patient(patientID),"
+                    + "FOREIGN KEY (staffID) REFERENCES staff(staffID)"
+                    + ")");
+            System.out.println("Table 'queue' created");
+        }
 
     }
     

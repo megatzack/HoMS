@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="MoHS Landing Page">
-    <meta name="keywords" content="HomePage">
-    <meta name="author" content="Amin Haiqal">
+    <meta name="keywords" content="queue">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
@@ -41,12 +40,11 @@
     <!--Text-->
     <text>
         <div class="container">
-            <p id="title">We're ready to help !</p>
-            <p id="description"> We take the guesswork out of location a doctor, hospital, or other medical facility in your area for you and your family.</p>
-            <call class="col-lg-6 col-md-8 mx-auto">
-                <a href="/Login/login.html" class="btn btn-success my-2" style="background-color:#06605B;">Get Started</a>
-                <a href="#" class="btn btn-outline-light my-2">Learn More</a>
-            </call>
+            <p id="title">You're now in our Virtual Queue</p>
+            <p id="description">
+              Feel free to buy drinks and sandwiches from our cafe.
+              We will notify you when it's your turn.
+            </p>
         </div>
     </text>
 </body>
