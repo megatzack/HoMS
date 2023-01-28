@@ -1,6 +1,7 @@
 package com.homs.demo.model;
 
 public class Patient {
+    private int patientID;
     private String userIC;
     private String phoneNO;
     private String Name;
@@ -11,6 +12,10 @@ public class Patient {
 
     public String getUserIC() {
         return userIC;
+    }
+
+    public int getPatientID() {
+        return patientID;
     }
 
     public String getPhoneNO() {
@@ -31,6 +36,10 @@ public class Patient {
 
     public void setUserIC(String userIC) {
         this.userIC = userIC;
+    }
+
+    public void setPatientID(int patientID) {
+        this.patientID = patientID;
     }
 
     public void setPhoneNO(String phoneNO) {

@@ -357,10 +357,13 @@ a:hover{
       		
       		<td><h3 class="ambulance-text">Ambulance</h3>
         	<select class="form-control5" name="ambulancePlate">
-          		<option>WAV333</option>
-          		<option>WVU6753</option>
-          		<option>VMW3245</option>
-          		<option>PGK3332</option>
+				<option>WAV333</option>
+				<option>WVU6753</option>
+				<option>VMW3245</option>
+				<option>PGK3332</option>
+			  	<option>WVY3334</option>
+			  	<option>KEK2022</option>
+			  	<option>KAM4302</option>
         	</select>
       		</td>
 

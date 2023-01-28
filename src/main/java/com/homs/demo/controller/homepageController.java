@@ -28,11 +28,23 @@ public class homepageController {
     }
     @GetMapping(value="/service/ambulance")
     public String getAmbulancePage() {
-        return "";
+        return "ambulance_profile";
     }
-    @GetMapping(value="/service/schedule")
+    @GetMapping(value="/service/admin")
+    public String getAdminPage() {
+        return "admin";
+    }
+    @GetMapping(value="/service/admin/ambulance_plate")
+    public String getAmbulancePlatePage() {
+        return "ambulance";
+    }
+    @GetMapping(value="/service/admin/ambulance_setschedule")
+    public String getAmbulanceSchedulePage() {
+        return "ambulanceRespond";
+    }
+    @GetMapping(value="/service/staffSchedule")
     public String getSchedulePage() {
-        return "";
+        return "staff_schedule";
     }
     @GetMapping(value="/service/medicalReport")
     public String getMedicalReportPage() {
