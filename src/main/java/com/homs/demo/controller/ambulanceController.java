@@ -66,7 +66,7 @@ public class ambulanceController {
         AmbulanceDAO ambulanceDAO = new AmbulanceDAO();
         int row = ambulanceDAO.getNewProfile(name, contact, location, status, ambulancePlate);
 
-        return "redirect:/mainpage#!/homepage";
+        return "redirect:/staffpage#!/homepage";
     }
     
 }

@@ -63,7 +63,7 @@ public class scheduleController {
         return "redirect:/staffpage#!/homepage";
     }
 
-    @GetMapping(value="/seeSchedule")
+    @GetMapping(value="seeSchedule")
     public String seeSchedule(HttpSession session,Model model){
         Schedule schedule = null;
         ScheduleDAO scheduleDAO = new ScheduleDAO();

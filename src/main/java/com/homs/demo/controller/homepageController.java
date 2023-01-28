@@ -49,7 +49,7 @@ public class homepageController {
     }
     @GetMapping(value="/service/staffSchedule")
     public String getSchedulePage() {
-        return "staff_schedule";
+        return "forward:/seeSchedule";
     }
     @GetMapping(value="/service/medicalReport")
     public String getMedicalReportPage() {
