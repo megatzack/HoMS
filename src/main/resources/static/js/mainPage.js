@@ -21,6 +21,21 @@ app.config(function ($routeProvider) {
         .when("/about", {
             templateUrl: "/about",
         })
+        .when("/service/ambulance", {
+            templateUrl: "/service/ambulance",
+        })
+        .when("/service/staffSchedule", {
+            templateUrl: "/service/staffSchedule",
+        })
+        .when("/service/admin/ambulance_plate", {
+            templateUrl: "/service/admin/ambulance_plate",
+        })
+        .when("/service/admin/ambulance_setschedule", {
+            templateUrl: "/service/admin/ambulance_setschedule",
+        })
+        .when("/service/admin", {
+            templateUrl: "/service/admin",
+        })
         .when("/service/medicalShop", {
             templateUrl: "/service/medicalShop",
         })
