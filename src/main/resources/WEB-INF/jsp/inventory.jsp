@@ -1,7 +1,3 @@
-<!--<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ page import="Model.Inventory" %>
-<%@page import="java.util.ArrayList"%>-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,15 +19,10 @@
 </head>
 
 <body>
-     <!--Pattern-->
-     <pattern>
-        <img src="/image/pattern.png" alt="pattern">
-    </pattern>
-
     <!--My Cart-->
     <div class="container-fluid" id="myCart">
         <div class="d-flex justify-content-between align-items-center">
-            <h3 style="color: white;"><b>Medical Shop</b></h3>
+            <h3 style="color: #06605B;"><b>Medical Shop</b></h3>
             <form action="" target="_blank">
                 <button type="button" class="btn btn-primary" style="background-color:#06605B;">My Cart</button>
             </form>

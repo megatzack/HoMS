@@ -63,7 +63,7 @@ public class AmbulanceDAO {
         int rowAffected = jbdct.update(sql,contact,location,status,ambulancePlate,name);
         
         return rowAffected;
-    } 
+    }
 
     public static DataSource getDataSource() {
         DataSource dataSource = null;

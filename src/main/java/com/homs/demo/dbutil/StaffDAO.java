@@ -15,7 +15,6 @@ import javax.sql.DataSource;
 
 @Repository
 public class StaffDAO {
-    private Staff staff;
     
     public int create(Staff staff) {
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
@@ -35,6 +34,7 @@ public class StaffDAO {
         try{
             staff = jbdct.queryForObject(sql, new BeanPropertyRowMapper<Staff>(Staff.class), email, password);
             return staff;
+
         }
         catch (Exception e) {
             return null;
@@ -71,7 +71,7 @@ public class StaffDAO {
 
         String url = "jdbc:mysql://localhost:3306/homs";
         String username = "root";
-        String password = "";
+        String password = "HawbAndFj6";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             dataSource = new DriverManagerDataSource(url, username, password);
