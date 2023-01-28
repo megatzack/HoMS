@@ -33,11 +33,14 @@ public class IndexController{
         String password = request.getParameter("password");
         staff = StaffDAO.authenticate(email,password);
         try{
-            //Staff Session
+            //Staff Session - Status: Working
             session.setAttribute("staff", staff);
-            model.addAttribute("staff", staff);
-            staff = (Staff) session.getAttribute("staff");
-            System.out.println(staff.getStaffName());
+
+            Staff test = (Staff) session.getAttribute("staff");
+            System.out.println(test.getStaffDepartment());
+            //model.addAttribute("staffDepartment", staff.getStaffDepartment());
+            //staff = (Staff) session.getAttribute("staff");
+            //System.out.println(staff.getStaffDepartment());
             return "redirect:/staffpage#!/homepage";
         }catch(NullPointerException e1){
             //Patient Session

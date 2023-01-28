@@ -25,12 +25,22 @@
     <!--Service Content-->
     <div class="container">
         <div class="row row-cols-3 gy-5">
-            <a href="#!/service/ambulance" th:if="${#strings.equals(staff.getStaffDepartment(),'Ambulance Department')}">
+            <a href="#!/service/ambulance" th:if="${staffDepartment == 'Ambulance Department'}">
                 <div class="col">
                     <div class="card shadow-sm align-items-center" id="content">
                         <img src="/image/HoMSLogo-03.png" alt="">
                         <br>
                         Ambulance
+                    </div>
+                </div>
+            </a>
+
+            <a href="#!/service/ambulance" th:if="${staffDepartment == 'Inventory Department'}">
+                <div class="col">
+                    <div class="card shadow-sm align-items-center" id="content">
+                        <img src="/image/HoMSLogo-03.png" alt="">
+                        <br>
+                        Inventory
                     </div>
                 </div>
             </a>

@@ -1,17 +1,29 @@
 package com.homs.demo.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import com.homs.demo.model.Staff;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class homepageController {
+    private Staff staff;
+
     // Staff Service
     @GetMapping(value="/staffpage")
     public String getStaffPage() {
         return "staffPage";
     }
     @GetMapping(value="/staffservice")
-    public String getStaffServicePage() {
+    public String getStaffServicePage(HttpServletRequest request, HttpServletResponse response,Model model) {
+        staff = (Staff) request.getSession().getAttribute("staff");
+        model.addAttribute("staffDepartment", staff.getStaffDepartment());
         return "staffService";
     }
     @GetMapping(value="/service/ambulance")
