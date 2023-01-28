@@ -76,7 +76,7 @@ public class homepageController {
     }
     @GetMapping(value="/service/medicalShop")
     public String getInventoryPage() {
-        return "forward:/inventoryController";
+        return "forward:/getProduct";
     }
     @GetMapping(value="/service/medicalQueue")
     public String getQueuePage() {
