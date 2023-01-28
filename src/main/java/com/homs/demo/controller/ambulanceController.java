@@ -35,15 +35,6 @@ public class ambulanceController {
         return "ambulanceRespond";
     }
 
-    @PostMapping(value="/updateRespondPage")
-    public String updateRespond(@RequestParam("name")String name, @RequestParam("contact")String contact, @RequestParam("status")String status, @RequestParam("location")String location, @RequestParam("date")String date, @RequestParam("time")String time){
-       AmbulanceDAO ambulanceDAO = new AmbulanceDAO();
-       int row = ambulanceDAO.getNewRespond(name, contact, location, status, date, time);
-       System.out.println("row affected: " + row);
-       
-        return "ambulance";
-    }
-
     @GetMapping(value="/myProfile")
     public String myProfile(HttpSession session, Model model){
         Ambulance ambulance = null;
@@ -65,10 +56,5 @@ public class ambulanceController {
 
         return "redirect:/mainpage#!/homepage";
     }
-    
-
-    /*public String updateRespond(){
-        return "ambulance";
-    }*/
     
 }

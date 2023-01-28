@@ -64,7 +64,6 @@ public class AmbulanceDAO {
         
         return rowAffected;
     }
-    
 
     public static DataSource getDataSource() {
         DataSource dataSource = null;

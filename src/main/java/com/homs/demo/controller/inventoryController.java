@@ -3,6 +3,7 @@ package com.homs.demo.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.homs.demo.dbutil.inventoryDAO;
@@ -12,7 +13,7 @@ public class inventoryController {
     @Autowired
     private inventoryDAO inventoryDAO;
 
-    @RequestMapping(value="inventoryController")
+    @GetMapping(value="inventoryController")
     public String inventoryList(Model model) {
         //model.addAttribute("message", "Success Retrieve Model");
         //System.out.println(model.getAttribute("message"));
@@ -22,3 +23,4 @@ public class inventoryController {
         return "inventory";
     }
 }
+

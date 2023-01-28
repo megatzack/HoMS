@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.homs.demo.dbutil.AmbulanceDAO;
 import com.homs.demo.dbutil.StaffDAO;
 import com.homs.demo.model.Ambulance;
+import com.homs.demo.model.Patient;
 import com.homs.demo.model.Staff;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -54,27 +55,4 @@ public class StaffController {
         
         return "staffHomePage";
     }
-    
-
-    @GetMapping(value="/login")
-    public String login(){
-        return "loginPage";
-    }
-
-    @PostMapping(value="/welcomeBack")
-    public String loginController(HttpServletRequest request, HttpSession session,Staff staff) {
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        //StaffDAO staffDAO = new StaffDAO();
-       
-        try{
-            staff = StaffDAO.authenticate(email,password);
-            session.setAttribute("staff", staff);
-            return "redirect:/mainpage#!/homepage";
-        }catch(Exception e){
-            return "redirect:/staff/login";
-        }
-    }
-
-    //@GetMapping(value="/")
 }

@@ -1,0 +1,26 @@
+#message {
+    padding-top: 2vh;
+    padding-bottom: 1vh;
+
+    background-color: #06605B;
+    color: white;
+}
+
+#content {
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+}
+
+div a{
+    text-decoration: none;
+    color: black;
+}
+
+#row {
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+
+#department {
+    padding-top: 8vh;
+}
