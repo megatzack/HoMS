@@ -30,7 +30,7 @@
                     <div class="card shadow-sm align-items-center" id="content">
                         <img src="/image/HoMSLogo-03.png" alt="">
                         <br>
-                        Ambulance
+                        Ambulance Department
                     </div>
                 </div>
             </a>
@@ -51,7 +51,7 @@
                     <div class="card shadow-sm align-items-center" id="content">
                         <img src="/image/HoMSLogo-03.png" alt="">
                         <br>
-                        Inventory
+                        Inventory Department
                     </div>
                 </div>
             </a>
