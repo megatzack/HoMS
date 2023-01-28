@@ -3,6 +3,7 @@ package com.homs.demo.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.homs.demo.dbutil.paymentCCDAO;
 import com.homs.demo.model.paymentPageCC;
@@ -11,11 +12,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
+@RequestMapping("/payment")
 public class paymentController {
 
-    @GetMapping(value="/paymentCC")
+    @GetMapping(value="/paymentPage")
     public String choosePaymentCC() {
-        return "paymentCC";
+        return "paymentPage";
     }
 
     @GetMapping(value="/paymentOnlineBanking")
@@ -28,8 +30,8 @@ public class paymentController {
         return "paymentCash";
     }
 
-    @PostMapping("/paymentCCDetails")
-    public String register(HttpServletRequest request)
+    @PostMapping("/paymentCC")
+    public String detils(HttpServletRequest request)
     {
 
         HttpSession session = request.getSession();
@@ -52,7 +54,7 @@ public class paymentController {
         paymentCCDAO paymentCCDAO = new paymentCCDAO();
         int row = paymentCCDAO.fillDetails(p);
         System.out.println("row affected: " + row);
-        return "homePage";
+        return "paymentCC";
 
     }
 
