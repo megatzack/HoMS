@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.homs.demo.dbutil.AmbulanceDAO;
 import com.homs.demo.model.Ambulance;
+import com.homs.demo.model.Staff;
+
+import jakarta.servlet.http.HttpSession;
 
 
 @Controller
@@ -42,11 +45,14 @@ public class ambulanceController {
     }
 
     @GetMapping(value="/myProfile")
-    public String myProfile(Model model){
+    public String myProfile(HttpSession session, Model model){
         Ambulance ambulance = null;
         AmbulanceDAO ambulanceDAO = new AmbulanceDAO();
 
-        ambulance = ambulanceDAO.getByName("yasir");
+        Staff staff = (Staff)session.getAttribute("staff");
+
+        //ambulance = ambulanceDAO.getByName("yasir");
+        ambulance = ambulanceDAO.getByName(staff.getStaffName());
         model.addAttribute("ambulance", ambulance);
 
         return "ambulance_profile";
@@ -57,7 +63,7 @@ public class ambulanceController {
         AmbulanceDAO ambulanceDAO = new AmbulanceDAO();
         int row = ambulanceDAO.getNewProfile(name, contact, location, status, ambulancePlate);
 
-        return "homePage";
+        return "redirect:/mainpage#!/homepage";
     }
     
 
