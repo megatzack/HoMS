@@ -51,23 +51,8 @@ public class PatientController {
     }
 
     @GetMapping("/login")
-    public String login() {
+    public String login(){
         return "loginPage";
     }
-
-    @PostMapping(value="/welcomeBack")
-    public String mainPage(HttpServletRequest request, HttpSession session) {
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        
-        try {
-        Patient patient = PatientDAO.authenticate(email, password);
-        session.setAttribute("patient", patient);
-        return "redirect:/mainpage#!/homepage";
-        }
-        catch (Exception e) {
-            return "redirect:/Patient/login";
-        }
-    }
-    
 }
+

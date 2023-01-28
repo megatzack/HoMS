@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="MoHS Landing Page">
@@ -22,11 +22,11 @@
         <form class="row g-3" id="reviewForm" method="post" action="reviewController">
             <div class="col-md-6">
               <label for="inputEmail" class="form-label">Name</label>
-              <input type="text" class="form-control" id="nameInput" name="name">
+              <input type="text" class="form-control" id="nameInput" name="name" placeholder="Anonymous">
             </div>
             <div class="col-md-6">
               <label for="inputPassword" class="form-label">Email</label>
-              <input type="email" class="form-control" id="emailInput" name="email">
+              <input type="email" class="form-control" id="emailInput" name="email" value="">
             </div>
             <div class="col-12">
                 <label for="exampleFormControlTextarea1">Review</label>

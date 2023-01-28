@@ -4,26 +4,45 @@ app.config(function ($routeProvider) {
     $routeProvider
         .when("/homepage", {
             templateUrl: "/homepage",
-            controller: "homeController"
+            controller: "homepageController"
         })
         .when("/doctor", {
             templateUrl: "/doctor",
-            controller: "homeController"
         })
         .when("/service", {
             templateUrl: "/service",
-            controller: "homeController"
+        })
+        .when("/staffservice", {
+            templateUrl: "/staffservice",
         })
         .when("/review", {
-            templateUrl: "/review",
-            controller: "homeController"
+            templateUrl: "/review"
         })
         .when("/about", {
             templateUrl: "/about",
-            controller: "homeController"
         })
-        .when("/queue", {
-            templateUrl: "/queue",
-            controller: "homeController"
-        });
+        .when("/service/ambulance", {
+            templateUrl: "/service/ambulance",
+        })
+        .when("/service/staffSchedule", {
+            templateUrl: "/service/staffSchedule",
+        })
+        .when("/service/admin/ambulance_plate", {
+            templateUrl: "/service/admin/ambulance_plate",
+        })
+        .when("/service/admin/ambulance_setschedule", {
+            templateUrl: "/service/admin/ambulance_setschedule",
+        })
+        .when("/service/admin", {
+            templateUrl: "/service/admin",
+        })
+        .when("/service/medicalShop", {
+            templateUrl: "/service/medicalShop",
+        })
+        .when("/service/medicalRecord", {
+            templateUrl: "/service/medicalRecord",
+        })
+        .when("/service/medicalQueue", {
+            templateUrl: "/service/medicalQueue",
+        })
 });

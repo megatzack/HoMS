@@ -12,7 +12,7 @@ import javax.sql.DataSource;
 
 @Repository
 public class PatientDAO {
-
+    
     public int register(Patient patient) {
         
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
@@ -26,7 +26,8 @@ public class PatientDAO {
     public static Patient authenticate(String email, String password) {
         Patient patient = null;
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
-        String sql = "SELECT * FROM `Patient` WHERE `PatientEmail` = ? AND `PatientPassword` = ?";
+        String sql = "SELECT * FROM patient WHERE patientEmail = ? AND patientPassword = ?";
+        
         try{
             patient = jbdct.queryForObject(sql, new BeanPropertyRowMapper<Patient>(Patient.class), email, password);
             return patient;

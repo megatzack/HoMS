@@ -139,7 +139,7 @@
         position: absolute;
         width: 150px;
         height: 19px;
-        left: 100px;
+        left: 300px;
         top: 30px;
       }
 
@@ -213,7 +213,7 @@
         position: absolute;
         width: 340px;
         height: 45px;
-        left: 100px;
+        left: 300px;
         top: 75px;
 
         border: 1px solid #000000;
@@ -296,7 +296,7 @@
         width: 152px;
         height: 47px;
         left: 770px;
-        top: 500px;
+        top: 200px;
 
         background: #06605b;
         border-radius: 10px;
@@ -347,56 +347,13 @@
       <div class="content-table">
         <!-- main content goes here -->
         <div class="content">
-          <form method="post" action="createSchedule">
+          <form method="post" action="removeSchedule">
             <h3 class="list-staff-text">List of Staff</h3>
             <select class="form-control1" name="name">
               <option th:each="staff: ${staffList}" th:value="${staff.getStaffName()}" th:text="${staff.getStaffName()}"></option>
             </select>
 
-            <h3 class="oncall-text">On-Call Time</h3>
-
-            <h3 class="oc-timein-text">Time In:</h3>
-            <input
-              class="form-control3"
-              type="time"
-              name="ocInTime"
-              value="12:00"
-            /><br />
-
-            <h3 class="oc-timeout-text">Time Out:</h3>
-            <input
-              class="form-control4"
-              type="time"
-              name="ocOutTime"
-              value="12:00"
-            /><br />
-
-            <h3 class="schedule-text">Today Schedule</h3>
-            <h3 class="sc-timein-text">Time In:</h3>
-            <input
-              class="form-control5"
-              type="time"
-              name="tcInTime"
-              value="12:00"
-            /><br />
-            <h3 class="sc-timeout-text">Time Out:</h3>
-            <input
-              class="form-control6"
-              type="time"
-              name="tcOutTime"
-              value="12:00"
-            /><br />
-
-            <h3 class="notes-text">Notes</h3>
-            <textarea
-              class="form-control7"
-              name="notes"
-              placeholder="Write something here..."
-              rows="4"
-              cols="25"
-            ></textarea>
-
-            <input class="btn" type="submit" value="Update" />
+            <input class="btn" type="submit" value="Delete" />
           </form>
         </div>
       </div>

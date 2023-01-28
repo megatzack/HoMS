@@ -8,10 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.homs.demo.dbutil.AmbulanceDAO;
 import com.homs.demo.dbutil.StaffDAO;
 import com.homs.demo.model.Ambulance;
+import com.homs.demo.model.Patient;
 import com.homs.demo.model.Staff;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -26,8 +28,8 @@ public class StaffController {
         return "registerStaff";
     }
 
-    @PostMapping("/welcome")
-    public String register(HttpServletRequest request)
+    @PostMapping("/createStaff")
+    public String register(HttpServletRequest request) throws SQLException
     {
         String staffName = request.getParameter("staffName");
         String staffEmail = request.getParameter("staffEmail");
@@ -45,33 +47,12 @@ public class StaffController {
         System.out.println("row affected: " + row);
 
         if(staff.getStaffDepartment().equals("Ambulance Department")){
-            Ambulance ambulance = new Ambulance(staff.getStaffName(),"-","meh","available","-",staff.getStaffDepartment());
+            Ambulance ambulance = new Ambulance(staff.getStaffName(),"-","-","available","-",staff.getStaffDepartment());
             AmbulanceDAO ambulanceDAO = new AmbulanceDAO();
             int rowss = ambulanceDAO.createAmbulance(ambulance);
             System.out.println("ambulance table affected: " + rowss);
         }
-
-
-        return "staffhomePage";
-
-    }
-
-    @GetMapping("/login")
-    public String login() {
-        return "loginPage";
-    }
-
-    @PostMapping(value="/welcomeBack")
-    public String mainPage(HttpServletRequest request, HttpSession session) {
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
         
-        try{
-            Staff staff = StaffDAO.authenticate(email, password);
-            session.setAttribute("staff", staff);
-            return "staffhomePage";
-        }catch(Exception e){
-            return "loginPage";
-        }
+        return "staffHomePage";
     }
 }

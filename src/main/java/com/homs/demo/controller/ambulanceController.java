@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.homs.demo.dbutil.AmbulanceDAO;
 import com.homs.demo.model.Ambulance;
+import com.homs.demo.model.Staff;
+
+import jakarta.servlet.http.HttpSession;
 
 
 @Controller
@@ -32,17 +35,26 @@ public class ambulanceController {
         return "ambulanceRespond";
     }
 
-    @PostMapping(value="/updateRespondPage")
-    public String updateRespond(@RequestParam("name")String name, @RequestParam("contact")String contact, @RequestParam("status")String status, @RequestParam("location")String location, @RequestParam("date")String date, @RequestParam("time")String time){
-       AmbulanceDAO ambulanceDAO = new AmbulanceDAO();
-       int row = ambulanceDAO.getNewRespond(name, contact, location, status, date, time);
-       System.out.println("row affected: " + row);
-       
-        return "ambulance";
+    @GetMapping(value="/myProfile")
+    public String myProfile(HttpSession session, Model model){
+        Ambulance ambulance = null;
+        AmbulanceDAO ambulanceDAO = new AmbulanceDAO();
+
+        Staff staff = (Staff)session.getAttribute("staff");
+
+        //ambulance = ambulanceDAO.getByName("yasir");
+        ambulance = ambulanceDAO.getByName(staff.getStaffName());
+        model.addAttribute("ambulance", ambulance);
+
+        return "ambulance_profile";
     }
 
-    /*public String updateRespond(){
-        return "ambulance";
-    }*/
+    @PostMapping(value="/updateMyProfile")
+    public String updateProfile(@RequestParam("name")String name, @RequestParam("contact")String contact, @RequestParam("status")String status, @RequestParam("location")String location, @RequestParam("ambulancePlate")String ambulancePlate){
+        AmbulanceDAO ambulanceDAO = new AmbulanceDAO();
+        int row = ambulanceDAO.getNewProfile(name, contact, location, status, ambulancePlate);
+
+        return "redirect:/mainpage#!/homepage";
+    }
     
 }

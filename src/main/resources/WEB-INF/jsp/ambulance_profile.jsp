@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +11,7 @@ width: 100%;
 height: 241px;
 top: 0px;
 left: 0px;
-background-image:url('images/pattern-04.png');
+background-image:url('/image/pattern-04.png');
 }
 
 .image1{
@@ -126,9 +125,9 @@ box-sizing: border-box;
 
 position: absolute;
 width: 1000px;
-height: 444px;
+height: 500px;
 left: 255px;
-top: 555px;
+top: 300px;
 
 border: 4px solid #D9D9D9;
 }
@@ -205,6 +204,14 @@ left: 30px;
 top: 270px;
 }
 
+.date-text{
+position: absolute;
+width: 190px;
+height: 19px;
+left: 500px;
+top: 270px;
+}
+
 .form-control1{
 box-sizing: border-box;
 
@@ -265,6 +272,18 @@ top: 316px;
 border: 1px solid #000000;
 }
 
+.form-control6{
+box-sizing: border-box;
+
+position: absolute;
+width: 340px;
+height: 45px;
+left: 500px;
+top: 316px;
+
+border: 1px solid #000000;
+}
+
 .btn{
 position: absolute;
 width: 152px;
@@ -295,7 +314,7 @@ a:hover{
  <!-- header content goes here -->
     <div class = 'menu-container'>
         <div class ='menu'>
-         <div class ='image1'><img src="images/HoMS-05.png" alt="logo" width=120px height=45.67px/></div>
+         <div class ='image1'><img src="/image/HoMS-05.png" alt="logo" width=120px height=45.67px/></div>
           <div class = 'menu-info'>
             <div class ='home'><a href="">Home</a></div>
             <div class ='doctor'><a href="">Doctor</a></div>
@@ -312,28 +331,22 @@ a:hover{
     </div>
 
 <div class="content-header">
-
-	<label for="image-input" class="image-input">
-		<img src="images/user-upload.jpg" alt="Rounded image" class="rounded-image">
-	</label>
-	
-	<input type="file" name="image" id="image-input" style="display: none;">
   	
   	<div class="content-table">
 
     <!-- main content goes here -->
     	<div class ="content">
 
-			<form method="post" action="">
+			<form method="post" action="updateMyProfile">
 
    			<h3 class="staff-text">Name:</h3>
-   			<input class="form-control1" type="text" name="fullname" placeholder="insert fullname"><br>
+   			<input class="form-control1" type="text" name="name" placeholder="insert fullname" th:value="${ambulance.getName()}" readonly><br>
    
    			<h3 class="contact-text">Contact:</h3>
-   			<input class="form-control2" type="tel" name="phone" placeholder="012-3456789"><br>
+   			<input class="form-control2" type="tel" name="contact" placeholder="012-3456789" th:value="${ambulance.getContact()}"><br>
    
     		<h3 class="location-text">Pickup Location Address: (locked)</h3>
-   			<input class="form-control3" type="text" name="location" placeholder="4 Jalan Selayang,68100 Batu Caves" disabled><br>
+   			<input class="form-control3" type="text" name="location" placeholder="4 Jalan Selayang,68100 Batu Caves" th:value="${ambulance.getLocation()}" readonly><br>
 
 			<td><h3 class="status-text">Status</h3>
         		<select class="form-control4" name="status">
@@ -343,13 +356,18 @@ a:hover{
       		</td> 
       		
       		<td><h3 class="ambulance-text">Ambulance</h3>
-        	<select class="form-control5" name="select_ambulance">
-          		<option>WAV 333</option>
-          		<option>WVU 6753</option>
-          		<option>VMW 3245</option>
-          		<option>PGK 3332</option>
+        	<select class="form-control5" name="ambulancePlate">
+				<option>WAV333</option>
+				<option>WVU6753</option>
+				<option>VMW3245</option>
+				<option>PGK3332</option>
+			  	<option>WVY3334</option>
+			  	<option>KEK2022</option>
+			  	<option>KAM4302</option>
         	</select>
       		</td>
+
+			
       
       		<input class="btn " type="submit" value="Update">
 			</form>     
