@@ -1,5 +1,6 @@
 package com.homs.demo.controller;
 
+import java.net.http.HttpRequest;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
@@ -24,7 +25,7 @@ public class queueController {
         return "queueForm";
     }
     @RequestMapping("/EnterQueue")
-    public String enterQueue(HttpSession session, Model model) {
+    public String enterQueue(HttpSession session, Model model, HttpRequest request) {
         // Get the patient attribute from the session
         Patient patient = (Patient) session.getAttribute("patient");
         if(patient == null) {
