@@ -29,6 +29,7 @@ public class IndexController{
 
     @PostMapping(value="welcomeBack")
     public String loginController(HttpServletRequest request, HttpSession session,Staff staff, Patient patient, Model model) {
+        // Here Implement the logic to check the user credentials
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         staff = StaffDAO.authenticate(email,password);
