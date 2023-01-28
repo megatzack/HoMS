@@ -38,7 +38,7 @@
             <a href="#!/service/medicalQueue">
                 <div class="col">
                     <div class="card shadow-sm align-items-center" id="content">
-                        <img src="/image/HoMSLogo-03.png" alt="">
+                        <img src="/image/virtual-queue.png" style="width: 50px;" alt="">
                         <br>
                         Medical Queue
                     </div>

@@ -1,22 +1,33 @@
 package com.homs.demo.model;
 
+import java.sql.Timestamp;
+
 public class Queue {
-    private Patient patient;
+    private int queueID;
+    private int patientID;
     private String queueStatus; // "next in line", "Currently served", "served"
-    // private queueController next;
-    // private queueController previous;
+    private Timestamp queueTime;
+    
 
-    public Queue(Patient patient, String queueStatus) {
-        this.patient = patient;
+    public Queue(int queueID, int patientID, String queueStatus, Timestamp timestamp) {
+        this.queueID = queueID;
+        this.patientID = patientID;
         this.queueStatus = queueStatus;
+        this.queueTime = timestamp;
     }
 
-    public Patient getPatient() {
-        return patient;
+    public Queue(int patientID, String queueStatus, Timestamp timestamp) {
+        this.patientID = patientID;
+        this.queueStatus = queueStatus;
+        this.queueTime = timestamp;
     }
 
-    public void setPatient(Patient patient) {
-        this.patient = patient;
+    public int getPatientID() {
+        return patientID;
+    }
+
+    public void setPatient(int patientID) {
+        this.patientID = patientID;
     }
 
     public String getQueueStatus() {
@@ -29,24 +40,16 @@ public class Queue {
     
     @Override
     public String toString() {
-        return "Queue [patient=" + patient + ", queueStatus=" + queueStatus + "]";
+        return "Queue [patient=" + patientID + ", queueStatus=" + queueStatus + "]";
     }
 
-    // public queueController getNext() {
-    //     return next;
-    // }
+    public Timestamp getQueueTime() {
+        return queueTime;
+    }
 
-    // public void setNext(queueController next) {
-    //     this.next = next;
-    // }
-
-    // public queueController getPrevious() {
-    //     return previous;
-    // }
-
-    // public void setPrevious(queueController previous) {
-    //     this.previous = previous;
-    // }
+    public void Time(Timestamp queueTime) {
+        this.queueTime = queueTime;
+    }
 
 
 

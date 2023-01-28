@@ -17,6 +17,10 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 public class IndexController{
     
+    @GetMapping(value = "/")
+    public String getIndexPage() {
+        return "loginPage";
+    }
     
     @GetMapping(value = "/login")
     public String getLoginPage() {

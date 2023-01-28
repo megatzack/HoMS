@@ -94,12 +94,10 @@ public class tableLoader {
             jdbcTemplate.execute("CREATE TABLE queue ("
                     + "queueID INT NOT NULL AUTO_INCREMENT,"
                     + "patientID INT NOT NULL,"
-                    + "staffID INT NOT NULL,"
-                    + "queueStatus VARCHAR(45) NOT NULL,"
-                    + "queueTime DATETIME NOT NULL,"
+                    + "queueStatus VARCHAR(45),"
+                    + "queueTime TIMESTAMP NULL,"
                     + "PRIMARY KEY (queueID),"
-                    + "FOREIGN KEY (patientID) REFERENCES patient(patientID),"
-                    + "FOREIGN KEY (staffID) REFERENCES staff(staffID)"
+                    + "FOREIGN KEY (patientID) REFERENCES patient(patientID)"
                     + ")");
             System.out.println("Table 'queue' created");
         }

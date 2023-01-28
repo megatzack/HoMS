@@ -12,38 +12,22 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/css/index.css}">
-    <link rel="stylesheet" th:href="@{/css/queue.css}">
+
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <title>HoMS</title>
 </head>
 <body>
- 
-  
-  <div class="containers">
-    <p class="title">You're now in our Virtual Queue</p>
-    <p class="description">
-      Feel free to buy drinks and sandwiches from our cafe.
-      <br>
-      We will notify you when it's your turn.
-    </p>
-    <p>Estimated waiting time: <span th:text="${estimatedServingTime}"></span></p>
-  </div>
-  <div class="queue-section">
-    <table>
-      <tr>
-        <th>Queue ID</th>
-        <th>Patient Name</th>
-        <th>Queue Status</th>
-      </tr>
-      <tr th:each="queue : ${queues}">
-        <td th:text="${queue.queueId}"></td>
-        <td th:text="${queue.patientName}"></td>
-        <td th:class="${queue.status}">
-          <span th:text="${queue.status}"></span>
-        </td>
-      </tr>
-    </table>
-  </div>
+    <img class="background" src="/Image/background.jpg" alt="background" style="filter:brightness(60%)">
+    
+    <div class="container">
+      <form action="EnterQueue" method="post">
+          <label for="queueStatus">Queue Status:</label>
+          <input type="text" id="queueStatus" name="queueStatus"><br><br>
+          <label for="queueTime">Queue Time:</label>
+          <input type="datetime-local" id="queueTime" name="queueTime"><br><br>
+          <input type="submit" value="Submit">
+      </form>
+  </div>  
 </body>
 </html>

@@ -21,7 +21,7 @@ public class homepageController {
         return "staffPage";
     }
     @GetMapping(value="/staffservice")
-    public String getStaffServicePage(HttpServletRequest request, HttpServletResponse response,Model model) {
+    public String getStaffServicePage(HttpServletRequest request, HttpServletResponse response, Model model) {
         staff = (Staff) request.getSession().getAttribute("staff");
         model.addAttribute("staffDepartment", staff.getStaffDepartment());
         return "staffService";
@@ -80,11 +80,10 @@ public class homepageController {
     }
     @GetMapping(value="/service/medicalQueue")
     public String getQueuePage() {
-        return "";
+        return "forward:/queueController";
     }
     @GetMapping(value="/service/medicalRecord")
     public String getMedicalPage() {
         return "";
     }
-
 }
