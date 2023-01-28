@@ -53,6 +53,6 @@ public class StaffController {
             System.out.println("ambulance table affected: " + rowss);
         }
         
-        return "staffHomePage";
+        return "loginPage";
     }
 }

@@ -19,7 +19,7 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 public class scheduleController {
 
-    @GetMapping(value="/setSchedule")
+    @GetMapping(value="setSchedule")
     public String setSchedule(Model model) {
         Staff staff = null;
         StaffDAO staffDAO = new StaffDAO();
@@ -38,10 +38,10 @@ public class scheduleController {
         int row = scheduleDAO.create(schedule);
         System.out.println("row affected: " + row);
 
-        return "homePage";
+        return "redirect:/staffpage#!/homepage";
     }
 
-    @GetMapping(value="/deleteSchedule")
+    @GetMapping(value="deleteSchedule")
     public String deleteSchedule(Model model) {
         Staff staff = null;
         StaffDAO staffDAO = new StaffDAO();
@@ -60,7 +60,7 @@ public class scheduleController {
         int row = scheduleDAO.delete(name);
         System.out.println("row affected: " + row);
 
-        return "homePage";
+        return "redirect:/staffpage#!/homepage";
     }
 
     @GetMapping(value="/seeSchedule")

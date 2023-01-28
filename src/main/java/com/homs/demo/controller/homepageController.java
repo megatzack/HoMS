@@ -28,7 +28,8 @@ public class homepageController {
     }
     @GetMapping(value="/service/ambulance")
     public String getAmbulancePage() {
-        return "ambulance_profile";
+       // return "ambulance_profile";
+       return "forward:/myProfile";
     }
     @GetMapping(value="/service/admin")
     public String getAdminPage() {
@@ -36,11 +37,15 @@ public class homepageController {
     }
     @GetMapping(value="/service/admin/ambulance_plate")
     public String getAmbulancePlatePage() {
-        return "ambulance";
+        return "forward:/choosePlate";
     }
     @GetMapping(value="/service/admin/ambulance_setschedule")
     public String getAmbulanceSchedulePage() {
-        return "ambulanceRespond";
+        return "forward:/setSchedule";
+    }
+    @GetMapping(value="/service/admin/ambulance_deleteschedule")
+    public String deleteAmbulanceSchedulePage() {
+        return "forward:/deleteSchedule";
     }
     @GetMapping(value="/service/staffSchedule")
     public String getSchedulePage() {

@@ -17,10 +17,10 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 public class IndexController{
     
-    @RequestMapping(value = "/register")
+   /*@RequestMapping(value = "/register")
     public String getregisterPage() {
         return "registerPage";
-    }
+    }*/
     
     @GetMapping(value = "/login")
     public String getLoginPage() {
