@@ -1,0 +1,124 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* .header {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+  } */
+  
+.background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+  .title{
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    width: 44rem;
+    font-weight: 600;
+    font-size: 30px;
+    color: white;
+    margin-top: 0px;
+  }
+
+
+  .description{
+    text-align: center;
+    width: 22rem;
+    font-weight: 300;
+    font-size: 20px;
+    color: white;
+    padding: 15px;
+    width: max-content;
+
+  }
+
+  .col {
+    float: left;
+    width: 33.33%;
+    padding: 20px;
+    margin-top: 5px;
+  }
+
+  input[type=checkbox] {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+  }
+
+  input[type=date]{ 
+    width: 200px;
+    height: 30px;
+    border: 1px solid rgb(0, 36, 30);
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 20px;
+    color: rgb(0, 36, 30);
+  }
+  .form-group{
+
+    width: 300px;
+    padding: 10px;
+    border-radius: 20px;
+background: #06605b;
+box-shadow: inset 13px 13px 26px #044340,
+            inset -13px -13px 26px #087d76;
+            margin: 10px;
+  }
+  
+
+  label{
+    font-size: 20px;
+    color: white;
+  }
+
+  .row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    padding: 7px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+
+  }
+  .container{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-image: url(/image/pattern.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 50px;
+    padding-bottom: 70px;
+  }
+
+  @media screen and (max-width:600px) {
+    .col {
+      width: 100%;
+    }
+    .container{
+      width: 100%;
+    }
+  }

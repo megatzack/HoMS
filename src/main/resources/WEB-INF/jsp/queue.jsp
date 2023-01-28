@@ -18,8 +18,6 @@
     <title>HoMS</title>
 </head>
 <body>
- 
-  
   <div class="containers">
     <p class="title">You're now in our Virtual Queue</p>
     <p class="description">
@@ -30,6 +28,7 @@
     <p>Estimated waiting time: <span th:text="${estimatedServingTime}"></span></p>
   </div>
   <div class="queue-section">
+    <p>Queue status: <span th:text="${queue.queueStatus}"></span></p>
     <table>
       <tr>
         <th>Queue ID</th>
