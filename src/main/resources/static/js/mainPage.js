@@ -4,25 +4,30 @@ app.config(function ($routeProvider) {
     $routeProvider
         .when("/homepage", {
             templateUrl: "/homepage",
-            controller: "homeController"
+            controller: "homepageController"
         })
         .when("/doctor", {
             templateUrl: "/doctor",
-            controller: "homeController"
         })
         .when("/service", {
             templateUrl: "/service",
-            controller: "homeController"
+        })
+        .when("/staffservice", {
+            templateUrl: "/staffservice",
         })
         .when("/review", {
             templateUrl: "/review"
         })
         .when("/about", {
             templateUrl: "/about",
-            controller: "homeController"
         })
-        .when("/staff", {
-            templateUrl: "/staff/homepage",
-            controller: "homeController"
-        });
+        .when("/service/medicalShop", {
+            templateUrl: "/service/medicalShop",
+        })
+        .when("/service/medicalRecord", {
+            templateUrl: "/service/medicalRecord",
+        })
+        .when("/service/medicalQueue", {
+            templateUrl: "/service/medicalQueue",
+        })
 });

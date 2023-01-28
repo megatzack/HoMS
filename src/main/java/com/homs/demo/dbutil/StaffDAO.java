@@ -15,7 +15,6 @@ import javax.sql.DataSource;
 
 @Repository
 public class StaffDAO {
-    private Staff staff;
     
     public int create(Staff staff) {
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
@@ -35,6 +34,7 @@ public class StaffDAO {
         try{
             staff = jbdct.queryForObject(sql, new BeanPropertyRowMapper<Staff>(Staff.class), email, password);
             return staff;
+
         }
         catch (Exception e) {
             return null;
