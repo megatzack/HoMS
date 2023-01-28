@@ -35,12 +35,33 @@
                 </div>
             </a>
 
+            <div class="row row-cols-3 gy-5">
+                <a href="#!/service/ambulance" th:if="${staffDepartment == 'Admin Administrator Department'}">
+                    <div class="col">
+                        <div class="card shadow-sm align-items-center" id="content">
+                            <img src="/image/HoMSLogo-03.png" alt="">
+                            <br>
+                            Admin Administrator Department
+                        </div>
+                    </div>
+                </a>
+
             <a href="#!/service/ambulance" th:if="${staffDepartment == 'Inventory Department'}">
                 <div class="col">
                     <div class="card shadow-sm align-items-center" id="content">
                         <img src="/image/HoMSLogo-03.png" alt="">
                         <br>
                         Inventory
+                    </div>
+                </div>
+            </a>
+
+            <a href="#!/service/ambulance" th:if="${staffDepartment == 'Staff Department'}">
+                <div class="col">
+                    <div class="card shadow-sm align-items-center" id="content">
+                        <img src="/image/HoMSLogo-03.png" alt="">
+                        <br>
+                        Staff Department
                     </div>
                 </div>
             </a>
