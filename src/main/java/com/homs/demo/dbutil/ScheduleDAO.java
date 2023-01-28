@@ -24,6 +24,16 @@ public class ScheduleDAO {
         return rowAffected;
     }
 
+    public int delete(String name){
+        JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
+        String sql = "DELETE FROM `schedule` WHERE  `name` = ?";
+        
+        int rowAffected = jbdct.update(sql, name);
+
+        return rowAffected;
+    }
+
+
     public Schedule getByName(String name){
         Schedule schedule = null;
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
