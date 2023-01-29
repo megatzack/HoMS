@@ -39,7 +39,7 @@
 
     </div>
     <div id="white-box"></div>
-        <div class="container" id="review">
+        <div class="container" id="review" th:if="${patient != null}">
           <h4 style="color: #06605B; padding-bottom: 3vh;">Service Review</h4>
   
           <form class="row g-3" id="reviewForm" method="post" action="reviewController">

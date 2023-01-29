@@ -27,9 +27,9 @@ public class reviewController {
         return "redirect:/mainpage#!/homepage";
     }
     
-    @GetMapping(value="reviewList")
+    @GetMapping(value="reviewlist")
     public String reviewList(Model model) {
-        model.addAttribute("reviewList", reviewDAO.getReviewList());
+        model.addAttribute("review", reviewDAO.getReviewList());
         return "reviewList";
     }
 }

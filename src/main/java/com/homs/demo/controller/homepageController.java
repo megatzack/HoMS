@@ -37,6 +37,15 @@ public class homepageController {
            return "errorPage"; 
         }
     }
+    @GetMapping(value="/review")
+    public String getReviewPage(HttpServletRequest request, HttpServletResponse response,Model model) {
+        staff = (Staff) request.getSession().getAttribute("staff");
+        if (staff != null) {
+            return "forward:/reviewlist";
+        } else {
+           return "errorPage"; 
+        }
+    }
     @GetMapping(value="/service/ambulance")
     public String getAmbulancePage(HttpServletRequest request, HttpServletResponse response,Model model) {
         staff = (Staff) request.getSession().getAttribute("staff");
@@ -110,6 +119,8 @@ public class homepageController {
         patient = (Patient) request.getSession().getAttribute("patient");
         staff = (Staff) request.getSession().getAttribute("staff");
         if (patient != null | staff != null) {
+                model.addAttribute("patient", patient);
+                model.addAttribute("staff", staff);
             return "homePage";
         } else {
            return "errorPage"; 
