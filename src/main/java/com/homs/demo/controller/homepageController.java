@@ -134,16 +134,6 @@ public class homepageController {
            return "errorPage"; 
         }
     }
-    @GetMapping(value="/review")
-    public String getReviewPage(HttpServletRequest request, HttpServletResponse response,Model model) {
-        patient = (Patient) request.getSession().getAttribute("patient");
-        staff = (Staff) request.getSession().getAttribute("staff");
-        if (patient != null | staff != null) {
-            return "review";
-        } else {
-           return "errorPage"; 
-        }
-    }
     @GetMapping(value="/about")
     public String getProfilePage(HttpServletRequest request, HttpServletResponse response,Model model) {
         //return "profile";

@@ -5,7 +5,7 @@ public class review {
     String email;
     String reviewContent;
 
-    review(String name, String email, String reviewContent){
+    public review(String name, String email, String reviewContent){
         this.name = name;
         this.email = email;
         this.reviewContent = reviewContent;

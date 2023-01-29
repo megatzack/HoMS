@@ -14,9 +14,6 @@ app.config(function ($routeProvider) {
         .when("/staffservice", {
             templateUrl: "/staffservice",
         })
-        .when("/review", {
-            templateUrl: "/review"
-        })
         .when("/about", {
             templateUrl: "/about",
         })

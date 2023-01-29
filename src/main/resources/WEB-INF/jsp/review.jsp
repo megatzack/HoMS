@@ -15,8 +15,7 @@
     <title>HoMS</title>
 </head>
 <body>
-    <!--Modal Area-->
-    <div class="container-fluid" style="padding-top: 6vh;">
+    <div class="container" style="padding-top: 6vh;">
         <h4 style="color: #06605B;">Service Review</h4>
 
         <form class="row g-3" id="reviewForm" method="post" action="reviewController">
