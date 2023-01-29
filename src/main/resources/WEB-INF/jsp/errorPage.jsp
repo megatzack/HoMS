@@ -4,7 +4,6 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
-<h1>This is errorPage.jsp</h1>
+    <p>Access Denied...</p>
 </body>
 </html>

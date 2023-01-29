@@ -2,89 +2,186 @@ package com.homs.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.homs.demo.model.Patient;
 import com.homs.demo.model.Staff;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class homepageController {
     private Staff staff;
+    private Patient patient;
 
     // Staff Service
     @GetMapping(value="/staffpage")
-    public String getStaffPage() {
-        return "staffPage";
+    public String getStaffPage(HttpServletRequest request, HttpServletResponse response,Model model) {
+        staff = (Staff) request.getSession().getAttribute("staff");
+        if (staff != null) {
+            return "staffPage";
+        } else {
+           return "errorPage"; 
+        }
     }
+
     @GetMapping(value="/staffservice")
     public String getStaffServicePage(HttpServletRequest request, HttpServletResponse response,Model model) {
         staff = (Staff) request.getSession().getAttribute("staff");
-        model.addAttribute("staffDepartment", staff.getStaffDepartment());
-        return "staffService";
+        if (staff != null) {
+            model.addAttribute("department", staff.getStaffDepartment());
+            System.out.println(staff.getStaffDepartment());
+            return "staffService";
+        } else {
+           return "errorPage"; 
+        }
     }
     @GetMapping(value="/service/ambulance")
-    public String getAmbulancePage() {
-        return "ambulance_profile";
+    public String getAmbulancePage(HttpServletRequest request, HttpServletResponse response,Model model) {
+        staff = (Staff) request.getSession().getAttribute("staff");
+        if (staff != null) {
+            return "ambulance_profile";
+        } else {
+           return "errorPage"; 
+        }
     }
     @GetMapping(value="/service/admin")
-    public String getAdminPage() {
-        return "admin";
+    public String getAdminPage(HttpServletRequest request, HttpServletResponse response,Model model) {
+        staff = (Staff) request.getSession().getAttribute("staff");
+        if (staff != null) {
+            return "admin";
+        } else {
+           return "errorPage"; 
+        }
     }
     @GetMapping(value="/service/admin/ambulance_plate")
-    public String getAmbulancePlatePage() {
-        return "ambulance";
+    public String getAmbulancePlatePage(HttpServletRequest request, HttpServletResponse response,Model model) {
+        staff = (Staff) request.getSession().getAttribute("staff");
+        if (staff != null) {
+            return "ambulance";
+        } else {
+           return "errorPage"; 
+        }
     }
     @GetMapping(value="/service/admin/ambulance_setschedule")
-    public String getAmbulanceSchedulePage() {
-        return "ambulanceRespond";
+    public String getAmbulanceSchedulePage(HttpServletRequest request, HttpServletResponse response,Model model) {
+        staff = (Staff) request.getSession().getAttribute("staff");
+        if (staff != null) {
+            return "ambulanceRespond";
+        } else {
+           return "errorPage"; 
+        }
     }
     @GetMapping(value="/service/staffSchedule")
-    public String getSchedulePage() {
-        return "staff_schedule";
+    public String getSchedulePage(HttpServletRequest request, HttpServletResponse response,Model model) {
+        staff = (Staff) request.getSession().getAttribute("staff");
+        if (staff != null) {
+            return "staff_schedule";
+        } else {
+           return "errorPage"; 
+        }
     }
     @GetMapping(value="/service/medicalReport")
-    public String getMedicalReportPage() {
-        return "";
+    public String getMedicalReportPage(HttpServletRequest request, HttpServletResponse response,Model model) {
+        staff = (Staff) request.getSession().getAttribute("staff");
+        if (staff != null) {
+            return "";
+        } else {
+           return "errorPage"; 
+        }
     }
 
 
 
     // Patient Service
     @GetMapping(value="/mainpage")
-    public String getMainPage() {
-        return "mainPage";
+    public String getMainPage(HttpServletRequest request, HttpServletResponse response,Model model) {
+        //return "mainPage";
+        patient = (Patient) request.getSession().getAttribute("patient");
+        if (patient != null) {
+            return "mainPage";
+        } else {
+           return "errorPage"; 
+        }
     }
     @GetMapping(value="/homepage")
-    public String getHomePage() {
-        return "homePage";
+    public String getHomePage(HttpServletRequest request, HttpServletResponse response,Model model) {
+        patient = (Patient) request.getSession().getAttribute("patient");
+        staff = (Staff) request.getSession().getAttribute("staff");
+        if (patient != null | staff != null) {
+            return "homePage";
+        } else {
+           return "errorPage"; 
+        }
     }
     @GetMapping(value="/doctor")
-    public String getDoctorPage() {
-        return "";
+    public String getDoctorPage(HttpServletRequest request, HttpServletResponse response,Model model) {
+        patient = (Patient) request.getSession().getAttribute("patient");
+        staff = (Staff) request.getSession().getAttribute("staff");
+        if (patient != null | staff != null) {
+            return "";
+        } else {
+           return "errorPage"; 
+        }
     }
     @GetMapping(value="/service")
-    public String getPatientServicePage() {
-        return "patientService";
+    public String getPatientServicePage(HttpServletRequest request, HttpServletResponse response,Model model) {
+        patient = (Patient) request.getSession().getAttribute("patient");
+        if (patient != null) {
+            return "patientService";
+        } else {
+           return "errorPage"; 
+        }
     }
     @GetMapping(value="/review")
-    public String getReviewPage() {
-        return "review";
+    public String getReviewPage(HttpServletRequest request, HttpServletResponse response,Model model) {
+        patient = (Patient) request.getSession().getAttribute("patient");
+        staff = (Staff) request.getSession().getAttribute("staff");
+        if (patient != null | staff != null) {
+            return "review";
+        } else {
+           return "errorPage"; 
+        }
+    }
+    @GetMapping(value="/about")
+    public String getProfilePage(HttpServletRequest request, HttpServletResponse response,Model model) {
+        //return "profile";
+        patient = (Patient) request.getSession().getAttribute("patient");
+        staff = (Staff) request.getSession().getAttribute("staff");
+        if (patient != null | staff != null) {
+            model.addAttribute("staff", staff);
+            model.addAttribute("patient", patient);
+            return "profile";
+        } else {
+           return "errorPage"; 
+        }
     }
     @GetMapping(value="/service/medicalShop")
-    public String getInventoryPage() {
-        return "forward:/getProduct";
+    public String getInventoryPage(HttpServletRequest request, HttpServletResponse response,Model model) {
+        patient = (Patient) request.getSession().getAttribute("patient");
+        if (patient != null) {
+            return "forward:/getProduct";
+        } else {
+           return "errorPage"; 
+        }
     }
     @GetMapping(value="/service/medicalQueue")
-    public String getQueuePage() {
-        return "";
+    public String getQueuePage(HttpServletRequest request, HttpServletResponse response,Model model) {
+        patient = (Patient) request.getSession().getAttribute("patient");
+        if (patient != null) {
+            return "";
+        } else {
+           return "errorPage"; 
+        }
     }
     @GetMapping(value="/service/medicalRecord")
-    public String getMedicalPage() {
-        return "";
+    public String getMedicalPage(HttpServletRequest request, HttpServletResponse response,Model model) {
+        patient = (Patient) request.getSession().getAttribute("patient");
+        if (patient != null) {
+            return "";
+        } else {
+           return "errorPage"; 
+        }
     }
-
 }

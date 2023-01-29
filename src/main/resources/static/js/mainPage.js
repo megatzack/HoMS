@@ -4,7 +4,6 @@ app.config(function ($routeProvider) {
     $routeProvider
         .when("/homepage", {
             templateUrl: "/homepage",
-            controller: "homepageController"
         })
         .when("/doctor", {
             templateUrl: "/doctor",

@@ -50,12 +50,9 @@
                 <u>Create Account</u>
             </a></p>
 
-            <div class="alert alert-danger" role="alert">
-                This is a danger alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" id="invalid_credential" th:if="${status == 'Invalid Credientials'}">
+                <strong>Invalid Credential!</strong> <br>Please check your email and password.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         </body>
     </html>
-
-    <script>
-        $('.alert').alert();
-    </script>

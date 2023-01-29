@@ -1,10 +1,7 @@
 package com.homs.demo.controller;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,11 +33,11 @@ public class PatientController {
         String patientEmail = request.getParameter("patientEmail");
 
         Patient patient = new Patient();
-        patient.setName(patientName);
+        patient.setPatientName(patientName);
         patient.setPatientEmail(patientEmail);
         patient.setPatientPassword(patientPassword);
-        patient.setUserIC(userIC);
-        patient.setPhoneNO(phoneNO);
+        patient.setPatientIC(userIC);
+        patient.setPatientPhoneNO(phoneNO);
 
         PatientDAO patientDAO = new PatientDAO();
         int row = patientDAO.register(patient);
@@ -49,9 +46,24 @@ public class PatientController {
 
     }
 
-    @GetMapping("/login")
-    public String login(){
-        return "loginPage";
+    @PostMapping("/update")
+    public String update(HttpServletRequest request, HttpSession session, Model model)
+    {
+        String phoneNo = request.getParameter("phoneNo");
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+
+        PatientDAO patientDAO = new PatientDAO();
+        Patient patient = patientDAO.updatePatient(name, phoneNo, email);
+        if (patient != null) {
+            // Change Session Data
+            session.setAttribute("patient", patient);
+            // Change Model Data
+            model.addAttribute("patient", patient);
+        }
+        
+        return "redirect:/mainpage#!/about";
+
     }
 }
 

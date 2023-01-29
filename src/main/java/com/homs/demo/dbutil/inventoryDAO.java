@@ -14,7 +14,6 @@ import com.homs.demo.model.inventory;
 public class inventoryDAO {
     @Autowired
     private DataSource DataSource;
-    private inventory custcart;
     List<inventory> inventoryList = new ArrayList<inventory>();
     List<inventory> cart = new ArrayList<inventory>();
 
@@ -33,7 +32,7 @@ public class inventoryDAO {
     }
 
     public void getCart() {
-        custcart = new inventory(null, null, null, null, null);
+        new inventory(null, null, null, null, null);
     }
 }
 
