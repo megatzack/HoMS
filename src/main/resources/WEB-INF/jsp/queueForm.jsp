@@ -23,9 +23,8 @@
       <form action="/EnterQueue" method="post">
         <div class="row">
           <div class="col">
-            <p class="category">Medical History</p>
             <div class="form-group">
-              <label for="medicalHistory">Medical History</label>
+              <label for="medicalIssues">Medical Issues</label>
               <textarea class="form-control" id="medicalHistory" rows="3" name="medicalHistory"></textarea>
             </div>
           </div>
