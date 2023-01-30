@@ -38,6 +38,14 @@ public class PatientDAO {
         }
     }
 
+    public int updateProfile(Patient p){
+        JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
+        String sql = "UPDATE patient SET patientName= ?, patientEmail= ?,patientPhoneNO= ? WHERE patientIC= ?";
+        int rowAffected = jbdct.update(sql,p.getName(), p.getPatientEmail(), p.getPhoneNO(), p.getUserIC());
+        
+        return rowAffected;
+    }
+
     public static DataSource getDataSource() {
         DataSource dataSource = null;
 

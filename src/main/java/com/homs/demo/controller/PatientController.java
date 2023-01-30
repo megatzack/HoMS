@@ -67,5 +67,31 @@ public class PatientController {
             return "redirect:/Patient/login";
         }
     }
+
+    @PostMapping(value="/updateMyProfile")
+    public String updateProfileDetails(HttpServletRequest request)
+    {
+
+        HttpSession session = request.getSession();
+
+        String patientName = request.getParameter("patientName");
+        String patientEmail = request.getParameter("patientEmail");
+        String phoneNO = request.getParameter("patientPhoneNo");
+
+
+        Patient p = new Patient();
+
+        p.setName(patientName);
+        p.setPatientEmail(patientEmail);
+        p.setPhoneNO(phoneNO);
+
+        session.setAttribute("p", p);
+
+        PatientDAO patientDAO = new PatientDAO();
+        int row = patientDAO.updateProfile(p);
+        System.out.println("row affected: " + row);
+        return "patientProfile";
+
+    }
     
 }
