@@ -51,4 +51,15 @@ public class PatientDAO {
         }
         return dataSource;
     }
+
+    public static int getPatientID(Patient patient) {
+        JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
+        String sql = "SELECT patientID FROM patient WHERE patientEmail = ?";
+        try {
+            int patientID = jbdct.queryForObject(sql, Integer.class, patient.getPatientEmail());
+            return patientID;
+        } catch (Exception e) {
+            return 0;
+        }
+    }
 }

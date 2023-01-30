@@ -48,7 +48,7 @@ public class homepageController {
     }
     @GetMapping(value="/service/medicalReport")
     public String getMedicalReportPage() {
-        return "";
+        return "forward:/medicalReportController";
     }
 
 

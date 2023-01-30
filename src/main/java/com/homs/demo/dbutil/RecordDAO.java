@@ -1,6 +1,5 @@
 package com.homs.demo.dbutil;
 
-
 import java.util.List;
 import java.util.Map;
 
@@ -13,36 +12,28 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Repository;
 
 import com.homs.demo.model.Patient;
+import com.homs.demo.model.Record;
 import com.homs.demo.model.Queue;
 
 @Repository
-public class QueueDAO {
-    public int enterVirtualQueue(Queue queue) {
+public class RecordDAO {
+    public int enterRecord(Record record) {
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
-        String sql = "INSERT INTO queue (patientID, queueStatus, queueTime) VALUES (?,?,?)";
-        Object args[] = { queue.getPatientID(), queue.getQueueStatus(), queue.getQueueTime()};
+        String sql = "INSERT INTO record (patientID, medicalHistory) VALUES (?,?)";
+        Object args[] = { record.getPatientID(), record.getMedicalHistory()};
         int rowAffected = jbdct.update(sql, args);
         return rowAffected;
     }
 
-    public Queue getQueueByPatient(Patient patient) {
+    public List<Map<String, Object>> getAllRecord() {
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
-        String sql = "SELECT * FROM queue WHERE patientID = ? LIMIT 1";
+        String sql = "SELECT * FROM record";
         try {
-            Queue queue = jbdct.queryForObject(sql, new BeanPropertyRowMapper<Queue>(Queue.class), patient.getPatientID());
-            return queue;
+            List<Map<String, Object>> record = jbdct.queryForList(sql);
+            return record;
         } catch (EmptyResultDataAccessException e) {
             return null;
         }
-    }
-
-    public int updateQueueStatus(Queue queue) {
-        JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
-        String sql = "UPDATE queue SET queueStatus = ? WHERE patientID = ?";
-        Object args[] = { queue.getQueueStatus(), queue.getPatientID()};
-        int rowAffected = jbdct.update(sql, args);
-
-        return rowAffected;
     }
 
     public static DataSource getDataSource() {
@@ -59,17 +50,5 @@ public class QueueDAO {
         }
         return dataSource;
     }
-
-    public List<Map<String, Object>> getAllQueue() {
-        JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
-        String sql = "SELECT * FROM queue";
-        try {
-            List<Map<String, Object>> queue = jbdct.queryForList(sql);
-            return queue;
-        } catch (EmptyResultDataAccessException e) {
-            return null;
-        }
-    }
-
 
 }

@@ -101,6 +101,16 @@ public class tableLoader {
                     + ")");
             System.out.println("Table 'queue' created");
         }
+        if (!tables.contains("record")){
+            jdbcTemplate.execute("CREATE TABLE record ("
+                    + "recordID INT NOT NULL AUTO_INCREMENT,"
+                    + "patientID INT NOT NULL,"
+                    + "medicalHistory VARCHAR(50) NULL,"
+                    + "PRIMARY KEY (recordID),"
+                    + "FOREIGN KEY (patientID) REFERENCES patient(patientID)"
+                    + ")");
+            System.out.println("Table 'record' created");
+        }
 
     }
     

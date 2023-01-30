@@ -45,7 +45,7 @@
                 <button type="submit" id="submit">Sign In</button>
             </form>
             <p class="signUp">Dont have an account?
-            <a href="/register">
+            <a href="/Patient/create">
                 <u>Create Account</u>
             </a></p>
         </body>

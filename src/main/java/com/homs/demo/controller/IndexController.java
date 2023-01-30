@@ -47,6 +47,7 @@ public class IndexController{
             patient = PatientDAO.authenticate(email,password);
             try {
                 session.setAttribute("patient", patient);
+                session.setAttribute("patientID", PatientDAO.getPatientID(patient));
                 model.addAttribute("patient", patient);
                 patient = (Patient) session.getAttribute("patient");
                 System.out.println(patient.getName());

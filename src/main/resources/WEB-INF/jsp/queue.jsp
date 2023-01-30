@@ -25,22 +25,18 @@
       <br>
       We will notify you when it's your turn.
     </p>
-    <p>Estimated waiting time: <span th:text="${estimatedServingTime}"></span></p>
   </div>
   <div class="queue-section">
-    <p>Queue status: <span th:text="${queue.queueStatus}"></span></p>
+    <p>Your Number: <span th:text="${queue.queueID}"></span></p>
+    <p>Your status: <span th:text="${queue.queueStatus}"></span></p>
     <table>
       <tr>
         <th>Queue ID</th>
-        <th>Patient Name</th>
         <th>Queue Status</th>
       </tr>
-      <tr th:each="queue : ${queues}">
-        <td th:text="${queue.queueId}"></td>
-        <td th:text="${queue.patientName}"></td>
-        <td th:class="${queue.status}">
-          <span th:text="${queue.status}"></span>
-        </td>
+      <tr th:each="queues : ${queues}">
+        <td th:text="${queues.queueID}"></td>
+        <td th:text="${queues.queueStatus}"></td>
       </tr>
     </table>
   </div>

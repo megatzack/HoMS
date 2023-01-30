@@ -25,54 +25,9 @@
           <div class="col">
             <p class="category">Medical History</p>
             <div class="form-group">
-              <label for="diabetes">Diabetes
-                <input type="checkbox" name="diabetes" value="True">
-              </label>
+              <label for="medicalHistory">Medical History</label>
+              <textarea class="form-control" id="medicalHistory" rows="3" name="medicalHistory"></textarea>
             </div>
-            <div class="form-group">
-              <label for="asthma">Asthma
-                <input type="checkbox" name="asthma" value="True">
-              </label>
-            </div>
-            <div class="form-group">
-              <label for="heart">Heart Disease
-                <input type="checkbox" name="heart" value="True">
-              </label>
-            </div>
-            <div class="form-group">
-              <label for="cancer">Cancer
-                <input type="checkbox" name="cancer" value="True">
-              </label>
-            </div>
-          </div>
-          <div class="col">
-            <p class="category">Surgical History</p>
-            <br>
-            <label for="surgery_date">Surgery Date</label>
-            <input type="date" name="surgery_date">
-            <label for="surgery_type">Surgery Type</label>
-            <select name="surgery_type">
-              <option value="heart">Heart</option>
-              <option value="brain">Brain</option>
-              <option value="orthopedic">Orthopedic</option>
-            </select>
-            <br>
-          </div>
-          <div class="col">
-            <p class="category">Guardian tagging along</p>
-            <label for="guardian">Guardian</label>
-            <select name="guardian">
-                <option value="father">Father</option>
-                <option value="mother">Mother</option>
-                <option value="sister">Sister</option>
-                <option value="brother">Brother</option>
-                <option value="grandfather">Grandfather</option>
-                <option value="grandmother">Grandmother</option>
-                <option value="uncle">Uncle</option>
-                <option value="aunt">Aunt</option>
-                <option value="cousin">Cousin</option>
-                <option value="other">Other</option>
-            </select>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </div>
