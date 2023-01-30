@@ -83,7 +83,7 @@ public class homepageController {
         }
     }
     @GetMapping(value="/service/admin/ambulance_deleteschedule")
-    public String deleteAmbulanceSchedulePage() {
+    public String deleteAmbulanceSchedulePage(HttpServletRequest request) {
         staff = (Staff) request.getSession().getAttribute("staff");
         if (staff != null) {
             return "forward:/deleteSchedule";
