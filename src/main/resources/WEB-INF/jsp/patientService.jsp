@@ -19,13 +19,13 @@
 <body>
     <img id="background" src="/image/service.jpg" alt="patient Service">
     <desc>
-        <h4>Our Services</h4>
-        <p>HoMS Specialist Hospital</p>
+        <h4 id="title">Our Services</h4>
+        <p id="description">HoMS Specialist Hospital</p>
     </desc>
     <!--Service Content-->
-    <div class="container">
+    <div class="container" id="container">
         <div class="row row-cols-3 gy-5">
-            <a href="#!/service/medicalRecord">
+            <a href="#!/service/medicalRecord" id="department">
                 <div class="col">
                     <div class="card shadow-sm align-items-center" id="content">
                         <img src="/image/HoMSLogo-03.png" alt="">
@@ -35,7 +35,7 @@
                 </div>
             </a>
 
-            <a href="#!/service/medicalQueue">
+            <a href="#!/service/medicalQueue" id="department">
                 <div class="col">
                     <div class="card shadow-sm align-items-center" id="content">
                         <img src="/image/HoMSLogo-03.png" alt="">
@@ -45,7 +45,7 @@
                 </div>
             </a>
             
-            <a href="#!/service/medicalShop">
+            <a href="#!/service/medicalShop" id="department">
                 <div class="col">
                     <div class="card shadow-sm align-items-center" id="content">
                         <img src="/image/HoMSLogo-03.png" alt="">

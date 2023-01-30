@@ -7,6 +7,9 @@ import com.homs.demo.model.review;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -35,5 +38,20 @@ public class reviewDAO {
         }
 
         return cust_review;
+    }
+
+    public List<review> getReviewList() {
+        List<review> reviewList = new ArrayList<review>();
+        try {
+            Connection connection = DataSource.getConnection();
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM review");
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                reviewList.add(new review(rs.getString("name"), rs.getString("email"), rs.getString("review")));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return reviewList;
     }
 }

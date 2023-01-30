@@ -1,8 +1,5 @@
 package com.homs.demo.controller;
 
-import java.time.LocalDate;
-import java.util.Date;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -64,7 +61,7 @@ public class ambulanceController {
     @PostMapping(value="/updateMyProfile")
     public String updateProfile(@RequestParam("name")String name, @RequestParam("contact")String contact, @RequestParam("status")String status, @RequestParam("location")String location, @RequestParam("ambulancePlate")String ambulancePlate){
         AmbulanceDAO ambulanceDAO = new AmbulanceDAO();
-        int row = ambulanceDAO.getNewProfile(name, contact, location, status, ambulancePlate);
+        ambulanceDAO.getNewProfile(name, contact, location, status, ambulancePlate);
 
         return "redirect:/staffpage#!/homepage";
     }
