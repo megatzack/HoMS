@@ -42,7 +42,7 @@ public class PatientController {
         PatientDAO patientDAO = new PatientDAO();
         int row = patientDAO.register(patient);
         System.out.println("row affected: " + row);
-        return "redirect:/login";
+        return "loginPage";
 
     }
 
