@@ -24,7 +24,9 @@
     <div class="myprofile">My Profile</div>
     <div class="homsspecialisthospital">HoMS Specialist Hospital</div>
 
-    <div class="innercircle"></div>
+    <div class="innercircle">
+        <img class="innercircle" src="/image/doctorPicture.jpg" alt="Dr Syazwan Picture" width="400px" height="600px">
+    </div>
     <div class="outercircle"></div>
     <div class="syazwansahdan">Syazwan Sahdan</div>
     <div class="fullname">Full Name : </div>
