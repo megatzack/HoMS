@@ -16,7 +16,7 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 public class ambulanceController {
     
-    @GetMapping(value="/choosePlate")
+    @GetMapping(value="choosePlate")
     public String choosePlate() {
         return "ambulance";
     }
@@ -32,7 +32,19 @@ public class ambulanceController {
         return "ambulanceRespond";
     }
 
-    @GetMapping(value="/myProfile")
+    @PostMapping(value="/updateRespondPage")
+    public String update(@RequestParam("name")String name,@RequestParam("contact")String contact,@RequestParam("location")String location,@RequestParam("status")String status,@RequestParam("date")String date,@RequestParam("time")String time){
+       // Ambulance ambulance = null;
+        AmbulanceDAO ambulanceDAO = new AmbulanceDAO();
+        int row = ambulanceDAO.getNewRespond(name,contact,location, status,date,time);
+       // System.out.println(ambulance.getName());
+
+      //  model.addAttribute("ambulance",ambulance);
+        
+        return "ambulance";
+    }
+
+    @GetMapping(value="myProfile")
     public String myProfile(HttpSession session, Model model){
         Ambulance ambulance = null;
         AmbulanceDAO ambulanceDAO = new AmbulanceDAO();
@@ -51,7 +63,7 @@ public class ambulanceController {
         AmbulanceDAO ambulanceDAO = new AmbulanceDAO();
         ambulanceDAO.getNewProfile(name, contact, location, status, ambulancePlate);
 
-        return "redirect:/mainpage#!/homepage";
+        return "redirect:/staffpage#!/homepage";
     }
     
 }

@@ -32,6 +32,9 @@ app.config(function ($routeProvider) {
         .when("/service/admin/ambulance_setschedule", {
             templateUrl: "/service/admin/ambulance_setschedule",
         })
+        .when("/service/admin/ambulance_deleteschedule", {
+            templateUrl: "/service/admin/ambulance_deleteschedule",
+        })
         .when("/service/admin", {
             templateUrl: "/service/admin",
         })

@@ -41,6 +41,16 @@
                 </div>
             </a>
 
+            <a href="#!service/admin/ambulance_deleteschedule">
+                <div class="col">
+                    <div class="card shadow-sm align-items-center" id="content">
+                        <img src="/image/HoMSLogo-03.png" alt="">
+                        <br>
+                        Delete Schedule
+                    </div>
+                </div>
+            </a>
+
         </div>
     </div>
 </body>

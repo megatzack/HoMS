@@ -68,7 +68,7 @@ public class homepageController {
     public String getAmbulancePlatePage(HttpServletRequest request, HttpServletResponse response,Model model) {
         staff = (Staff) request.getSession().getAttribute("staff");
         if (staff != null) {
-            return "ambulance";
+            return "forward:/choosePlate";
         } else {
            return "errorPage"; 
         }
@@ -77,7 +77,16 @@ public class homepageController {
     public String getAmbulanceSchedulePage(HttpServletRequest request, HttpServletResponse response,Model model) {
         staff = (Staff) request.getSession().getAttribute("staff");
         if (staff != null) {
-            return "ambulanceRespond";
+            return "forward:/setSchedule";
+        } else {
+           return "errorPage"; 
+        }
+    }
+    @GetMapping(value="/service/admin/ambulance_deleteschedule")
+    public String deleteAmbulanceSchedulePage() {
+        staff = (Staff) request.getSession().getAttribute("staff");
+        if (staff != null) {
+            return "forward:/deleteSchedule";
         } else {
            return "errorPage"; 
         }
@@ -86,7 +95,7 @@ public class homepageController {
     public String getSchedulePage(HttpServletRequest request, HttpServletResponse response,Model model) {
         staff = (Staff) request.getSession().getAttribute("staff");
         if (staff != null) {
-            return "staff_schedule";
+            return "forward:/seeSchedule";
         } else {
            return "errorPage"; 
         }

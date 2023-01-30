@@ -347,7 +347,7 @@ a:hover{
     <!-- main content goes here -->
     	<div class ="content">
     	
-    	<form method="post" action="">
+    	<form action="javascript:history.go(-1)">
 
   			<h3 class="staff-text">Staff Names</h3>
   			<input class="form-control1" type="text" name="fullname" placeholder="insert fullname" th:value="${schedule.getName()}" readonly>
@@ -372,6 +372,8 @@ a:hover{
  	</div>
  
  </div>
+
+ 
       
 </body>
 </html>
