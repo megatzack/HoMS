@@ -91,7 +91,7 @@ public class tableLoader {
             System.out.println("Table 'product' created");
         }
         if (!tables.contains("ambulance")){
-            jdbcTemplate.execute("CREATE TABLE product ("
+            jdbcTemplate.execute("CREATE TABLE ambulance ("
                     + "ambulanceID INT NOT NULL AUTO_INCREMENT,"
                     + "name TEXT UNIQUE NOT NULL,"
                     + "contact TEXT NOT NULL,"
@@ -106,7 +106,7 @@ public class tableLoader {
             System.out.println("Table 'ambulance' created");
         }
         if (!tables.contains("schedule")){
-            jdbcTemplate.execute("CREATE TABLE product ("
+            jdbcTemplate.execute("CREATE TABLE schedule ("
                     + "scheduleID INT NOT NULL AUTO_INCREMENT,"
                     + "name TEXT UNIQUE NOT NULL,"
                     + "ocInTime TEXT NOT NULL,"
