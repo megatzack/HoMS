@@ -39,8 +39,8 @@ app.config(function ($routeProvider) {
         .when("/service/medicalShop", {
             templateUrl: "/service/medicalShop",
         })
-        .when("/service/medicalRecord", {
-            templateUrl: "/service/medicalRecord",
+        .when("/service/medicalReport", {
+            templateUrl: "/service/medicalReport",
         })
         .when("/service/medicalQueue", {
             templateUrl: "/service/medicalQueue",

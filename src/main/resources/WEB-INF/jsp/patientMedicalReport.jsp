@@ -29,10 +29,10 @@
           Medical History:
         </th>
       </tr>
-        <!-- <tr th:each="record : ${record}">
+        <tr th:each="record : ${record}">
           <td th:text="${record.patientID}"></td>
           <td th:text="${record.medicalHistory}"></td>
-        </tr> -->
+        </tr>
     </table>
       
   </div>

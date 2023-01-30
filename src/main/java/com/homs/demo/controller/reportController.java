@@ -15,10 +15,11 @@ import com.homs.demo.model.Record;
 public class reportController {
 
     @GetMapping("medicalReportController")
-    public String report() {
-        // RecordDAO recordDAO = new RecordDAO();
-        // java.util.List<Map<String, Object>> record = recordDAO.getAllRecord();
-        // model.addAttribute("record", record);
+    public String report(Model model) {
+        RecordDAO recordDAO = new RecordDAO();
+        java.util.List<Map<String, Object>> record = recordDAO.getAllRecord();
+        model.addAttribute("record", record);
+        System.out.println("test");
         return "patientMedicalReport";
     }
 
