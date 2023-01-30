@@ -20,7 +20,7 @@ public class IndexController{
     @RequestMapping(value = "/register")
     public String getregisterPage() {
         return "registerPage";
-    }*/
+    }
     
     @GetMapping(value = "/login")
     public String getLoginPage(Model model) {
