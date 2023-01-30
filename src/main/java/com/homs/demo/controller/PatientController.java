@@ -1,5 +1,6 @@
 package com.homs.demo.controller;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -13,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.homs.demo.dbutil.PatientDAO;
 import com.homs.demo.model.Patient;
 
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
