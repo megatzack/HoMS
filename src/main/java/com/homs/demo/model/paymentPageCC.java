@@ -1,7 +1,7 @@
 package com.homs.demo.model;
 
 public class paymentPageCC {
-    int cardNo;
+    String cardNo;
     int cvvNo;
     String expiryDate;
     String firstName;
@@ -13,7 +13,7 @@ public class paymentPageCC {
     String email;
     String phoneNo;
 
-    public paymentPageCC(int cardNo, int cvvNo, String expiryDate, String firstName, String lastName, String country, String state, String city, int postalCode, String email, String phoneNo){
+    public paymentPageCC(String cardNo, int cvvNo, String expiryDate, String firstName, String lastName, String country, String state, String city, int postalCode, String email, String phoneNo){
         this.cardNo = cardNo;
         this.cvvNo = cvvNo;
         this.expiryDate = expiryDate;
@@ -27,10 +27,10 @@ public class paymentPageCC {
         this.phoneNo = phoneNo;
     }
 
-    public int getCardNo() {
+    public String getCardNo() {
 		return cardNo;
 	}
-	public void setCardNo(int cardNo) {
+	public void setCardNo(String cardNo) {
 		this.cardNo = cardNo;
 	}
 	public int getCvvNo() {

@@ -15,9 +15,25 @@ import jakarta.servlet.http.HttpSession;
 @RequestMapping("/payment")
 public class paymentController {
 
-    @GetMapping(value="/paymentPage")
-    public String choosePaymentCC() {
-        return "paymentPage";
+    @PostMapping(value="/paymentPage")
+    public String choosePaymentCC(HttpServletRequest request) {
+
+        String paymentopt = request.getParameter("paymentopt");
+        String page = null;
+
+        if(paymentopt == "Online Banking"){
+            page = "paymentOnlineBanking";
+        }
+
+        else if(paymentopt == "Credit Card"){
+            page = "paymentCC";
+        }
+
+        else if(paymentopt == "Cash"){
+            page = "paymentCash";
+        }
+
+        return page;
     }
 
     @GetMapping(value="/paymentOnlineBanking")
@@ -35,7 +51,7 @@ public class paymentController {
     {
 
         HttpSession session = request.getSession();
-        int cardNo = Integer.parseInt(request.getParameter("cardNo"));
+        String cardNo = request.getParameter("cardNo");
         int cvvNo = Integer.parseInt(request.getParameter("cvvNo"));
         String expiryDate = request.getParameter("expiryDate");
         String firstName = request.getParameter("firstName");

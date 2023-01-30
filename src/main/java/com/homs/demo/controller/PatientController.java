@@ -1,5 +1,6 @@
 package com.homs.demo.controller;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -12,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.homs.demo.dbutil.PatientDAO;
 import com.homs.demo.model.Patient;
 
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -68,8 +71,8 @@ public class PatientController {
         }
     }
 
-    @PostMapping(value="/updateMyProfile")
-    public String updateProfileDetails(HttpServletRequest request)
+    @PostMapping(value="/patientProfile")
+    public String updateProfileDetails(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
 
         HttpSession session = request.getSession();
@@ -78,7 +81,6 @@ public class PatientController {
         String patientEmail = request.getParameter("patientEmail");
         String phoneNO = request.getParameter("patientPhoneNo");
 
-
         Patient p = new Patient();
 
         p.setName(patientName);
@@ -86,6 +88,9 @@ public class PatientController {
         p.setPhoneNO(phoneNO);
 
         session.setAttribute("p", p);
+
+        response.sendRedirect("patientProfile.jsp");
+        response.sendRedirect("appointment.jsp");
 
         PatientDAO patientDAO = new PatientDAO();
         int row = patientDAO.updateProfile(p);
