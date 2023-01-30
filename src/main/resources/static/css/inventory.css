@@ -48,7 +48,7 @@
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
 }
-#list{
+#item{
   row-gap: 8vh;
 }
 #myCart {

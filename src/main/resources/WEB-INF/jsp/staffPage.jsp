@@ -38,7 +38,7 @@
             <li><a href="#!doctor" class="nav-link px-2 link-dark">Doctor</a></li>
             <li><a href="#!staffservice" class="nav-link px-2 link-dark">Service</a></li>
             <li><a href="#!review" class="nav-link px-2 link-dark">Review</a></li>
-            <li><a href="#!about" class="nav-link px-2 link-dark">My Profile</a></li>
+            <li><a href="#!about" class="nav-link px-2 link-dark">About Us</a></li>
             <li><button type="button" class="btn btn-primary" style="background-color:#06605B;" id="logout">Log Out</button></li>
           </ul>
         </header>

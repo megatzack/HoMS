@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    text-align: center;
+    background-color: #f2f2f2;
+    padding: 30px;
+  }
+  
+
+  
+  table {
+    margin: 50px;
+    font-size: large;
+    width: 70%;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+    text-align: center;
+  }
+  
+  th {
+    border: 1px solid
+  }  
+
+  .title{
+    text-align: center;
+    width: 44rem;
+    font-weight: 600;
+    font-size: 38px;
+    color: white;
+    padding: 30px;
+  }
+
+  .description{
+    text-align: center;
+    flex-wrap: wrap;
+    width: 22rem;
+    font-weight: 300;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    padding: 15px;
+    width: max-content;
+
+  }
+
+  .containers{
+    width: 99vw;
+    height: 40vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-image: url(/image/pattern.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }

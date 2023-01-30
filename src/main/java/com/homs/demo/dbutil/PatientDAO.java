@@ -13,12 +13,11 @@ import javax.sql.DataSource;
 @Repository
 public class PatientDAO {
     
-
     public int register(Patient patient) {
         
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
         String sql = "insert into `Patient` (`patientName`,`patientEmail`,`patientPassword`,`patientIC`, `patientPhoneNO`) values (?,?,?,?,?)";
-        Object args[] = {patient.getPatientName(), patient.getPatientEmail(), patient.getPatientPassword() ,patient.getPatientIC(), patient.getPatientPhoneNO()};
+        Object args[] = {patient.getName(), patient.getPatientEmail(), patient.getPatientPassword() ,patient.getUserIC(), patient.getPhoneNO()};
 
         int rowAffected = jbdct.update(sql, args);
         return rowAffected;
@@ -38,22 +37,6 @@ public class PatientDAO {
         }
     }
 
-    public Patient updatePatient(String name, String phoneNo, String email) {
-        JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
-        String sql = "UPDATE patient SET patientName = ?, patientPhoneNO = ? WHERE patientEmail = ?";
-        int rowAffected = jbdct.update(sql, name, phoneNo, email);
-        if (rowAffected > 0) {
-            String sql2 = "SELECT * FROM patient WHERE patientEmail = ?";
-            try {
-                Patient patient = jbdct.queryForObject(sql2, new BeanPropertyRowMapper<Patient>(Patient.class), email);
-                return patient;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return null;
-    }
-
     public static DataSource getDataSource() {
         DataSource dataSource = null;
 
@@ -67,5 +50,16 @@ public class PatientDAO {
             e.printStackTrace();
         }
         return dataSource;
+    }
+
+    public static int getPatientID(Patient patient) {
+        JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
+        String sql = "SELECT patientID FROM patient WHERE patientEmail = ?";
+        try {
+            int patientID = jbdct.queryForObject(sql, Integer.class, patient.getPatientEmail());
+            return patientID;
+        } catch (Exception e) {
+            return 0;
+        }
     }
 }

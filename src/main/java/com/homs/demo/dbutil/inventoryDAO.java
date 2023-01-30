@@ -14,8 +14,7 @@ import com.homs.demo.model.inventory;
 public class inventoryDAO {
     @Autowired
     private DataSource DataSource;
-    List<inventory> inventoryList = new ArrayList<inventory>();
-    List<inventory> cart = new ArrayList<inventory>();
+    List<inventory> inventory = new ArrayList<inventory>();
 
     public List<inventory> getInventory() {
         try {
@@ -23,16 +22,13 @@ public class inventoryDAO {
             PreparedStatement stmt = connection.prepareStatement("SELECT * FROM product");
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                inventoryList.add(new inventory(rs.getString("name"), rs.getString("description"), rs.getString("price"), rs.getString("picture"), rs.getString("type")));
+                inventory.add(new inventory(rs.getString("name"), rs.getString("description"), rs.getString("price"), rs.getString("picture"), rs.getString("type")));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return inventoryList;
-    }
 
-    public void getCart() {
-        new inventory(null, null, null, null, null);
+        return inventory;
     }
 }
 

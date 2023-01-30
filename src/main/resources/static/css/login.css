@@ -153,10 +153,3 @@ body {
     left: 90px;
     top: 56px;
 }
-
-#invalid_credential {
-    position: fixed;
-    width: 30%;
-    bottom: 0%;
-    right: 2%;
-}

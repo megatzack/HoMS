@@ -1,24 +1,29 @@
 package com.homs.demo.model;
 
 public class Patient {
-    private String patientIC;
-    private String patientPhoneNo;
-    private String patientName;
+    private int patientID;
+    private String userIC;
+    private String phoneNO;
+    private String Name;
     private String patientEmail;
     private String patientPassword;
 
     //Private Queue queue;
 
-    public String getPatientIC() {
-        return patientIC;
+    public String getUserIC() {
+        return userIC;
     }
 
-    public String getPatientPhoneNO() {
-        return patientPhoneNo;
+    public int getPatientID() {
+        return patientID;
     }
 
-    public String getPatientName() {
-        return patientName;
+    public String getPhoneNO() {
+        return phoneNO;
+    }
+
+    public String getName() {
+        return Name;
     }
 
     public String getPatientEmail() {
@@ -29,16 +34,20 @@ public class Patient {
         return patientPassword;
     }
 
-    public void setPatientIC(String patientIC) {
-        this.patientIC = patientIC;
-    }
-    
-    public void setPatientPhoneNO(String patientPhoneNo) {
-        this.patientPhoneNo = patientPhoneNo;
+    public void setUserIC(String userIC) {
+        this.userIC = userIC;
     }
 
-    public void setPatientName(String patientName) {
-        this.patientName = patientName;
+    public void setPatientID(int patientID) {
+        this.patientID = patientID;
+    }
+
+    public void setPhoneNO(String phoneNO) {
+        this.phoneNO = phoneNO;
+    }
+
+    public void setName(String name) {
+        Name = name;
     }
 
     public void setPatientEmail(String patientEmail) {

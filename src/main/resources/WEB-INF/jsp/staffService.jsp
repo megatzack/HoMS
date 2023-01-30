@@ -19,13 +19,13 @@
 <body>
     <img id="background" src="/image/service.jpg" alt="patient Service">
     <desc>
-        <h4 id="title">Our Services</h4>
-        <p id="description">HoMS Specialist Hospital</p>
+        <h4>Our Services</h4>
+        <p>HoMS Specialist Hospital</p>
     </desc>
     <!--Service Content-->
-    <div class="container" id="container">
+    <div class="container">
         <div class="row row-cols-3 gy-5">
-            <a href="#!/service/ambulance" th:if="${department == 'Ambulance Department'}" id="department">
+            <a href="#!/service/ambulance" th:if="${staffDepartment == 'Ambulance Department'}">
                 <div class="col">
                     <div class="card shadow-sm align-items-center" id="content">
                         <img src="/image/HoMSLogo-03.png" alt="">
@@ -35,7 +35,7 @@
                 </div>
             </a>
 
-            <a href="#!/service/admin" th:if="${department == 'Admin Administrator Department'}" id="department">
+            <a href="#!/service/admin" th:if="${staffDepartment == 'Admin Administrator Department'}">
                 <div class="col">
                     <div class="card shadow-sm align-items-center" id="content">
                         <img src="/image/HoMSLogo-03.png" alt="">
@@ -45,7 +45,7 @@
                 </div>
             </a>
 
-            <a href="#!/service/ambulance" th:if="${department == 'Inventory Department'}" id="department">
+            <a href="#!/service/ambulance" th:if="${staffDepartment == 'Inventory Department'}">
                 <div class="col">
                     <div class="card shadow-sm align-items-center" id="content">
                         <img src="/image/HoMSLogo-03.png" alt="">
@@ -55,7 +55,7 @@
                 </div>
             </a>
 
-            <a href="#!/service/ambulance" th:if="${staffDepartment == 'Staff Department'}" id="department">
+            <a href="#!/service/ambulance" th:if="${staffDepartment == 'Staff Department'}">
                 <div class="col">
                     <div class="card shadow-sm align-items-center" id="content">
                         <img src="/image/HoMSLogo-03.png" alt="">
@@ -65,7 +65,7 @@
                 </div>
             </a>
 
-            <a href="#!/service/staffSchedule" id="department">
+            <a href="#!/service/staffSchedule">
                 <div class="col">
                     <div class="card shadow-sm align-items-center" id="content">
                         <img src="/image/HoMSLogo-03.png" alt="">
@@ -75,7 +75,7 @@
                 </div>
             </a>
 
-            <a href="#!/service/medicalReport" id="department">
+            <a href="#!/service/medicalReport">
                 <div class="col">
                     <div class="card shadow-sm align-items-center" id="content">
                         <img src="/image/HoMSLogo-03.png" alt="">

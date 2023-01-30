@@ -23,6 +23,7 @@
 
 <body>
     <!--Content Area-->
+    <a href="/ambulance" class="btn btn-outline-light my-2" style="position:absolute; left: 20px; top: 20px;">Back</a>
     <div class="fluid-container">
         <img class="background" src="/image/background.jpg" alt="background" style="filter:brightness(60%)">
         <box></box>
@@ -32,7 +33,7 @@
             <p id="description"> We take the guesswork out of location a doctor, hospital, or other medical facility in your area for you and your family.</p>
             <call class="col-lg-6 col-md-8 mx-auto">
                 <a href="#" class="btn btn-success my-2" style="background-color:#06605B;">Get Doctor</a>
-                <a href="#" class="btn btn-outline-light my-2">See More</a>
+                <a href="#" class="btn btn-outline-light my-2">Learn More</a>
             </call>
         </div>
     </div>

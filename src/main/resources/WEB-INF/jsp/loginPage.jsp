@@ -26,7 +26,6 @@
                 <div class="mb-3">
                     <label for="Output1" class="email">Email</label>
                     <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
-
                 </div>
                 <div class="mb-3">
                     <label for="Output2" class="password">Password</label>
@@ -38,7 +37,7 @@
                     </tr>
                 </table>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked required>
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked>
                     <label class="form-check-label" for="flexCheckChecked">
                         I agree to <b>Terms and Conditions.</b>
                     </label>
@@ -46,13 +45,8 @@
                 <button type="submit" id="submit">Sign In</button>
             </form>
             <p class="signUp">Dont have an account?
-            <a href="/register">
+            <a href="/Patient/create">
                 <u>Create Account</u>
             </a></p>
-
-            <div class="alert alert-danger alert-dismissible fade show" role="alert" id="invalid_credential" th:if="${status == 'Invalid Credientials'}">
-                <strong>Invalid Credential!</strong> <br>Please check your email and password.
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
         </body>
     </html>

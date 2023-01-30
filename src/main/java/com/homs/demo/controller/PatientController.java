@@ -1,5 +1,9 @@
 package com.homs.demo.controller;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +19,6 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/Patient")
 public class PatientController {
-
     
     @GetMapping("/create")
     public String Patient_register() {
@@ -24,7 +27,7 @@ public class PatientController {
     }
 
     @PostMapping("/welcome")
-    public String register(HttpServletRequest request)
+    public String register(HttpServletRequest request, HttpSession session)
     {
         String userIC = request.getParameter("patientIC");
         String phoneNO = request.getParameter("patientPhoneNo");
@@ -33,12 +36,13 @@ public class PatientController {
         String patientEmail = request.getParameter("patientEmail");
 
         Patient patient = new Patient();
-        patient.setPatientName(patientName);
+        patient.setName(patientName);
         patient.setPatientEmail(patientEmail);
         patient.setPatientPassword(patientPassword);
-        patient.setPatientIC(userIC);
-        patient.setPatientPhoneNO(phoneNO);
+        patient.setUserIC(userIC);
+        patient.setPhoneNO(phoneNO);
 
+        session.setAttribute("patient", patient);
         PatientDAO patientDAO = new PatientDAO();
         int row = patientDAO.register(patient);
         System.out.println("row affected: " + row);
@@ -46,24 +50,9 @@ public class PatientController {
 
     }
 
-    @PostMapping("/update")
-    public String update(HttpServletRequest request, HttpSession session, Model model)
-    {
-        String phoneNo = request.getParameter("phoneNo");
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
-
-        PatientDAO patientDAO = new PatientDAO();
-        Patient patient = patientDAO.updatePatient(name, phoneNo, email);
-        if (patient != null) {
-            // Change Session Data
-            session.setAttribute("patient", patient);
-            // Change Model Data
-            model.addAttribute("patient", patient);
-        }
-        
-        return "redirect:/mainpage#!/about";
-
+    @GetMapping("/login")
+    public String login(){
+        return "loginPage";
     }
 }
 

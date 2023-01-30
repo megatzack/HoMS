@@ -90,33 +90,26 @@ public class tableLoader {
                     + ")");
             System.out.println("Table 'product' created");
         }
-        if (!tables.contains("ambulance")){
-            jdbcTemplate.execute("CREATE TABLE ambulance ("
-                    + "ambulanceID INT NOT NULL AUTO_INCREMENT,"
-                    + "name TEXT UNIQUE NOT NULL,"
-                    + "contact TEXT NOT NULL,"
-                    + "location TEXT NOT NULL,"
-                    + "status TEXT NOT NULL,"
-                    + "ambulancePlate TEXT NOT NULL,"
-                    + "department TEXT NOT NULL,"
-                    + "dates TEXT,"
-                    + "times TEXT,"
-                    + "PRIMARY KEY (ambulanceID)"
+        if (!tables.contains("queue")) {
+            jdbcTemplate.execute("CREATE TABLE queue ("
+                    + "queueID INT NOT NULL AUTO_INCREMENT,"
+                    + "patientID INT NOT NULL,"
+                    + "queueStatus VARCHAR(45),"
+                    + "queueTime TIMESTAMP NULL,"
+                    + "PRIMARY KEY (queueID),"
+                    + "FOREIGN KEY (patientID) REFERENCES patient(patientID)"
                     + ")");
-            System.out.println("Table 'ambulance' created");
+            System.out.println("Table 'queue' created");
         }
-        if (!tables.contains("schedule")){
-            jdbcTemplate.execute("CREATE TABLE schedule ("
-                    + "scheduleID INT NOT NULL AUTO_INCREMENT,"
-                    + "name TEXT UNIQUE NOT NULL,"
-                    + "ocInTime TEXT NOT NULL,"
-                    + "ocOutTime TEXT NOT NULL,"
-                    + "tcInTime TEXT NOT NULL,"
-                    + "tcOutTime TEXT NOT NULL,"
-                    + "notes TEXT NOT NULL,"
-                    + "PRIMARY KEY (scheduleID)"
+        if (!tables.contains("record")){
+            jdbcTemplate.execute("CREATE TABLE record ("
+                    + "recordID INT NOT NULL AUTO_INCREMENT,"
+                    + "patientID INT NOT NULL,"
+                    + "medicalHistory VARCHAR(50) NULL,"
+                    + "PRIMARY KEY (recordID),"
+                    + "FOREIGN KEY (patientID) REFERENCES patient(patientID)"
                     + ")");
-            System.out.println("Table 'schedule' created");
+            System.out.println("Table 'record' created");
         }
 
     }

@@ -1,5 +1,8 @@
 package com.homs.demo.controller;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +19,7 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 public class scheduleController {
 
-    @GetMapping(value="setSchedule")
+    @GetMapping(value="/setSchedule")
     public String setSchedule(Model model) {
         Staff staff = null;
         StaffDAO staffDAO = new StaffDAO();
@@ -35,10 +38,10 @@ public class scheduleController {
         int row = scheduleDAO.create(schedule);
         System.out.println("row affected: " + row);
 
-        return "redirect:/staffpage#!/homepage";
+        return "homePage";
     }
 
-    @GetMapping(value="deleteSchedule")
+    @GetMapping(value="/deleteSchedule")
     public String deleteSchedule(Model model) {
         Staff staff = null;
         StaffDAO staffDAO = new StaffDAO();
@@ -57,10 +60,10 @@ public class scheduleController {
         int row = scheduleDAO.delete(name);
         System.out.println("row affected: " + row);
 
-        return "redirect:/staffpage#!/homepage";
+        return "homePage";
     }
 
-    @GetMapping(value="seeSchedule")
+    @GetMapping(value="/seeSchedule")
     public String seeSchedule(HttpSession session,Model model){
         Schedule schedule = null;
         ScheduleDAO scheduleDAO = new ScheduleDAO();

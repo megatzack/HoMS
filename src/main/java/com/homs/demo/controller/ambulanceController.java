@@ -1,5 +1,8 @@
 package com.homs.demo.controller;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +19,7 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 public class ambulanceController {
     
-    @GetMapping(value="choosePlate")
+    @GetMapping(value="/choosePlate")
     public String choosePlate() {
         return "ambulance";
     }
@@ -32,19 +35,7 @@ public class ambulanceController {
         return "ambulanceRespond";
     }
 
-    @PostMapping(value="/updateRespondPage")
-    public String update(@RequestParam("name")String name,@RequestParam("contact")String contact,@RequestParam("location")String location,@RequestParam("status")String status,@RequestParam("date")String date,@RequestParam("time")String time){
-       // Ambulance ambulance = null;
-        AmbulanceDAO ambulanceDAO = new AmbulanceDAO();
-        int row = ambulanceDAO.getNewRespond(name,contact,location, status,date,time);
-       // System.out.println(ambulance.getName());
-
-      //  model.addAttribute("ambulance",ambulance);
-        
-        return "ambulance";
-    }
-
-    @GetMapping(value="myProfile")
+    @GetMapping(value="/myProfile")
     public String myProfile(HttpSession session, Model model){
         Ambulance ambulance = null;
         AmbulanceDAO ambulanceDAO = new AmbulanceDAO();
@@ -61,9 +52,9 @@ public class ambulanceController {
     @PostMapping(value="/updateMyProfile")
     public String updateProfile(@RequestParam("name")String name, @RequestParam("contact")String contact, @RequestParam("status")String status, @RequestParam("location")String location, @RequestParam("ambulancePlate")String ambulancePlate){
         AmbulanceDAO ambulanceDAO = new AmbulanceDAO();
-        ambulanceDAO.getNewProfile(name, contact, location, status, ambulancePlate);
+        int row = ambulanceDAO.getNewProfile(name, contact, location, status, ambulancePlate);
 
-        return "redirect:/staffpage#!/homepage";
+        return "redirect:/mainpage#!/homepage";
     }
     
 }

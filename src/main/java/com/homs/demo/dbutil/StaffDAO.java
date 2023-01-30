@@ -66,22 +66,6 @@ public class StaffDAO {
         return staffInfo;
     }
 
-    public Staff updateStaff(String name, String email) {
-        JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
-        String sql = "UPDATE staff SET staffName = ? WHERE staffEmail = ?";
-        int rowAffected = jbdct.update(sql, name,email);
-        if (rowAffected > 0) {
-            String sql2 = "SELECT * FROM staff WHERE staffEmail = ?";
-            try {
-                Staff staff = jbdct.queryForObject(sql2, new BeanPropertyRowMapper<Staff>(Staff.class), email);
-                return staff;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return null;
-    }
-
     public static DataSource getDataSource() {
         DataSource dataSource = null;
 

@@ -4,6 +4,7 @@ app.config(function ($routeProvider) {
     $routeProvider
         .when("/homepage", {
             templateUrl: "/homepage",
+            controller: "homepageController"
         })
         .when("/doctor", {
             templateUrl: "/doctor",
@@ -15,7 +16,7 @@ app.config(function ($routeProvider) {
             templateUrl: "/staffservice",
         })
         .when("/review", {
-            templateUrl: "/review",
+            templateUrl: "/review"
         })
         .when("/about", {
             templateUrl: "/about",
@@ -32,17 +33,14 @@ app.config(function ($routeProvider) {
         .when("/service/admin/ambulance_setschedule", {
             templateUrl: "/service/admin/ambulance_setschedule",
         })
-        .when("/service/admin/ambulance_deleteschedule", {
-            templateUrl: "/service/admin/ambulance_deleteschedule",
-        })
         .when("/service/admin", {
             templateUrl: "/service/admin",
         })
         .when("/service/medicalShop", {
             templateUrl: "/service/medicalShop",
         })
-        .when("/service/medicalRecord", {
-            templateUrl: "/service/medicalRecord",
+        .when("/service/medicalReport", {
+            templateUrl: "/service/medicalReport",
         })
         .when("/service/medicalQueue", {
             templateUrl: "/service/medicalQueue",
