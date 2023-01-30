@@ -31,7 +31,7 @@ public class paymentController {
     }
 
     @PostMapping("/paymentCC")
-    public String detils(HttpServletRequest request)
+    public String paymentDetails(HttpServletRequest request)
     {
 
         HttpSession session = request.getSession();
