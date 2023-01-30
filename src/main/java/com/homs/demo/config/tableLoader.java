@@ -104,7 +104,7 @@ public class tableLoader {
                     + "postalCode INT NOT NULL,"
                     + "email VARCHAR(45) NOT NULL,"
                     + "phoneNo VARCHAR(45) NOT NULL,"
-                    + "PRIMARY KEY (idpaymentCC)"
+                    + "PRIMARY KEY (id_paymentCC)"
                     + ")");
             System.out.println("Table 'paymentCC' created");
         }
