@@ -49,7 +49,7 @@ public class StaffController {
             int rowss = ambulanceDAO.createAmbulance(ambulance);
             System.out.println("ambulance table affected: " + rowss);
         }
-        return "staffHomePage";
+        return "redirect:/login";
     }
 
     @PostMapping(value = "staffupdate")
