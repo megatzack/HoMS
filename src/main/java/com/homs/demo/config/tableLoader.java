@@ -90,6 +90,33 @@ public class tableLoader {
                     + ")");
             System.out.println("Table 'product' created");
         }
+        if (!tables.contains("paymentCC")){
+            jdbcTemplate.execute("CREATE TABLE paymentCC ("
+                    + "id_paymentCC INT NOT NULL AUTO_INCREMENT,"
+                    + "cardNo VARCHAR(45) NOT NULL,"
+                    + "cvvNo INT NOT NULL,"
+                    + "expiryDate VARCHAR(45)) NOT NULL,"
+                    + "firstName VARCHAR(45) NOT NULL,"
+                    + "lastName VARCHAR(45) NOT NULL,"
+                    + "country VARCHAR(45) NOT NULL,"
+                    + "state VARCHAR(45) NOT NULL,"
+                    + "city VARCHAR(45) NOT NULL,"
+                    + "postalCode INT NOT NULL,"
+                    + "email VARCHAR(45) NOT NULL,"
+                    + "phoneNo VARCHAR(45) NOT NULL,"
+                    + "PRIMARY KEY (idpaymentCC)"
+                    + ")");
+            System.out.println("Table 'paymentCC' created");
+        }
+        if (!tables.contains("appointment")){
+            jdbcTemplate.execute("CREATE TABLE appointment ("
+                    + "id_appointment INT NOT NULL AUTO_INCREMENT,"
+                    + "date VARCHAR(45) NOT NULL,"
+                    + "medicalSpeciality VARCHAR(45) NOT NULL,"
+                    + "treatmentInquiry VARCHAR(45) NOT NULL,"
+                    + ")");
+            System.out.println("Table 'appointment' created");
+        }
 
     }
     
