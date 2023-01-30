@@ -50,7 +50,7 @@ public class homepageController {
     public String getAmbulancePage(HttpServletRequest request, HttpServletResponse response,Model model) {
         staff = (Staff) request.getSession().getAttribute("staff");
         if (staff != null) {
-            return "ambulance_profile";
+            return "forward:/myProfile";
         } else {
            return "errorPage"; 
         }
