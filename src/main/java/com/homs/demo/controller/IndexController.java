@@ -16,51 +16,60 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class IndexController{
-    
+    private String crediential_status;
     @RequestMapping(value = "/register")
     public String getregisterPage() {
         return "registerPage";
     }
     
     @GetMapping(value = "/login")
-    public String getLoginPage() {
+    public String getLoginPage(Model model) {
+        model.addAttribute("status", crediential_status);
         return "loginPage";
     }
 
     @PostMapping(value="welcomeBack")
     public String loginController(HttpServletRequest request, HttpSession session,Staff staff, Patient patient, Model model) {
+        model.addAttribute("status", "Granted");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         staff = StaffDAO.authenticate(email,password);
         try{
-            //Staff Session - Status: Working
             session.setAttribute("staff", staff);
-
             Staff test = (Staff) session.getAttribute("staff");
             System.out.println(test.getStaffDepartment());
-            //model.addAttribute("staffDepartment", staff.getStaffDepartment());
-            //staff = (Staff) session.getAttribute("staff");
-            //System.out.println(staff.getStaffDepartment());
-            return "redirect:/staffpage#!/homepage";
+            return "forward:/staff";
         }catch(NullPointerException e1){
             //Patient Session
             patient = PatientDAO.authenticate(email,password);
             try {
                 session.setAttribute("patient", patient);
-                model.addAttribute("patient", patient);
-                patient = (Patient) session.getAttribute("patient");
-                System.out.println(patient.getName());
-                return "redirect:/mainpage#!/homepage";
+                Patient test2 = (Patient) session.getAttribute("patient");
+                System.out.println(test2.getPatientName());
+                return "forward:/patient";
             } catch (NullPointerException e2) {
+                crediential_status = "Invalid Credientials";
                 return "redirect:/login";
             }
         }
     }
     
+    @RequestMapping(value = "/staff")
+    public String getStaffPage(HttpServletRequest request) {
+        if (request.getSession().getAttribute("staff") != null) {
+            return "redirect:/staffpage#!/homepage";
+        }
+        else 
+            return "errorPage";
+        
+    }
+    @RequestMapping(value = "/patient")
+    public String getPatientPage() {
+        return "redirect:/mainpage#!/homepage";
+    }
     @RequestMapping(value = "/logout")
     public String getLogoutPage(HttpSession session) {
-        session.removeAttribute("staff");
-        session.removeAttribute("patient");
+        session.invalidate();
         return "redirect:/login";
     }
 

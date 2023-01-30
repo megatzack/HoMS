@@ -4,7 +4,6 @@ app.config(function ($routeProvider) {
     $routeProvider
         .when("/homepage", {
             templateUrl: "/homepage",
-            controller: "homepageController"
         })
         .when("/doctor", {
             templateUrl: "/doctor",
@@ -16,7 +15,7 @@ app.config(function ($routeProvider) {
             templateUrl: "/staffservice",
         })
         .when("/review", {
-            templateUrl: "/review"
+            templateUrl: "/review",
         })
         .when("/about", {
             templateUrl: "/about",

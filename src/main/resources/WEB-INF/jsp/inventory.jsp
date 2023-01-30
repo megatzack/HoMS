@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/css/inventory.css">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>HoMS</title>
 </head>
 
@@ -29,28 +30,29 @@
         </div>
     </div>
     <div class="container-fluid">
-        <!--row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3-->
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3" id="item">
-            <div class="col" th:each="item : ${inventory}">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3" id="list">
+            <div class="col" th:each="item : ${inventory}" id="product">
             	<div class="card shadow-sm align-items-center">
                     <img alt="item" width="80%" height="50%" th:src="${item.getPicture()}">
                     <div class="card-body border-top">
                       <div class="card-text">
-                       <h4 th:text="${item.getName()}"></h4>
-                       <p th:text="${item.getDescription()}"></p>
+                       <h4 th:text="${item.getName()}" class="data"></h4>
+                       <p th:text="${item.getDescription()}" class="data"></p>
                       </div>
                       <div class="d-flex justify-content-between align-items-center">
                         <price class="text-muted">
-                            <h5><b>RM </b><b th:text="${item.getPrice()}"></b></h5>
+                            <h5><b>RM </b><b th:text="${item.getPrice()}" class="data"></b></h5>
                         </price>
                         <div class="btn-group">
-                          <button type="button" class="btn btn-sm" style="background-color: #06605B; color: white;">Add to Cart</button>
+                          <button type="button" class="btn btn-sm" style="background-color: #06605B; color: white;" id="button">Add to Cart</button>
                         </div>
                       </div>
                     </div>
                   </div>
-              </div>
+                </div>
+            </div>
         </div>
     </div>
+
 </body>
 </html>

@@ -1,19 +1,16 @@
 package com.homs.demo.controller;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.homs.demo.dbutil.AmbulanceDAO;
 import com.homs.demo.dbutil.StaffDAO;
 import com.homs.demo.model.Ambulance;
-import com.homs.demo.model.Patient;
 import com.homs.demo.model.Staff;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -52,7 +49,23 @@ public class StaffController {
             int rowss = ambulanceDAO.createAmbulance(ambulance);
             System.out.println("ambulance table affected: " + rowss);
         }
-        
         return "staffHomePage";
+    }
+
+    @PostMapping(value = "staffupdate")
+    public String staff_update(HttpSession session, HttpServletRequest request, Model model) {
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        StaffDAO staffDAO = new StaffDAO();
+        Staff staff = staffDAO.updateStaff(name, email);
+        if (staff != null) {
+            // Change Session Data
+            session.setAttribute("staff", staff);
+            // Change Model Data
+            model.addAttribute("staff", staff);
+
+        }
+        // 
+        return "redirect:/staffpage#!/about";
     }
 }

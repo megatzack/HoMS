@@ -4,7 +4,7 @@
     height: auto;
 }
 
-desc h4 {
+#title {
     position: absolute;
     top: 20vh;
     left: 43%;
@@ -16,7 +16,7 @@ desc h4 {
     color: #FFFFFF;
 }
 
-desc p {
+#description {
     position: absolute;
     top: 26vh;
     left: 42.8%;
@@ -27,12 +27,12 @@ desc p {
     color: #FFFFFF;
 }
 
-div a{
+#department{
     text-decoration: none;
     color: black;
 }
 
-.container {
+#container {
     padding-top: 6vh;
 }
 
