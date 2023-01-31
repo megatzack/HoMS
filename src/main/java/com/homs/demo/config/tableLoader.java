@@ -116,7 +116,7 @@ public class tableLoader {
                     + "id_paymentCC INT NOT NULL AUTO_INCREMENT,"
                     + "cardNo VARCHAR(45) NOT NULL,"
                     + "cvvNo INT NOT NULL,"
-                    + "expiryDate VARCHAR(45)) NOT NULL,"
+                    + "expiryDate VARCHAR(45) NOT NULL,"
                     + "firstName VARCHAR(45) NOT NULL,"
                     + "lastName VARCHAR(45) NOT NULL,"
                     + "country VARCHAR(45) NOT NULL,"
