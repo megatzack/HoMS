@@ -66,7 +66,7 @@ public class homepageController {
     }
     @GetMapping(value="/doctor")
     public String getDoctorPage() {
-        return "";
+        return "appointment";
     }
     @GetMapping(value="/service")
     public String getPatientServicePage() {

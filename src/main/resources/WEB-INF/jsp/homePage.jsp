@@ -31,7 +31,7 @@
             <p id="title">Provide expert for you and your family !</p>
             <p id="description"> We take the guesswork out of location a doctor, hospital, or other medical facility in your area for you and your family.</p>
             <call class="col-lg-6 col-md-8 mx-auto">
-                <a href="#" class="btn btn-success my-2" style="background-color:#06605B;">Get Doctor</a>
+                <a href="/appointment/bookAppointment" class="btn btn-success my-2" style="background-color:#06605B;">Get Doctor</a>
                 <a href="#" class="btn btn-outline-light my-2">See More</a>
             </call>
         </div>
