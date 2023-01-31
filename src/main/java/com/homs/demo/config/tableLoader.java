@@ -135,6 +135,7 @@ public class tableLoader {
                     + "date VARCHAR(45) NOT NULL,"
                     + "medicalSpeciality VARCHAR(45) NOT NULL,"
                     + "treatmentInquiry VARCHAR(45) NOT NULL,"
+                    + "PRIMARY KEY (id_appointment)"
                     + ")");
             System.out.println("Table 'appointment' created");
         }
