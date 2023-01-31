@@ -111,9 +111,9 @@ public class tableLoader {
                     + ")");
             System.out.println("Table 'record' created");
         }
-        if (!tables.contains("paymentCC")){
-            jdbcTemplate.execute("CREATE TABLE paymentCC ("
-                    + "id_paymentCC INT NOT NULL AUTO_INCREMENT,"
+        if (!tables.contains("paymentcc")){
+            jdbcTemplate.execute("CREATE TABLE paymentcc ("
+                    + "id_paymentcc INT NOT NULL AUTO_INCREMENT,"
                     + "cardNo VARCHAR(45) NOT NULL,"
                     + "cvvNo INT NOT NULL,"
                     + "expiryDate VARCHAR(45) NOT NULL,"
@@ -125,9 +125,9 @@ public class tableLoader {
                     + "postalCode INT NOT NULL,"
                     + "email VARCHAR(45) NOT NULL,"
                     + "phoneNo VARCHAR(45) NOT NULL,"
-                    + "PRIMARY KEY (id_paymentCC)"
+                    + "PRIMARY KEY (id_paymentcc)"
                     + ")");
-            System.out.println("Table 'paymentCC' created");
+            System.out.println("Table 'paymentcc' created");
         }
         if (!tables.contains("appointment")){
             jdbcTemplate.execute("CREATE TABLE appointment ("
