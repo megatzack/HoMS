@@ -13,13 +13,13 @@
     <div class="headerbg"></div>
     <div class="logo"></div>
     <div class="HoMS">HoMS</div>
-    <div class="navhome"><a href="">Home</a></div>
-    <div class="navdoctor"><a href="">Doctor</a></div>
-    <div class="navservices"><a href="">Services</a></div>
-    <div class="navreview"><a href="">Review</a></div>
+    <div class="navhome"><a href="/homepage">Home</a></div>
+    <div class="navdoctor"><a href="/doctor">Doctor</a></div>
+    <div class="navservices"><a href="/service">Services</a></div>
+    <div class="navreview"><a href="/review">Review</a></div>
     <div class="navaboutus"><a href="">About Us</a></div>
     <div class="rectanglelogout"></div>
-    <div class="logout"><a href="">Log Out</a></div>
+    <div class="logout"><a href="/logout">Log Out</a></div>
 
     <div class="myprofile">My Profile</div>
     <div class="homsspecialisthospital">HoMS Specialist Hospital</div>
@@ -41,7 +41,7 @@
 
     <div class="updateprofile">Update Profile</div>
 
-        <form  method="post" action="patientProfile" onsubmit="alertUser()">
+        <form  method="post" action="/Patient/patientProfile" onsubmit="alertUser()">
             <div class="updatefullname">Full Name</div>
             <div class="rectangleupdatefullname"></div>
             

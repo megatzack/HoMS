@@ -13,20 +13,20 @@
     <div class="headerbg"></div>
     <div class="logo"></div>
     <div class="HoMS">HoMS</div>
-    <div class="navhome"><a href="">Home</a></div>
-    <div class="navdoctor"><a href="">Doctor</a></div>
-    <div class="navservices"><a href="">Services</a></div>
-    <div class="navreview"><a href="">Review</a></div>
+    <div class="navhome"><a href="/homepage">Home</a></div>
+    <div class="navdoctor"><a href="/doctor">Doctor</a></div>
+    <div class="navservices"><a href="/service">Services</a></div>
+    <div class="navreview"><a href="/review">Review</a></div>
     <div class="navaboutus"><a href="">About Us</a></div>
     <div class="rectanglelogout"></div>
-    <div class="logout"><a href="">Log Out</a></div>
+    <div class="logout"><a href="/logout">Log Out</a></div>
 
     <div class="paymentpage">Payment Page</div>
     <div class="homsspecialisthospital">HoMS Specialist Hospital</div>
 
     <div class="rectanglecarddetails"></div>
 
-        <form  method="post" action="paymentCC" onsubmit="redirect()">
+        <form  method="post" action="/payment/paymentCC" onsubmit="redirect()">
             <div class="carddetails">Card Details</div>
             <div class="cardnumber">Card Number</div>
             <div class="rectanglecardnumber"></div>

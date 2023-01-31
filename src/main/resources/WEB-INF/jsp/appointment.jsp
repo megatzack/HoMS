@@ -73,10 +73,10 @@
                 </a>
 
                 <ul class="nav nav-pills">
-                    <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Doctor</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Review</a></li>
+                    <li class="nav-item"><a href="/homepage" class="nav-link active" aria-current="page">Home</a></li>
+                    <li class="nav-item"><a href="/doctor" class="nav-link">Doctor</a></li>
+                    <li class="nav-item"><a href="/service" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="/review" class="nav-link">Review</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">About us</a></li>
                 </ul>
             </header>
@@ -94,7 +94,7 @@
     </div>
 
 
-        <form  method="post" action="bookAppointment" onsubmit="alertUser()">
+        <form  method="post" action="/appointment/bookAppointment" onsubmit="alertUser()">
             <div class="date">Date</div>
             
               <input class="rectangledate" type="date" id="dateID" name="date" placeholder="dd/mm/yyyy">

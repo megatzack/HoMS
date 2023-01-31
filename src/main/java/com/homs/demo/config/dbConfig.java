@@ -9,6 +9,8 @@ import com.homs.demo.dbutil.QueueDAO;
 import com.homs.demo.dbutil.StaffDAO;
 import com.homs.demo.dbutil.reviewDAO;
 import com.homs.demo.dbutil.inventoryDAO;
+import com.homs.demo.dbutil.paymentCCDAO;
+import com.homs.demo.dbutil.appointmentDAO;
 
 @Controller
 public class dbConfig {
@@ -40,5 +42,15 @@ public class dbConfig {
     @Bean
     public QueueDAO queueDAO() {
         return new QueueDAO();
+    }
+
+    @Bean
+    public paymentCCDAO paymentCCDAO() {
+        return new paymentCCDAO();
+    }
+
+    @Bean
+    public appointmentDAO appointmentDAO() {
+        return new appointmentDAO();
     }
 }

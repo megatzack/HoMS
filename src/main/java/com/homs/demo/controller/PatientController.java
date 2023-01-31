@@ -57,5 +57,33 @@ public class PatientController {
     public String login(){
         return "loginPage";
     }
+
+    @PostMapping(value="/patientProfile")
+    public String updateProfileDetails(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+
+        HttpSession session = request.getSession();
+
+        String patientName = request.getParameter("patientName");
+        String patientEmail = request.getParameter("patientEmail");
+        String phoneNO = request.getParameter("patientPhoneNo");
+
+        Patient p = new Patient();
+
+        p.setName(patientName);
+        p.setPatientEmail(patientEmail);
+        p.setPhoneNO(phoneNO);
+
+        session.setAttribute("p", p);
+
+        response.sendRedirect("patientProfile.jsp");
+        response.sendRedirect("appointment.jsp");
+
+        PatientDAO patientDAO = new PatientDAO();
+        int row = patientDAO.updateProfile(p);
+        System.out.println("row affected: " + row);
+        return "patientProfile";
+
+    }
 }
 
