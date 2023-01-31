@@ -5,7 +5,7 @@
     left: 75px;
     top: 36px;
 
-    background: url(HoMSLogo-03.png);
+    background: url(/image/HoMSLogo-03.png);
 }
 
 .HoMS{
@@ -31,7 +31,7 @@
     left: 0px;
     top: 0px;
 
-    background: url(pattern-04.png);
+    background: url(/image/pattern-04.png);
 }
 
 .navhome{
@@ -173,7 +173,7 @@
     color: #FFFFFF;
 }
 
-.rectanglecarddetails{
+.rectanglecarddetails {
     box-sizing: border-box;
 
     position: absolute;
@@ -753,12 +753,22 @@
     color: #8A8A8A;
 }
 
-.rectanglepay{
+.rectanglepay {
     position: absolute;
     width: 152px;
     height: 47px;
     left: 680px;
     top: 1131px;
+
+    cursor:pointer;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #FFFFFF;
 
     background: #06605B;
     border-radius: 10px;
@@ -771,11 +781,4 @@
     left: 737px;
     top: 1140px;
 
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 30px;
-
-    color: #FFFFFF;
 }

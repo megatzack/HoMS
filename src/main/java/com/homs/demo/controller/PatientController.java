@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.homs.demo.dbutil.PatientDAO;
 import com.homs.demo.model.Patient;
@@ -58,32 +59,26 @@ public class PatientController {
         return "loginPage";
     }
 
-    @PostMapping(value="/patientProfile")
-    public String updateProfileDetails(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-    {
 
-        HttpSession session = request.getSession();
-
-        String patientName = request.getParameter("patientName");
-        String patientEmail = request.getParameter("patientEmail");
-        String phoneNO = request.getParameter("patientPhoneNo");
-
-        Patient p = new Patient();
-
-        p.setName(patientName);
-        p.setPatientEmail(patientEmail);
-        p.setPhoneNO(phoneNO);
-
-        session.setAttribute("p", p);
-
-        response.sendRedirect("patientProfile.jsp");
-        response.sendRedirect("appointment.jsp");
-
+    @PostMapping(value="/updatePatientProfile")
+    public String updateProfileDetails(@RequestParam("Name")String Name, @RequestParam("patientEmail")String patientEmail,@RequestParam("phoneNO")String phoneNO,HttpSession session,Model model){
         PatientDAO patientDAO = new PatientDAO();
-        int row = patientDAO.updateProfile(p);
-        System.out.println("row affected: " + row);
-        return "patientProfile";
+        Patient patient = null;
+        patient = patientDAO.getByname(Name);
+        model.addAttribute("patient", patient);
+        int row = patientDAO.updateProfile(Name, patientEmail, phoneNO);
+
+        return "redirect:/mainpage#!/homepage";
 
     }
+
+    @GetMapping(value="/patientProfile")
+    public String myProfile(HttpSession session){
+
+        Patient patient = (Patient)session.getAttribute("patient");
+
+        return "patientProfile";
+    }
+    
 }
 

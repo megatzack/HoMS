@@ -31,8 +31,7 @@
     Your are reminded to bring sufficient amount of money to smoothen the payment process.</br></br>
     Thank you.</div>
 
-    <div class="rectangleokay"></div>
-    <button class="okay" onclick="redirect()">Okay</button>
+    <button class="rectangleokay" onclick="redirect()">Okay</button>
 
 </body>
 
@@ -44,7 +43,7 @@
       }
 
     function myURL() {
-         document.location.href = 'homePage.jsp';
+         document.location.href = '/homepage';
       }
 
 </script>

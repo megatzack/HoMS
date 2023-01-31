@@ -26,17 +26,16 @@
 
     <div class="rectangle"></div>
     <div class="bankissue">Bank Issue</div>
-    <div class="rectangleselectbank"></div>
 
     <form method="post" action="/payment/paymentPage">
-        <select class="selectbank" id="bankoptID"name="bankopt">
+        <select class="rectangleselectbank" id="bankoptID"name="bankopt">
+            <option selected disabled hidden>Please choose your online banking</option>
             <option>Maybank2U</option>
             <option>Cimb Clicks</option>
             <option>RHB Online Banking</option>
         </select>
 
-        <div class="rectanglenext"></div>
-        <input class="next" type="button" value="Next" onclick="directUser()">
+        <input class="rectanglenext" type="button" value="Next" onclick="directUser()">
     </form>
 
     <div class="redirectnotice">You will be redirected to online banking login page...</div>

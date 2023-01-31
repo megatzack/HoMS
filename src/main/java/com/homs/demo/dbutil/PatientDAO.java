@@ -37,10 +37,10 @@ public class PatientDAO {
         }
     }
 
-    public int updateProfile(Patient p){
+    public int updateProfile(String name,String email,String phoneNo){
         JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
-        String sql = "UPDATE patient SET patientName= ?, patientEmail= ?,patientPhoneNO= ? WHERE patientIC= ?";
-        int rowAffected = jbdct.update(sql,p.getName(), p.getPatientEmail(), p.getPhoneNO(), p.getUserIC());
+        String sql = "UPDATE patient SET patientName= ?, patientEmail= ?,patientPhoneNO= ? WHERE patientName= ?";
+        int rowAffected = jbdct.update(sql,name,email,phoneNo,name);
         
         return rowAffected;
     }
@@ -69,5 +69,20 @@ public class PatientDAO {
         } catch (Exception e) {
             return 0;
         }
+    }
+
+    public Patient getByname(String name){
+        Patient patient = null;
+        JdbcTemplate jbdct = new JdbcTemplate(getDataSource());
+        String sql = "SELECT * FROM `patient` WHERE `patientName` = ?";
+        try{
+            patient = jbdct.queryForObject(sql,new BeanPropertyRowMapper<Patient>(Patient.class),name);
+            
+            return patient;
+        }
+        catch (Exception e) {
+            return null;
+        }
+        
     }
 }

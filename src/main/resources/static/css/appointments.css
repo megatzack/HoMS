@@ -285,6 +285,16 @@
     left: 209px;
     top: 488px;
 
+    cursor: pointer;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #FFFFFF;
+
     background: #06605B;
     border-radius: 10px;
 }

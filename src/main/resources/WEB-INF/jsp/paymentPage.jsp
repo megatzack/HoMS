@@ -26,20 +26,39 @@
 
     <div class="rectangle"></div>
     <div class="paymentmethod">List of Payment Methods</div>
-    <div class="rectanglepaymentmethod"></div>
 
-        <form method="post" action="/payment/paymentPage">
+        <form method="post" action="paymentPage">
     
-                <select class="selectpaymentmethod" name="paymentopt">
-                    <option>Online Banking</option>
-                    <option>Credit Card</option>
-                    <option>Cash</option>
+                <select class="rectanglepaymentmethod" id="paymentoptid" name="paymentopt">
+                    <option selected disabled hidden>Please choose your payment method</option>
+                    <option value="Online Banking">Online Banking</option>
+                    <option value="Credit Card">Credit Card</option>
+                    <option value="Cash">Cash</option>
                 </select>
 
-                <div class="rectanglenext"></div>
-                <input class="next" type="submit" value="Next">
+                <input class="rectanglenext" type="button" value="Next" onclick="directUser()">
         </form>
     
 </body>
+
+<script>
+    function directUser(){
+
+    var payopt=document.getElementById("paymentoptid").value;
+
+    if (payopt == "Online Banking"){
+        document.location.href="/payment/paymentOnlineBanking";
+    }
+
+    else if (payopt == "Credit Card"){
+        document.location.href="/payment/paymentCC";
+    }
+
+    else if (payopt == "Cash"){
+        document.location.href="/payment/paymentCash";
+    }
+
+}
+</script>
 
 </html>

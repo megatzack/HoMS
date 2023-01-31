@@ -5,7 +5,7 @@
     left: 75px;
     top: 36px;
 
-    background: url(HoMSLogo-03.png);
+    background: url(/image/HoMSLogo-03.png);
 }
 
 .HoMS{
@@ -31,7 +31,7 @@
     left: 0px;
     top: 0px;
 
-    background: url(pattern-04.png);
+    background: url(/image/pattern-04.png);
 }
 
 .navhome{
@@ -236,6 +236,16 @@
     height: 47px;
     left: 680px;
     top: 695px;
+
+    cursor: pointer;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #FFFFFF;
 
     background: #06605B;
     border-radius: 10px;

@@ -31,7 +31,7 @@ public class appointmentController {
         appointmentDAO appointDAO = new appointmentDAO();
         int row = appointDAO.insertBookingDetails(a);
         System.out.println("row affected: " + row);
-        return "appointment";
+        return "redirect:/payment/paymentPage";
 
     }
 }

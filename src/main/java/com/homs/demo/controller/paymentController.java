@@ -15,7 +15,7 @@ import jakarta.servlet.http.HttpSession;
 @RequestMapping("/payment")
 public class paymentController {
 
-    @PostMapping(value="/paymentPage")
+    @RequestMapping(value="/paymentPage")
     public String choosePaymentCC(HttpServletRequest request) {
 
         String paymentopt = request.getParameter("paymentopt");
@@ -46,7 +46,13 @@ public class paymentController {
         return "paymentCash";
     }
 
-    @PostMapping("/paymentCC")
+    @GetMapping(value="/paymentCC")
+    public String choosePaymentCC() {
+        return "paymentCC";
+    }
+    
+
+    @PostMapping(value="/paymentCC")
     public String paymentDetails(HttpServletRequest request)
     {
 
@@ -70,7 +76,7 @@ public class paymentController {
         paymentCCDAO paymentCCDAO = new paymentCCDAO();
         int row = paymentCCDAO.fillDetails(p);
         System.out.println("row affected: " + row);
-        return "paymentCC";
+        return "redirect:/mainpage#!/homepage";
 
     }
 

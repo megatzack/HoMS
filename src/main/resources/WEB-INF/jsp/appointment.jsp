@@ -68,7 +68,7 @@
         <div class="container">
             <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
                 <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                    <img class="ho-ms-logo-03-1" src="homs-logo-03-1-2.png" alt="HoMS Logo-031" />
+                    <img class="ho-ms-logo-03-1" src="/image/homs-logo-03-1-2.png" alt="HoMS Logo-031" />
                     <span class="fs-4">HoMS</span>
                 </a>
 
@@ -84,14 +84,12 @@
 
     </main>
 
-    <div th:each="item : ${p}">
              <div class="patientname">Patient Name</div>
-                <div class="rectanglepatient" th:text="${item.getName()}" ></div>
+                <div class="rectanglepatient">Muhammad Syazwan bin Sahdan</div>
             <div class="email">Email</div>
-                <div class="rectangleemail" th:text="${item.getPatientEmail()}" ></div>
+                <div class="rectangleemail">muhammadsyazwan64@gmail.com</div>
             <div class="phone">Phone</div>
-                <div class="rectanglephone" th:text="${item.getPhoneNO()}" ></div>
-    </div>
+                <div class="rectanglephone">+6019-4809626</div>
 
 
         <form  method="post" action="/appointment/bookAppointment" onsubmit="alertUser()">
@@ -110,38 +108,37 @@
                 <input class="secondoption" type="radio" id="somebody" name="treatmentInquiry" value="Somebody">
                 <label class="somebody" for="somebody">Somebody</label><br>
 
-            <div class="submitbg"></div>
-            <input class="submit" type="submit" value="Submit">
+            <input class="submitbg" type="submit" value="Submit">
             
         </form>
 
     <div class="rectangleneurologist"></div>
     <div class="innercircleneurologist">
-        <img src="/image/doctorPicture2.jpg" alt="Doctor Picture" width="324px" height="393px">
+        <img src="/image/doctorPicture2.jpg" alt="Doctor Picture" width="180px" height="180px">
     </div>
     <div class="outercircleneurologist"></div>
-    <div class="megatzikry">Dr Megat Zikry</div>
+    <div class="megatzikry">Megat Zikry</div>
     <div class="seniorinneurologist">Senior in Neurologist</div>
     <div class="rectangleortopedic"></div>
     <div class="innercircleortopedic">
-        <img src="/image/doctorPicture2.jpg" alt="Doctor Picture" width="324px" height="393px">
+        <img src="/image/doctorPicture2.jpg" alt="Doctor Picture" width="180px" height="180px">
     </div>
     <div class="outercircleortopedic"></div>
-    <div class="aminhaiqal">Dr Amin Haiqal</div>
+    <div class="aminhaiqal">Amin Haiqal</div>
     <div class="seniorinortopedic">Senior in Ortopedic</div>
     <div class="rectanglesurgery"></div>
     <div class="innercirclesurgery">
-        <img src="/image/doctorPicture2.jpg" alt="Doctor Picture" width="324px" height="393px">
+        <img src="/image/doctorPicture2.jpg" alt="Doctor Picture" width="180px" height="180px">
     </div>
     <div class="outercirclesurgery"></div>
-    <div class="yusriyusof">Dr Yusri Yusof</div>
+    <div class="yusriyusof">Yusri Yusof</div>
     <div class="seniorinsurgery">Senior in Surgery</div>
     <div class="rectanglecardiology"></div>
     <div class="innercirclecardiology">
-        <img src="/image/doctorPicture2.jpg" alt="Doctor Picture" width="324px" height="393px">
+        <img src="/image/doctorPicture2.jpg" alt="Doctor Picture" width="180px" height="180px">
     </div>
     <div class="outercirclecardiology"></div>
-    <div class="syazwanshadan">Dr Syazwan Sahdan</div>
+    <div class="syazwanshadan">Syazwan Sahdan</div>
     <div class="seniorincardiology">Senior in Cardiology</div>
 
 
@@ -155,9 +152,10 @@
 <script>
 
 function alertUser() {
-  alert("You have booked a slot for an appointment. Please pay the booking fee to avoid your booking slot being cancelled.");
-  document.location.href = 'paymentPage.jsp';
-}
+        alert("You have booked a slot for an appointment. Please pay the booking fee to avoid your booking slot being cancelled."
+              + " You will be redirected to payment page after 5 seconds.");
+      }
+
 </script>
 
 </html>

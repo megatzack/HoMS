@@ -5,7 +5,7 @@
     left: 75px;
     top: 36px;
 
-    background: url(HoMSLogo-03.png);
+    background: url(/image/HoMSLogo-03.png);
 }
 
 .HoMS{
@@ -31,7 +31,7 @@
     left: 0px;
     top: 0px;
 
-    background: url(pattern-04.png);
+    background: url(/image/pattern-04.png);
 }
 
 .navhome{
@@ -240,7 +240,7 @@
     font-size: 16px;
     line-height: 19px;
 
-    color: #8A8A8A;
+    color: #000000;
 }
 
 .email{
@@ -272,7 +272,7 @@
     font-size: 16px;
     line-height: 19px;
 
-    color: #8A8A8A;
+    color: #000000;
 }
 
 .phonenumber{
@@ -304,7 +304,7 @@
     font-size: 16px;
     line-height: 19px;
 
-    color: #8A8A8A;
+    color: #000000;
 }
 
 .updateprofile{
@@ -348,7 +348,7 @@
     left: 547px;
     top: 382px;
 
-    border: 1px solid #000000;
+    border: 1px solid #FFFFFF;
 }
 
 .updatefullnamesyazwan{
@@ -461,6 +461,16 @@
     height: 47px;
     left: 641px;
     top: 740px;
+
+    cursor: pointer;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #FFFFFF;
 
     background: #06605B;
     border-radius: 10px;

@@ -92,9 +92,10 @@ public class homepageController {
     public String getAppointmentPage() {
         return "appointment";
     }
-    @GetMapping(value="/Patient/patientProfile")
-    public String getPatientProfilePage(){
-        return "patientProfile";
+    @GetMapping(value="/payment/paymentPage")
+    public String getPaymentPage(){
+        return "paymentPage";
     }
+    
     
 }
